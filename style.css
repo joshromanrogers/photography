@@ -1,0 +1,75 @@
+body {
+    font-size: 48px;
+    line-height: 1.5;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+a {
+    color: #2727e6;
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+a:hover {
+    border-bottom-color: #2727e6;
+}
+
+img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    transform: translate(-50%, -50%);
+}
+
+a.music {
+    position: fixed;
+    top: 50%;
+    left: 40px;
+    transform-origin: 0 0;
+    transform: rotate(-90deg) translate(-50%, 0);
+}
+
+a.travel {
+    position: fixed;
+    top: 50%;
+    right: 40px;
+    transform-origin: 100% 0;
+    transform: rotate(90deg) translate(50%, 0);
+}
+
+a.misc {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: rotate(180deg) translate(50%, 0);
+}
+
+a.art {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+@media (max-width: 1160px) {
+    img {
+        width: 450px;
+    }
+
+    body {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    img {
+        width: 225px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+}
