@@ -6,6 +6,30 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
+.movArt {
+    position: fixed;
+    overflow: hidden;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 10%;
+    height: 15%;
+}
+
+.movMisc {
+    position: fixed;
+    overflow: hidden;
+    bottom: 40px;
+    left: 50%;
+    width: 10%;
+    height: 15%;
+    transform: rotate(180deg) translate(50%, 0);
+}
+
+.movers , .movers2 {
+    white-space: nowrap;
+}
+
+
 a {
     color: #2727e6;
     text-decoration: none;
@@ -46,16 +70,11 @@ a.travel {
 
 a.misc {
     position: fixed;
-    bottom: 40px;
-    left: 50%;
-    transform: rotate(180deg) translate(50%, 0);
 }
 
 a.art {
     position: fixed;
     top: 40px;
-    left: 50%;
-    transform: translate(-50%, 0);
 }
 
 @media (max-width: 1160px) {
