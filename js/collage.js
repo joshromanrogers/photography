@@ -44,10 +44,11 @@ const placeImage = (x, y) => {
     }
 
 }
-
+let tap = document.querySelector('.tap');
 // when user clicks, add image based on event/cursor xy position
 document.addEventListener('click', (event) => {
     event.preventDefault();
+    tap.style.display = "none";
     placeImage(event.pageX, event.pageY);
     console.log('click');
 })
@@ -57,3 +58,6 @@ document.addEventListener('touchend', (event) => {
     event.preventDefault();
     placeImage(event.pageX, event.pageY);
 })
+
+
+
