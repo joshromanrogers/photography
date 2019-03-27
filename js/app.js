@@ -2,47 +2,26 @@ let music = document.querySelector('.music-img');
 let travel = document.querySelector('.travel-img');
 let art = document.querySelector('.art-img');
 let misc = document.querySelector('.misc-img');
+let body = document.getElementsByTagName("BODY")[0];
 
-let showMusic = () => {
-    music.style.display = "block";
+let show = (image, bgColour, borderColour) => {
+  image.style.opacity = 1;
+  body.style.backgroundColor = bgColour;
+  image.style.borderColor = borderColour;
 }
 
-let hideMusic = () => {
-    music.style.display = "none";
+let hide = (image) => {
+  image.style.opacity = 0;
+  body.style.backgroundColor = "white";
 }
 
-let showTravel = () => {
-    travel.style.display = "block";
-}
-
-let hideTravel = () => {
-    travel.style.display = "none";
-}
-
-let showArt = () => {
-    art.style.display = "block";
-}
-
-let hideArt = () => {
-    art.style.display = "none";
-}
-
-let showMisc = () => {
-    misc.style.display = "block";
-}
-
-let hideMisc = () => {
-    misc.style.display = "none";
-}
-       
 let rellax = new Rellax('.rellax');
 
 let rellaxMisc = new Rellax('.rellax', {
-    speed: -2,
-    center: false,
-    wrapper: null,
-    round: true,
-    vertical: false,
-    horizontal: true
-  });
-
+  speed: -2,
+  center: false,
+  wrapper: null,
+  round: true,
+  vertical: false,
+  horizontal: true
+});
