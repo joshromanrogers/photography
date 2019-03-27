@@ -35,3 +35,6 @@ let hideMisc = () => {
     misc.style.display = "none";
 }
        
+
+
+let rellax = new Rellax('.rellax');
