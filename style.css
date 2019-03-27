@@ -6,26 +6,42 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-.movArt {
+
+
+.movArt, .movMusic, .movTravel, .movMisc {
     position: fixed;
     overflow: hidden;
-    left: 50%;
-    transform: translate(-50%, 0);
     width: 10%;
     height: 15%;
+}
+
+.movArt {
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .movMisc {
-    position: fixed;
-    overflow: hidden;
     bottom: 40px;
     left: 50%;
-    width: 10%;
-    height: 15%;
     transform: rotate(180deg) translate(50%, 0);
 }
 
-.movers , .movers2 {
+.movTravel {
+    top: 50%;
+    right: 40px;
+    transform-origin: 100% 0;
+    transform: rotate(90deg) translate(50%, 0);
+}
+
+.movMusic {
+    top: 50%;
+    left: 40px;
+    transform-origin: 0 0;
+    transform: rotate(-90deg) translate(-50%, 0);
+}
+
+.movers , .movers2, .movers3, .movers4 {
     white-space: nowrap;
 }
 
@@ -45,27 +61,30 @@ img, h1 {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 600px;
     transform: translate(-50%, -50%);
+}
+
+img  {
+    width: 600px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     border: 5px solid yellowgreen;
 }
 
+h1 {
+    color: #2727e6;
+    margin: 0;
+    font-size: 1em;
+    transition: opacity 0.2s ease-in-out;
+}
+
 a.music {
     position: fixed;
-    top: 50%;
-    left: 40px;
-    transform-origin: 0 0;
-    transform: rotate(-90deg) translate(-50%, 0);
 }
 
 a.travel {
     position: fixed;
-    top: 50%;
-    right: 40px;
-    transform-origin: 100% 0;
-    transform: rotate(90deg) translate(50%, 0);
+    
 }
 
 a.misc {
@@ -74,7 +93,6 @@ a.misc {
 
 a.art {
     position: fixed;
-    top: 40px;
 }
 
 @media (max-width: 1160px) {
