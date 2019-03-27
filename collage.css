@@ -1,0 +1,16 @@
+ body {
+     margin: 0;
+ }
+
+ .collage-body {
+     background-color: #1a1919;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     position: fixed;
+ }
+
+ .collage-img {
+     position: absolute;
+     animation: fadeI 0.5s;
+ }
