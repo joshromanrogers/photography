@@ -9,6 +9,37 @@ body {
     font-size: 5em;
 }
 
+.movBack {
+    position: fixed;
+    right: 4%;
+    top: 0%;
+    left: 5%;
+    z-index: 1;
+    width: 10%;
+    height: 15%;
+    overflow: hidden;
+    color: black;
+}
+
+.index {
+    border: 3px solid #2727e6;
+    font-weight: 700;
+    letter-spacing: -0.5rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    letter-spacing: 0.5px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    text-decoration: none;
+    color: #2727e6;
+}
+
+a:hover {
+    color: orange;
+}
+
 .object, .word {
     position: absolute;
 }
