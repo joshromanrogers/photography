@@ -4,11 +4,11 @@ body {
     background: #1f1f1f;
     font-family: "Ailerons";
     color: #fff;
-    font-size: 400px;
+    font-size: 5em;
 }
 
 .object,
-.letter {
+.word {
     position: absolute;
 }
 
@@ -40,7 +40,7 @@ img {
     left: 40%;
 }
 
-.letter1 {
+.word1 {
     top:
         left:
 }

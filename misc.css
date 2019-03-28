@@ -3,9 +3,13 @@ body {
     padding: 0;
     width: auto;
     height: 100vh;
+    background: #1f1f1f;
+    font-family: "Ailerons";
+    color: #fff;
+    font-size: 5em;
 }
 
-.object {
+.object, .word {
     position: absolute;
 }
 
@@ -13,8 +17,6 @@ img {
     width: 100%;
     overflow-x: scroll;
     white-space: nowrap;
-
-
 }
 
 .object1 {
@@ -39,4 +41,14 @@ img {
     width: 400px;
     top: 50%;
     left: 160%;
+}
+
+.word1 {
+    top: 20%;
+    left: 20%;
+}
+
+.word2 {
+    top: 40%;
+    left: 80%;
 }
