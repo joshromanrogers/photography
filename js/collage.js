@@ -16,6 +16,7 @@ const images = ['imgs/photography/music/music1.jpg', 'imgs/photography/music/mus
 ];
 
 let collageBody = document.querySelector('.collage-body');
+let backButton = document.querySelector('.movBack');
 
 let i = 0;
 
@@ -44,6 +45,13 @@ const placeImage = (x, y) => {
     }
 
 }
+
+
+// override collage function preventDefault() and take user back to homepage
+backButton.addEventListener('click', (event) => {
+    window.location.href = "index.html";
+})
+
 let tap = document.querySelector('.tap');
 // when user clicks, add image based on event/cursor xy position
 document.addEventListener('click', (event) => {
