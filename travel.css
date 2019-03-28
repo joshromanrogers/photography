@@ -1,9 +1,14 @@
 body {
     margin: 0;
     padding: 0;
+    background: #1f1f1f;
+    font-family: "Ailerons";
+    color: #fff;
+    font-size: 400px;
 }
 
-.object {
+.object,
+.letter {
     position: absolute;
 }
 
@@ -33,4 +38,9 @@ img {
     width: 400px;
     top: 130%;
     left: 40%;
+}
+
+.letter1 {
+    top:
+        left:
 }
