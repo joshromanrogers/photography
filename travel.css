@@ -5,6 +5,8 @@ body {
     font-family: "Ailerons";
     color: #fff;
     font-size: 5em;
+    overflow-x: hidden;
+
 }
 
 /* home button */

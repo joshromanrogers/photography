@@ -7,6 +7,7 @@ body {
     font-family: "Ailerons";
     color: #fff;
     font-size: 5em;
+    overflow-y: hidden;
 }
 
 /* home button */
@@ -74,6 +75,42 @@ img {
     width: 400px;
     top: 50%;
     left: 160%;
+}
+
+.object5 {
+    width: 400px;
+    top: 20%;
+    left: 90%;
+}
+
+.object6 {
+    width: 400px;
+    top: 60%;
+    left: 155%;
+}
+
+.object7 {
+    width: 400px;
+    top: 45%;
+    left: 195%;
+}
+
+.object8 {
+    width: 400px;
+    top: 25%;
+    left: 120%;
+}
+
+.object9 {
+    width: 400px;
+    top: 0%;
+    left: 240%;
+}
+
+.object10 {
+    width: 400px;
+    top: -10%;
+    left: 260%;
 }
 
 .word1 {
