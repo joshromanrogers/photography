@@ -19,7 +19,7 @@ body {
     left: 5%;
     z-index: 1;
     width: 10%;
-    height: 15%;
+    height: 30%;
     overflow: hidden;
     color: black;
 }
@@ -61,56 +61,56 @@ img {
 
 .object2 {
     width: 300px;
-    top: 30%;
-    left: 60%;
+    top: 10%;
+    left: 70%;
 }
 
 .object3 {
     width: 250px;
     top: 5%;
-    left: 100%;
+    left: 140%;
 }
 
 .object4 {
     width: 400px;
-    top: 50%;
-    left: 160%;
+    top: 10%;
+    left: 280%;
 }
 
 .object5 {
     width: 400px;
     top: 20%;
-    left: 90%;
+    left: 290%;
 }
 
 .object6 {
     width: 400px;
-    top: 60%;
-    left: 155%;
+    top: 10%;
+    left: 355%;
 }
 
 .object7 {
     width: 400px;
     top: 45%;
-    left: 195%;
+    left: 415%;
 }
 
 .object8 {
     width: 400px;
     top: 25%;
-    left: 120%;
+    left: 470%;
 }
 
 .object9 {
     width: 400px;
     top: 0%;
-    left: 240%;
+    left: 540%;
 }
 
 .object10 {
     width: 400px;
     top: -10%;
-    left: 260%;
+    left: 600%;
 }
 
 .word1 {
