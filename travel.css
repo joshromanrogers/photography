@@ -58,60 +58,162 @@ img {
 }
 
 .object2 {
-    width: 300px;
-    top: 50%;
+    width: 350px;
+    top: 80%;
     left: 65%;
 }
 
 .object3 {
-    width: 250px;
-    top: 85%;
-    left: 25%;
+    width: 450px;
+    top: 115%;
+    left: 15%;
 }
 
 .object4 {
     width: 400px;
-    top: 130%;
+    top: 190%;
     left: 40%;
 }
 
 .object5 {
-    width: 400px;
-    top: 180%;
+    width: 500px;
+    top: 280%;
     left: 20%;
 }
 
 .object6 {
     width: 400px;
-    top: 220%;
+    top: 170%;
     left: 10%;
 }
 
 .object7 {
     width: 400px;
-    top: 165%;
-    left: 40%;
+    top: 330%;
+    left: 55%;
 }
 
 .object8 {
     width: 400px;
-    top: 250%;
+    top: 360%;
     left: 50%;
 }
 
 .object9 {
     width: 400px;
-    top: 290%;
+    top: 425%;
     left: 15%;
 }
 
 .object10 {
     width: 400px;
-    top: 320%;
+    top: 500%;
+    left: 60%;
+}
+
+.object11 {
+    width: 500px;
+    top: 560%;
+    left: 10%;
+}
+
+.object12 {
+    width: 300px;
+    top: 630%;
+    left: 65%;
+}
+
+.object13 {
+    width: 250px;
+    top: 625%;
+    left: 25%;
+}
+
+.object14 {
+    width: 400px;
+    top: 655%;
+    left: 40%;
+}
+
+.object15 {
+    width: 400px;
+    top: 755%;
+    left: 20%;
+}
+
+.object16 {
+    width: 400px;
+    top: 785%;
+    left: 10%;
+}
+
+.object17 {
+    width: 400px;
+    top: 820%;
+    left: 40%;
+}
+
+.object18 {
+    width: 400px;
+    top: 860%;
+    left: 50%;
+}
+
+.object19 {
+    width: 400px;
+    top: 920%;
+    left: 15%;
+}
+
+.object20 {
+    width: 400px;
+    top: 950%;
+    left: 60%;
+}
+
+.object21 {
+    width: 400px;
+    top: 1000%;
+    left: 20%;
+}
+
+.object22 {
+    width: 400px;
+    top: 1040%;
+    left: 10%;
+}
+
+.object23 {
+    width: 400px;
+    top: 1085%;
+    left: 40%;
+}
+
+.object24 {
+    width: 400px;
+    top: 1120%;
+    left: 50%;
+}
+
+.object25 {
+    width: 400px;
+    top: 1155%;
+    left: 15%;
+}
+
+.object26 {
+    width: 400px;
+    top: 1210%;
     left: 60%;
 }
 
 .word1 {
-    top: 30%;
-    left: 50%;
+    top: 80%;
+    left: 20%;
+}
+
+.word2 {
+    top: 102%;
+    left: 15%;
+    font-size: 0.5em;
 }
