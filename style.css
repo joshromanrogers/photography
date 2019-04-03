@@ -1,114 +1,789 @@
-body {
-    font-size: 48px;
-    line-height: 1.5;
-    background-color: #ffffff;
-    color: #000000;
-    transition: background-color 0.3s ease-in-out;
+#travelBod {
+  margin: 0;
+  padding: 0;
+  background: #1f1f1f;
+  font-family: "Ailerons";
+  color: #fff;
+  font-size: 5em;
+  overflow-x: hidden;
 }
 
-.movArt, .movMusic, .movTravel, .movMisc {
-    position: fixed;
-    overflow: hidden;
-    width: 10%;
-    height: 15%;
+/* home button */
+.movBack {
+  position: fixed;
+  right: 4%;
+  top: 0%;
+  left: 5%;
+  z-index: 1;
+  width: 10%;
+  height: 15%;
+  overflow: hidden;
+  color: black;
 }
 
-.movArt {
-    top: 40px;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
-.movMisc {
-    bottom: 40px;
-    left: 50%;
-    transform: rotate(180deg) translate(50%, 0);
-}
-
-.movTravel {
-    top: 50%;
-    right: 40px;
-    transform-origin: 100% 0;
-    transform: rotate(90deg) translate(50%, 0);
-}
-
-.movMusic {
-    top: 50%;
-    left: 40px;
-    transform-origin: 0 0;
-    transform: rotate(-90deg) translate(-50%, 0);
-}
-
-.movers , .movers2, .movers3, .movers4 {
-    white-space: nowrap;
-}
-
-
-a {
-    color: #2727e6;
-    text-decoration: none;
-    border-bottom: 4px solid transparent;
-    transition: border-bottom 0.3s;
+.index {
+  border: 3px solid #2727e6;
+  font-weight: 700;
+  letter-spacing: -0.5rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.5px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  text-decoration: none;
+  color: #2727e6;
 }
 
 a:hover {
-    border-bottom-color: #2727e6;
+  color: orange;
 }
 
-img, h1 {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.object, .word {
+  position: absolute;
 }
 
-img  {
-    width: 600px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    border: 5px solid yellowgreen;
+.travelImg {
+  width: 100%;
+  opacity: 1;
+}
+
+.object1 {
+  width: 500px;
+  top: 10%;
+  left: 10%;
+}
+
+.object2 {
+  width: 350px;
+  top: 80%;
+  left: 65%;
+}
+
+.object3 {
+  width: 450px;
+  top: 115%;
+  left: 15%;
+}
+
+.object4 {
+  width: 400px;
+  top: 190%;
+  left: 40%;
+}
+
+.object5 {
+  width: 500px;
+  top: 280%;
+  left: 20%;
+}
+
+.object6 {
+  width: 400px;
+  top: 170%;
+  left: 10%;
+}
+
+.object7 {
+  width: 400px;
+  top: 330%;
+  left: 55%;
+}
+
+.object8 {
+  width: 400px;
+  top: 360%;
+  left: 50%;
+}
+
+.object9 {
+  width: 400px;
+  top: 425%;
+  left: 15%;
+}
+
+.object10 {
+  width: 400px;
+  top: 500%;
+  left: 60%;
+}
+
+.object11 {
+  width: 500px;
+  top: 560%;
+  left: 10%;
+}
+
+.object12 {
+  width: 300px;
+  top: 630%;
+  left: 65%;
+}
+
+.object13 {
+  width: 250px;
+  top: 625%;
+  left: 25%;
+}
+
+.object14 {
+  width: 400px;
+  top: 655%;
+  left: 40%;
+}
+
+.object15 {
+  width: 400px;
+  top: 755%;
+  left: 20%;
+}
+
+.object16 {
+  width: 400px;
+  top: 785%;
+  left: 10%;
+}
+
+.object17 {
+  width: 400px;
+  top: 820%;
+  left: 40%;
+}
+
+.object18 {
+  width: 400px;
+  top: 860%;
+  left: 50%;
+}
+
+.object19 {
+  width: 400px;
+  top: 920%;
+  left: 15%;
+}
+
+.object20 {
+  width: 400px;
+  top: 950%;
+  left: 60%;
+}
+
+.object21 {
+  width: 400px;
+  top: 1000%;
+  left: 20%;
+}
+
+.object22 {
+  width: 400px;
+  top: 1040%;
+  left: 10%;
+}
+
+.object23 {
+  width: 400px;
+  top: 1085%;
+  left: 40%;
+}
+
+.object24 {
+  width: 400px;
+  top: 1120%;
+  left: 50%;
+}
+
+.object25 {
+  width: 400px;
+  top: 1155%;
+  left: 15%;
+}
+
+.object26 {
+  width: 400px;
+  top: 1210%;
+  left: 60%;
+}
+
+.word1 {
+  top: 80%;
+  left: 20%;
+  font-size: 0.7em;
+}
+
+.word2 {
+  top: 102%;
+  left: 15%;
+  font-size: 0.5em;
+}
+
+body {
+  margin: 0;
+}
+
+.collage-body {
+  background-color: #1a1919;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
+.collage-img {
+  position: absolute;
+  -webkit-animation: fadeI 0.5s;
+          animation: fadeI 0.5s;
+  opacity: 1;
+}
+
+/* home button */
+.movBack {
+  position: fixed;
+  right: 4%;
+  top: 0%;
+  left: 5%;
+  z-index: 1;
+  width: 10%;
+  height: 15%;
+  overflow: hidden;
+  color: black;
+}
+
+.index {
+  border: 3px solid #2727e6;
+  font-weight: 700;
+  letter-spacing: -0.5rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.5px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  text-decoration: none;
+  color: #2727e6;
+}
+
+a:hover {
+  color: orange;
+}
+
+.movers {
+  white-space: nowrap;
+}
+
+.tap {
+  padding: 3%;
+  background-color: darkgreen;
+  font-size: 2em;
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+body {
+  font-family: 'Proxima Nova', 'proxima-nova-1', 'proxima-nova-2', 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+section, header {
+  display: block;
+}
+
+.image {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+#container {
+  position: relative;
+  width: 900px;
+  margin: 10px auto;
+}
+
+section {
+  width: 900px;
+  height: 540px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2, p {
+  margin: 0 0 15px;
+}
+
+section header {
+  padding: 0 10px;
+}
+
+section h2 {
+  font-size: 28px;
+  line-height: 30px;
+}
+
+p {
+  background: rgba(0, 0, 0, 0.3);
+  height: 15px;
+}
+
+.w3, .w6 {
+  position: absolute;
+  margin: 0 10px;
+  padding-top: 15px;
+}
+
+.w3 {
+  width: 280px;
+}
+
+.w3.box {
+  width: 250px;
+}
+
+.h3.box {
+  height: 150px;
+}
+
+.h3.box .img {
+  line-height: 150px;
+}
+
+.h6.box {
+  height: 315px;
+}
+
+.h6.box .img {
+  line-height: 315px;
+}
+
+.w6 {
+  width: 580px;
+}
+
+.w6.box {
+  width: 550px;
+}
+
+.x3 {
+  left: 300px;
+}
+
+.x6 {
+  left: 600px;
+}
+
+.y3 {
+  top: 180px;
+}
+
+.y6 {
+  top: 360px;
+}
+
+.box {
+  padding-top: 0;
+  padding: 10px;
+}
+
+/* Section-specific layout */
+#web-dev h1 {
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 105px;
+}
+
+#front-end header, #css header, #css3 header {
+  padding-top: 0;
+}
+
+#front-end h1 {
+  line-height: 85px;
+  font-size: 92px;
+}
+
+#css header, #css3 header {
+  padding: 0;
+}
+
+#css h1 {
+  font-size: 150px;
+  line-height: 180px;
+}
+
+#css3 h1 {
+  font-size: 110px;
+  line-height: 105px;
+}
+
+#transforms h1 {
+  font-size: 160px;
+  line-height: 180px;
+}
+
+/* step 2 */
+.csstransforms #content {
+  position: absolute;
+  width: 900px;
+  height: 540px;
+}
+
+.csstransforms section {
+  position: absolute;
+}
+
+.csstransforms #front-end {
+  -webkit-transform: scale(0.3333);
+          transform: scale(0.3333);
+}
+
+.csstransforms #css {
+  -webkit-transform: scale(0.1111);
+          transform: scale(0.1111);
+}
+
+.csstransforms #css3 {
+  -webkit-transform: scale(0.037);
+          transform: scale(0.037);
+}
+
+.csstransforms #transforms {
+  -webkit-transform: scale(0.01235);
+          transform: scale(0.01235);
+}
+
+.csstransforms #scroller {
+  height: 20000px;
+}
+
+.csstransforms #wrap {
+  position: fixed;
+  width: 100%;
+}
+
+/* step 3 */
+/* set arbitrary height on proxy scroller */
+/* prevent content from scrolling */
+/* home button */
+.movBack {
+  position: fixed;
+  right: 4%;
+  top: 0%;
+  left: 5%;
+  z-index: 1;
+  width: 10%;
+  height: 15%;
+  overflow: hidden;
+  color: black;
+}
+
+.index {
+  border: 3px solid #2727e6;
+  font-weight: 700;
+  letter-spacing: -0.5rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.5px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  text-decoration: none;
+  color: #2727e6;
+}
+
+a:hover {
+  color: orange;
+}
+
+.movBack {
+  position: fixed;
+  top: 50%;
+  left: 44%;
+  z-index: 1;
+  width: 10%;
+  height: 15%;
+  overflow: hidden;
+  color: black;
+}
+
+#miscBod {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 100vh;
+  background: #1f1f1f;
+  font-family: "Ailerons";
+  color: #fff;
+  font-size: 5em;
+  overflow-y: hidden;
+}
+
+/* home button */
+.movBack {
+  position: fixed;
+  right: 4%;
+  top: 0%;
+  left: 5%;
+  z-index: 1;
+  width: 10%;
+  height: 15%;
+  overflow: hidden;
+  color: black;
+}
+
+.index {
+  border: 3px solid #2727e6;
+  font-weight: 700;
+  letter-spacing: -0.5rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.5px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  text-decoration: none;
+  color: #2727e6;
+}
+
+a:hover {
+  color: orange;
+}
+
+.object, .word {
+  position: absolute;
+}
+
+.rellaxImg {
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.mObject1 {
+  width: 500px;
+  top: 10%;
+  left: 10%;
+}
+
+.mObject2 {
+  width: 300px;
+  top: 10%;
+  left: 70%;
+}
+
+.mObject3 {
+  width: 250px;
+  top: 5%;
+  left: 140%;
+}
+
+.mObject4 {
+  width: 400px;
+  top: 10%;
+  left: 280%;
+}
+
+.mObject5 {
+  width: 400px;
+  top: 20%;
+  left: 290%;
+}
+
+.mObject6 {
+  width: 400px;
+  top: 10%;
+  left: 355%;
+}
+
+.mObject7 {
+  width: 400px;
+  top: 45%;
+  left: 415%;
+}
+
+.mObject8 {
+  width: 400px;
+  top: 25%;
+  left: 470%;
+}
+
+.mObject9 {
+  width: 400px;
+  top: 0%;
+  left: 540%;
+}
+
+.mObject10 {
+  width: 400px;
+  top: -10%;
+  left: 600%;
+}
+
+.mWord1 {
+  top: 20%;
+  left: 20%;
+  font-size: 0.7em;
+}
+
+.mWord2 {
+  top: 40%;
+  left: 80%;
+  font-size: 0.5em;
+}
+
+/* home button */
+.movBack {
+  position: fixed;
+  right: 4%;
+  top: 0%;
+  left: 5%;
+  z-index: 1;
+  width: 10%;
+  height: 15%;
+  overflow: hidden;
+  color: black;
+}
+
+.index {
+  border: 3px solid #2727e6;
+  font-weight: 700;
+  letter-spacing: -0.5rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.5px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  text-decoration: none;
+  color: #2727e6;
+}
+
+a:hover {
+  color: orange;
+}
+
+body {
+  font-size: 48px;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #000000;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.movArt,
+.movMusic,
+.movTravel,
+.movMisc {
+  position: fixed;
+  overflow: hidden;
+  width: 10%;
+  height: 15%;
+}
+
+.movArt {
+  top: 40px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+.movMisc {
+  bottom: 40px;
+  left: 50%;
+  -webkit-transform: rotate(180deg) translate(50%, 0);
+          transform: rotate(180deg) translate(50%, 0);
+}
+
+.movTravel {
+  top: 50%;
+  right: 40px;
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  -webkit-transform: rotate(90deg) translate(50%, 0);
+          transform: rotate(90deg) translate(50%, 0);
+}
+
+.movMusic {
+  top: 50%;
+  left: 40px;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotate(-90deg) translate(-50%, 0);
+          transform: rotate(-90deg) translate(-50%, 0);
+}
+
+.movers,
+.movers2,
+.movers3,
+.movers4 {
+  white-space: nowrap;
+}
+
+a {
+  color: #2727e6;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+  -webkit-transition: border-bottom 0.3s;
+  transition: border-bottom 0.3s;
+}
+
+a:hover {
+  border-bottom-color: #2727e6;
+}
+
+.home {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.home {
+  width: 600px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  border: 5px solid yellowgreen;
 }
 
 h1 {
-    color: #2727e6;
-    margin: 0;
-    font-size: 1em;
-    transition: opacity 0.2s ease-in-out;
+  color: #2727e6;
+  margin: 0;
+  font-size: 1em;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
-a.music {
-    position: fixed;
-}
-
-a.travel {
-    position: fixed;
-    
-}
-
-a.misc {
-    position: fixed;
-}
-
-a.art {
-    position: fixed;
+a.music, a.travel, a.misc, a.art {
+  position: fixed;
 }
 
 @media (max-width: 1160px) {
-    img {
-        width: 450px;
-    }
-
-    body {
-        font-size: 24px;
-    }
+  img {
+    width: 450px;
+  }
+  body {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 640px) {
-    img {
-        width: 225px;
-    }
-
-    body {
-        font-size: 16px;
-    }
+  img {
+    width: 225px;
+  }
+  body {
+    font-size: 16px;
+  }
 }
+/*# sourceMappingURL=style.css.map */

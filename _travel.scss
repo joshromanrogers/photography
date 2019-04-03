@@ -1,0 +1,132 @@
+#travelBod {
+    margin: 0;
+    padding: 0;
+    background: #1f1f1f;
+    font-family: "Ailerons";
+    color: #fff;
+    font-size: 5em;
+    overflow-x: hidden;
+  }
+
+  @import '_homeButton';
+  
+  .object, .word {
+    position: absolute;
+  }
+  
+  .travelImg {
+    width: 100%;
+    opacity: 1;
+  }
+  
+  .object1 {
+    @include rellax(500px, 10%, 10%);
+  }
+ 
+  .object2 {
+    @include rellax(350px, 80%, 65%);
+  }
+  
+  .object3 {
+    @include rellax(450px, 115%, 15%);
+  }
+  
+  .object4 {
+    @include rellax(400px, 190%, 40%);
+  }
+  
+  .object5 {
+    @include rellax(500px, 280%, 20%);
+  }
+  
+  .object6 {
+    @include rellax(400px, 170%, 10%);
+  }
+  
+  .object7 {
+    @include rellax(400px, 330%, 55%);
+  }
+  
+  .object8 {
+    @include rellax(400px, 360%, 50%);
+  }
+  
+  .object9 {
+    @include rellax(400px, 425%, 15%);
+  }
+  
+  .object10 {
+    @include rellax(400px, 500%, 60%);
+  }
+  
+  .object11 {
+    @include rellax(500px, 560%, 10%);
+  }
+  
+  .object12 {
+    @include rellax(300px, 630%, 65%);
+  }
+  
+  .object13 {
+    @include rellax(250px, 625%, 25%);
+  }
+  
+  .object14 {
+    @include rellax(400px, 655%, 40%);
+  }
+  
+  .object15 {
+    @include rellax(400px, 755%, 20%);
+  }
+  
+  .object16 {
+    @include rellax(400px, 785%, 10%);
+  }
+  
+  .object17 {
+    @include rellax(400px, 820%, 40%);
+  }
+  
+  .object18 {
+    @include rellax(400px, 860%, 50%);
+  }
+  
+  .object19 {
+    @include rellax(400px, 920%, 15%);
+  }
+  
+  .object20 {
+    @include rellax(400px, 950%, 60%);
+  }
+  
+  .object21 {
+    @include rellax(400px, 1000%, 20%);
+  }
+  
+  .object22 {
+    @include rellax(400px, 1040%, 10%);
+  }
+  
+  .object23 {
+    @include rellax(400px, 1085%, 40%);
+  }
+  
+  .object24 {
+    @include rellax(400px, 1120%, 50%);
+  }
+  
+  .object25 {
+    @include rellax(400px, 1155%, 15%);
+  }
+  
+  .object26 {
+    @include rellax(400px, 1210%, 60%);
+  }
+  
+  .word1 {
+    @include relWord(80%, 20%, 0.7em);
+  }
+  
+  .word2 {
+    @include relWord(102%, 15%, 0.5em);
+  }

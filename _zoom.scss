@@ -1,0 +1,189 @@
+body {
+    font-family: 'Proxima Nova', 'proxima-nova-1', 'proxima-nova-2', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  section, header {
+    display: block;
+  }
+  
+  .image {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  #container {
+    position: relative;
+    width: 900px;
+    margin: 10px auto;
+  }
+  
+  section {
+    width: 900px;
+    height: 540px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  h1, h2, p {
+    margin: 0 0 15px;
+  }
+  
+  section {
+    header {
+      padding: 0 10px;
+    }
+    h2 {
+      font-size: 28px;
+      line-height: 30px;
+    }
+  }
+  
+  p {
+    background: hsla(0, 0%, 0%, 0.3);
+    height: 15px;
+  }
+  
+  .w3, .w6 {
+    position: absolute;
+    margin: 0 10px;
+    padding-top: 15px;
+  }
+  
+  .w3 {
+    width: 280px;
+    &.box {
+      width: 250px;
+    }
+  }
+  
+  .h3.box {
+    height: 150px;
+    .img {
+      line-height: 150px;
+    }
+  }
+  
+  .h6.box {
+    height: 315px;
+    .img {
+      line-height: 315px;
+    }
+  }
+  
+  .w6 {
+    width: 580px;
+    &.box {
+      width: 550px;
+    }
+  }
+  
+  .x3 {
+    left: 300px;
+  }
+  
+  .x6 {
+    left: 600px;
+  }
+  
+  .y3 {
+    top: 180px;
+  }
+  
+  .y6 {
+    top: 360px;
+  }
+  
+  .box {
+    padding-top: 0;
+    padding: 10px;
+  }
+  
+  /* Section-specific layout */
+  
+  #web-dev h1 {
+    font-size: 100px;
+    font-weight: 600;
+    line-height: 105px;
+  }
+  
+  #front-end header, #css header, #css3 header {
+    padding-top: 0;
+  }
+  
+  #front-end h1 {
+    line-height: 85px;
+    font-size: 92px;
+  }
+  
+  #css header, #css3 header {
+    padding: 0;
+  }
+  
+  #css h1 {
+    font-size: 150px;
+    line-height: 180px;
+  }
+  
+  #css3 h1 {
+    font-size: 110px;
+    line-height: 105px;
+  }
+  
+  #transforms h1 {
+    font-size: 160px;
+    line-height: 180px;
+  }
+  
+  /* step 2 */
+  
+  .csstransforms {
+    #content {
+      position: absolute;
+      width: 900px;
+      height: 540px;
+    }
+    section {
+      position: absolute;
+    }
+    #front-end {
+      transform: scale(0.3333);
+    }
+    #css {
+      transform: scale(0.1111);
+    }
+    #css3 {
+      transform: scale(0.037);
+    }
+    #transforms {
+      transform: scale(0.01235);
+    }
+    #scroller {
+      height: 20000px;
+    }
+    #wrap {
+      position: fixed;
+      width: 100%;
+    }
+  }
+  
+  /* step 3 */
+  
+  /* set arbitrary height on proxy scroller */
+  
+  /* prevent content from scrolling */
+  
+  @import '_homeButton';
+  
+  .movBack {
+    position: fixed;
+    top: 50%;
+    left: 44%;
+    z-index: 1;
+    width: 10%;
+    height: 15%;
+    overflow: hidden;
+    color: black;
+  }

@@ -1,0 +1,130 @@
+@mixin rellax($width, $top, $left) {
+    width: $width;
+    top: $top;
+    left: $left;
+}
+
+@mixin relWord($top, $left, $fontSize) {
+    top: $top;
+    left: $left;
+    font-size: $fontSize;
+}
+
+@import "./_travel";
+@import "./_collage";
+@import "./_zoom";
+@import "./_misc";
+@import "./_homeButton";
+
+body {
+    font-size: 48px;
+    line-height: 1.5;
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.movArt,
+.movMusic,
+.movTravel,
+.movMisc {
+    position: fixed;
+    overflow: hidden;
+    width: 10%;
+    height: 15%;
+}
+
+.movArt {
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.movMisc {
+    bottom: 40px;
+    left: 50%;
+    transform: rotate(180deg) translate(50%, 0);
+}
+
+.movTravel {
+    top: 50%;
+    right: 40px;
+    transform-origin: 100% 0;
+    transform: rotate(90deg) translate(50%, 0);
+}
+
+.movMusic {
+    top: 50%;
+    left: 40px;
+    transform-origin: 0 0;
+    transform: rotate(-90deg) translate(-50%, 0);
+}
+
+.movers,
+.movers2,
+.movers3,
+.movers4 {
+    white-space: nowrap;
+}
+
+a {
+    color: #2727e6;
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+    transition: border-bottom 0.3s;
+
+    &:hover {
+        border-bottom-color: #2727e6;
+    }
+}
+
+.home {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home {
+    width: 600px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border: 5px solid yellowgreen;
+}
+
+h1 {
+    color: #2727e6;
+    margin: 0;
+    font-size: 1em;
+    transition: opacity 0.2s ease-in-out;
+}
+
+a {
+
+    &.music,
+    &.travel,
+    &.misc,
+    &.art {
+        position: fixed;
+    }
+}
+
+@media (max-width: 1160px) {
+    img {
+        width: 450px;
+    }
+
+    body {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    img {
+        width: 225px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+}

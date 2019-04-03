@@ -1,0 +1,72 @@
+#miscBod {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 100vh;
+    background: #1f1f1f;
+    font-family: "Ailerons";
+    color: #fff;
+    font-size: 5em;
+    overflow-y: hidden;
+  }
+  
+  @import '_homeButton';
+
+  .object, .word {
+    position: absolute;
+  }
+  
+  .rellaxImg {
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    opacity: 1;
+  }
+  
+  .mObject1 {
+    @include rellax(500px, 10%, 10%);
+  }
+  
+  .mObject2 {
+    @include rellax(300px, 10%, 70%);
+  }
+  
+  .mObject3 {
+    @include rellax(250px, 5%, 140%);
+  }
+  
+  .mObject4 {
+    @include rellax(400px, 10%, 280%);
+  }
+  
+  .mObject5 {
+    @include rellax(400px, 20%, 290%);
+  }
+  
+  .mObject6 {
+    @include rellax(400px, 10%, 355%);
+  }
+  
+  .mObject7 {
+    @include rellax(400px, 45%, 415%);
+  }
+  
+  .mObject8 {
+    @include rellax(400px, 25%, 470%);
+  }
+  
+  .mObject9 {
+    @include rellax(400px, 0%, 540%);
+  }
+  
+  .mObject10 {
+    @include rellax(400px, -10%, 600%);
+  }
+
+  .mWord1 {
+    @include relWord(20%, 20%, 0.7em);
+  }
+  
+  .mWord2 {
+    @include relWord(40%, 80%, 0.5em);
+  }
