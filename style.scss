@@ -16,6 +16,12 @@
 @import "./_misc";
 @import "./_homeButton";
 
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 body {
     font-size: 48px;
     line-height: 1.5;

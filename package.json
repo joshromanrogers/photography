@@ -1,0 +1,24 @@
+{
+  "name": "photography",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshromanrogers/photography.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshromanrogers/photography/issues"
+  },
+  "homepage": "https://github.com/joshromanrogers/photography#readme",
+  "dependencies": {
+    "@dogstudio/highway": "^2.1.2",
+    "gsap": "^2.1.2",
+    "rellax": "^1.9.1"
+  }
+}

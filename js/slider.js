@@ -18,10 +18,10 @@ let slider = (min, max, speed, query) => {
 
 };
 
-slider(-150, 50, 80, "movers");
+// slider(-150, 50, 80, "movers");
 slider(-150, 50, 80, "movers2");
 slider(-150, 50, 80, "movers3");
 slider(-150, 50, 80, "movers4");
-slider(-150, 50, 80, "moversIndex");
+// slider(-150, 50, 80, "moversIndex");
 
 

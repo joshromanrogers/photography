@@ -13,73 +13,84 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <div class="movArt">
-        <div class="movers">
-            <a href="art.html" class="art" onmouseover="show(art, 'brown', 'green')" onmouseout="hide(art)">
-                <span>ART</span>
-                <span>ART</span>
-                <span>ART</span>
-                <span>ART</span>
-                <span>ART</span>
-                <span>ART</span>
-                <span>ART</span>
-            </a>
-        </div>
-    </div>
 
-    <div class="movMisc">
-        <div class="movers2">
-            <a href="misc.html" class="misc" onmouseover="show(misc, 'pink', 'purple')" onmouseout="hide(misc)">
-                <span>MISC</span>
-                <span>MISC</span>
-                <span>MISC</span>
-                <span>MISC</span>
-                <span>MISC</span>
-                <span>MISC</span>
-                <span>MISC</span>
-            </a>
-        </div>
-    </div>
+    <main data-router-wrapper>
+        <section data-router-view="home" class="home">
+            <div class="home-content">
+                <!-- <div class="movArt">
+                    <div class="movers">
+                        <a href="art.html" class="art" onmouseover="show(art, 'brown', 'green')" onmouseout="hide(art)">
+                            <span>ART</span>
+                            <span>ART</span>
+                            <span>ART</span>
+                            <span>ART</span>
+                            <span>ART</span>
+                            <span>ART</span>
+                            <span>ART</span>
+                        </a>
+                    </div>
+                </div> -->
 
-    <div class="movTravel">
-        <div class="movers3">
-            <a href="travel.html" class="travel" onmouseover="show(travel, 'green', 'yellow')"
-                onmouseout="hide(travel)">
-                <span>TRAVEL</span>
-                <span>TRAVEL</span>
-                <span>TRAVEL</span>
-                <span>TRAVEL</span>
-                <span>TRAVEL</span>
-                <span>TRAVEL</span>
-                <span>TRAVEL</span>
-            </a>
-        </div>
-    </div>
+                <div class="movMisc">
+                    <div class="movers2">
+                        <a href="misc.html" class="nav-links misc" onmouseover="show(misc, 'pink', 'purple')"
+                            onmouseout="hide(misc)">
+                            <span>MISC</span>
+                            <span>MISC</span>
+                            <span>MISC</span>
+                            <span>MISC</span>
+                            <span>MISC</span>
+                            <span>MISC</span>
+                            <span>MISC</span>
+                        </a>
+                    </div>
+                </div>
 
-    <div class="movMusic">
-        <div class="movers4">
-            <a href="zoom.html" class="music" onmouseover="show(music, 'red', 'orange')" onmouseout="hide(music)">
-                <span>MUSIC</span>
-                <span>MUSIC</span>
-                <span>MUSIC</span>
-                <span>MUSIC</span>
-                <span>MUSIC</span>
-                <span>MUSIC</span>
-                <span>MUSIC</span>
-            </a>
-        </div>
-    </div>
+                <div class="movTravel">
+                    <div class="movers3">
+                        <a href="travel.html" class="travel" onmouseover="show(travel, 'green', 'yellow')"
+                            onmouseout="hide(travel)">
+                            <span>TRAVEL</span>
+                            <span>TRAVEL</span>
+                            <span>TRAVEL</span>
+                            <span>TRAVEL</span>
+                            <span>TRAVEL</span>
+                            <span>TRAVEL</span>
+                            <span>TRAVEL</span>
+                        </a>
+                    </div>
+                </div>
 
-    <img class="home music-img" src="imgs/music.jpg">
-    <img class="home travel-img" src="imgs/travel.jpg">
-    <img class="home art-img" src="imgs/art.jpg">
-    <img class="home misc-img" src="imgs/misc.jpg">
-    <h1> roman rogers </h1>
+                <div class="movMusic">
+                    <div class="movers4">
+                        <a href="zoom.html" class="music" onmouseover="show(music, 'red', 'orange')"
+                            onmouseout="hide(music)">
+                            <span>MUSIC</span>
+                            <span>MUSIC</span>
+                            <span>MUSIC</span>
+                            <span>MUSIC</span>
+                            <span>MUSIC</span>
+                            <span>MUSIC</span>
+                            <span>MUSIC</span>
+                        </a>
+                    </div>
+                </div>
 
+                <img class="home music-img" src="imgs/music.jpg">
+                <img class="home travel-img" src="imgs/travel.jpg">
+                <img class="home art-img" src="imgs/art.jpg">
+                <img class="home misc-img" src="imgs/misc.jpg">
+                <h1> roman rogers </h1>
+            </div>
+        </section>
+    </main>
+    <script src="./node_modules/rellax/rellax.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/slider.js"></script>
 </body>
 
