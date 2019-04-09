@@ -11,8 +11,7 @@ class TravelRenderer extends Highway.Renderer {
 		slider(-150, 50, 80, "moversTravel");
 	}
 	onLeave() { 
-		// End Rellax and reset parallax elements to their original positions
-		rellax.destroy();
+		
 	}
 	onEnterCompleted() { }
 	onLeaveCompleted() { }

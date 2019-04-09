@@ -12,9 +12,9 @@ class ArtRenderer extends Highway.Renderer {
 		let backButton = document.querySelector(".movBack");
 
 		// override collage function preventDefault() and take user back to homepage
-		backButton.addEventListener("click", event => {
-			window.location.href = "index.html";
-		});
+		// backButton.addEventListener("click", event => {
+		// 	window.location.href = "index.html";
+		// });
 
 		let tap = document.querySelector(".tap");
 		// when user clicks, add image based on event/cursor xy position
@@ -32,7 +32,6 @@ class ArtRenderer extends Highway.Renderer {
 		});
 	}
 	onLeave() {
-		// End Rellax and reset parallax elements to their original position
 	}
 	onEnterCompleted() {}
 	onLeaveCompleted() {}

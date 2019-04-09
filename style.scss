@@ -1,3 +1,7 @@
+section {
+    position: relative;
+}
+
 @mixin rellax($width, $top, $left) {
     width: $width;
     top: $top;
@@ -34,7 +38,7 @@ body {
 .movMusic,
 .movTravel,
 .movMisc {
-    position: fixed;
+    position: absolute;
     overflow: hidden;
     width: 10%;
     height: 15%;
@@ -103,6 +107,15 @@ h1 {
     margin: 0;
     font-size: 1em;
     transition: opacity 0.2s ease-in-out;
+}
+
+.home-content {
+    top: 0%;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
 }
 
 a {

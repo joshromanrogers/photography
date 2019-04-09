@@ -5,7 +5,8 @@ import Highway from "@dogstudio/highway";
 import MiscRenderer from "./misc-renderer.js";
 import TravelRenderer from "./travel-renderer.js";
 import ArtRenderer from "./art-renderer.js";
-import MusicRenderer from "./music-renderer";
+import MusicRenderer from "./music-renderer.js";
+import IndexRenderer from "./index-renderer.js";
 
 
 // Relate renderers to pages with the label of the `data-router-view`.
@@ -18,5 +19,6 @@ const H = new Highway.Core({
 		travel: TravelRenderer,
 		art: ArtRenderer,
 		music: MusicRenderer,
-	  }
+		home: IndexRenderer,
+	}
 });

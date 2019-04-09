@@ -1,7 +1,27 @@
+section {
+  position: relative;
+}
+
+.travel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5000px;
+}
+
+.travel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #1a1919;
+  width: 100%;
+  height: 5000px;
+}
+
 #travelBod {
   margin: 0;
   padding: 0;
-  background: #1f1f1f;
   font-family: "Ailerons";
   color: #fff;
   font-size: 5em;
@@ -57,151 +77,151 @@ a:hover {
 
 .object2 {
   width: 350px;
-  top: 80%;
-  left: 65%;
+  top: 20%;
+  left: 25%;
 }
 
 .object3 {
   width: 450px;
-  top: 115%;
+  top: 30%;
   left: 15%;
 }
 
 .object4 {
   width: 400px;
-  top: 190%;
+  top: 40%;
   left: 40%;
 }
 
 .object5 {
   width: 500px;
-  top: 280%;
+  top: 45%;
   left: 20%;
 }
 
 .object6 {
   width: 400px;
-  top: 170%;
+  top: 50%;
   left: 10%;
 }
 
 .object7 {
   width: 400px;
-  top: 330%;
+  top: 60%;
   left: 55%;
 }
 
 .object8 {
   width: 400px;
-  top: 360%;
+  top: 70%;
   left: 50%;
 }
 
 .object9 {
   width: 400px;
-  top: 425%;
+  top: 75%;
   left: 15%;
 }
 
 .object10 {
   width: 400px;
-  top: 500%;
+  top: 80%;
   left: 60%;
 }
 
 .object11 {
   width: 500px;
-  top: 560%;
+  top: 80%;
   left: 10%;
 }
 
 .object12 {
   width: 300px;
-  top: 630%;
+  top: 80%;
   left: 65%;
 }
 
 .object13 {
   width: 250px;
-  top: 625%;
+  top: 85%;
   left: 25%;
 }
 
 .object14 {
   width: 400px;
-  top: 655%;
+  top: 85%;
   left: 40%;
 }
 
 .object15 {
   width: 400px;
-  top: 755%;
+  top: 85%;
   left: 20%;
 }
 
 .object16 {
   width: 400px;
-  top: 785%;
+  top: 85%;
   left: 10%;
 }
 
 .object17 {
   width: 400px;
-  top: 820%;
+  top: 80%;
   left: 40%;
 }
 
 .object18 {
   width: 400px;
-  top: 860%;
+  top: 80%;
   left: 50%;
 }
 
 .object19 {
   width: 400px;
-  top: 920%;
+  top: 90%;
   left: 15%;
 }
 
 .object20 {
   width: 400px;
-  top: 950%;
+  top: 90%;
   left: 60%;
 }
 
 .object21 {
   width: 400px;
-  top: 1000%;
+  top: 100%;
   left: 20%;
 }
 
 .object22 {
   width: 400px;
-  top: 1040%;
+  top: 100%;
   left: 10%;
 }
 
 .object23 {
   width: 400px;
-  top: 1085%;
+  top: 100%;
   left: 40%;
 }
 
 .object24 {
   width: 400px;
-  top: 1120%;
+  top: 10%;
   left: 50%;
 }
 
 .object25 {
   width: 400px;
-  top: 1155%;
+  top: 100%;
   left: 15%;
 }
 
 .object26 {
   width: 400px;
-  top: 1210%;
+  top: 10%;
   left: 60%;
 }
 
@@ -221,7 +241,12 @@ body {
   margin: 0;
 }
 
+.art-content {
+  height: 100vh;
+}
+
 .collage-body {
+  top: 0%;
   background-color: #1a1919;
   width: 100%;
   height: 100%;
@@ -277,12 +302,12 @@ a:hover {
   background-color: darkgreen;
   font-size: 2em;
   color: white;
-  position: fixed;
+  position: relative;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
 }
 
 body {
@@ -505,7 +530,7 @@ a:hover {
   position: fixed;
   top: 50%;
   left: 44%;
-  z-index: 1;
+  z-index: 10;
   width: 10%;
   height: 15%;
   overflow: hidden;
@@ -691,7 +716,7 @@ body {
 .movMusic,
 .movTravel,
 .movMisc {
-  position: fixed;
+  position: absolute;
   overflow: hidden;
   width: 10%;
   height: 15%;
@@ -770,6 +795,15 @@ h1 {
   font-size: 1em;
   -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+}
+
+.home-content {
+  top: 0%;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
 }
 
 a.music, a.travel, a.misc, a.art {

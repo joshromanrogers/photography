@@ -15983,20 +15983,25 @@ function (_Highway$Transition) {
           done = _ref.done;
       // responsible for page coming in
       var tl = new _gsap.TimelineLite();
-      tl.fromTo(to, 0.5, {
+      tl.fromTo(to, 1, {
         left: "-100%"
       }, {
-        left: "0%"
-      }).fromTo(to, 0.5, {
-        height: "90vh"
-      }, {
-        height: "90vh",
-        top: "100%",
+        left: "0%",
+        width: "100%",
+        height: "100%",
         onComplete: function onComplete() {
           from.remove();
           done();
         }
-      });
+      }); // .fromTo(to, 0.5, {
+      // 	height: "100vh"
+      // }, {
+      // 	height: "100vh",
+      // 	onComplete: function () {
+      // 		from.remove();
+      // 		done();
+      // 	}
+      // });
     }
   }, {
     key: "out",
@@ -16403,12 +16408,11 @@ function slider(min, max, speed, query) {
 
     stripName.style.transform = "translate3d(".concat(slider, "px, 0px, 0px)");
   }, speed);
-}
-
-slider(-150, 50, 80, "movers");
-slider(-150, 50, 80, "movers2");
-slider(-150, 50, 80, "movers3");
-slider(-150, 50, 80, "movers4"); // slider(-150, 50, 80, "moversIndex");
+} // slider(-150, 50, 80, "movers");
+// slider(-150, 50, 80, "movers2");
+// slider(-150, 50, 80, "movers3");
+// slider(-150, 50, 80, "movers4");
+// slider(-150, 50, 80, "moversIndex");
 },{}],"js/misc-renderer.js":[function(require,module,exports) {
 "use strict";
 
@@ -16543,10 +16547,7 @@ function (_Highway$Renderer) {
     }
   }, {
     key: "onLeave",
-    value: function onLeave() {
-      // End Rellax and reset parallax elements to their original positions
-      rellax.destroy();
-    }
+    value: function onLeave() {}
   }, {
     key: "onEnterCompleted",
     value: function onEnterCompleted() {}
@@ -16675,10 +16676,10 @@ function (_Highway$Renderer) {
       // initialise slider
       (0, _slider.slider)(-150, 50, 80, "moversArt");
       var backButton = document.querySelector(".movBack"); // override collage function preventDefault() and take user back to homepage
+      // backButton.addEventListener("click", event => {
+      // 	window.location.href = "index.html";
+      // });
 
-      backButton.addEventListener("click", function (event) {
-        window.location.href = "index.html";
-      });
       var tap = document.querySelector(".tap"); // when user clicks, add image based on event/cursor xy position
 
       document.querySelector(".art-content").addEventListener("click", function (event) {
@@ -16694,8 +16695,7 @@ function (_Highway$Renderer) {
     }
   }, {
     key: "onLeave",
-    value: function onLeave() {// End Rellax and reset parallax elements to their original position
-    }
+    value: function onLeave() {}
   }, {
     key: "onEnterCompleted",
     value: function onEnterCompleted() {}
@@ -16742,6 +16742,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+// import Modernizr from "modernizr";
 var MusicRenderer =
 /*#__PURE__*/
 function (_Highway$Renderer) {
@@ -16758,7 +16759,9 @@ function (_Highway$Renderer) {
     // Hooks/methods
     value: function onEnter() {
       // initialise 
-      (0, _slider.slider)(-150, 50, 80, "moversMusic");
+      (0, _slider.slider)(-150, 50, 80, "moversMusic"); // Modernizr.build({}, function (result) {
+      //   console.log(result); // the build
+      // });
     }
   }, {
     key: "onLeave",
@@ -16777,6 +16780,124 @@ function (_Highway$Renderer) {
 
 var _default = MusicRenderer;
 exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./slider.js":"js/slider.js"}],"js/index-renderer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _slider = require("./slider.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var IndexRenderer =
+/*#__PURE__*/
+function (_Highway$Renderer) {
+  _inherits(IndexRenderer, _Highway$Renderer);
+
+  function IndexRenderer() {
+    _classCallCheck(this, IndexRenderer);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IndexRenderer).apply(this, arguments));
+  }
+
+  _createClass(IndexRenderer, [{
+    key: "onEnter",
+    // Hooks/methods
+    value: function onEnter() {
+      (0, _slider.slider)(-150, 50, 80, "movers");
+      (0, _slider.slider)(-150, 50, 80, "movers2");
+      (0, _slider.slider)(-150, 50, 80, "movers3");
+      (0, _slider.slider)(-150, 50, 80, "movers4");
+      var art = document.querySelector(".art-img");
+      var music = document.querySelector(".music-img");
+      var travel = document.querySelector(".travel-img");
+      var misc = document.querySelector(".misc-img");
+      art.style.opacity = 0;
+      music.style.opacity = 0;
+      travel.style.opacity = 0;
+      misc.style.opacity = 0;
+      var body = document.getElementsByTagName("BODY")[0];
+      var h1 = document.getElementsByTagName("H1")[0];
+
+      var show = function show(image, bgColour, borderColour) {
+        h1.style.opacity = 1;
+        image.style.opacity = 1;
+        body.style.backgroundColor = bgColour;
+        image.style.borderColor = borderColour;
+      };
+
+      var hide = function hide(image) {
+        image.style.opacity = 0;
+        body.style.backgroundColor = "white";
+        h1.style.opacity = 1;
+      };
+
+      document.querySelector(".art").addEventListener("mouseover", function () {
+        return show(art, "brown", "green");
+      });
+      document.querySelector(".art").addEventListener("mouseout", function () {
+        return hide(art);
+      });
+      document.querySelector(".misc").addEventListener("mouseover", function () {
+        return show(misc, "pink", "purple");
+      });
+      document.querySelector(".misc").addEventListener("mouseout", function () {
+        return hide(misc);
+      });
+      document.querySelector(".travel").addEventListener("mouseover", function () {
+        return show(travel, "green", "yellow");
+      });
+      document.querySelector(".travel").addEventListener("mouseout", function () {
+        return hide(travel);
+      });
+      document.querySelector(".music").addEventListener("mouseover", function () {
+        return show(music, "red", "orange");
+      });
+      document.querySelector(".music").addEventListener("mouseout", function () {
+        return hide(music);
+      });
+      console.log("entered index");
+    }
+  }, {
+    key: "onLeave",
+    value: function onLeave() {}
+  }, {
+    key: "onEnterCompleted",
+    value: function onEnterCompleted() {}
+  }, {
+    key: "onLeaveCompleted",
+    value: function onLeaveCompleted() {}
+  }]);
+
+  return IndexRenderer;
+}(_highway.default.Renderer); // export renderer
+
+
+var _default = IndexRenderer;
+exports.default = _default;
 },{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./slider.js":"js/slider.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -16790,7 +16911,9 @@ var _travelRenderer = _interopRequireDefault(require("./travel-renderer.js"));
 
 var _artRenderer = _interopRequireDefault(require("./art-renderer.js"));
 
-var _musicRenderer = _interopRequireDefault(require("./music-renderer"));
+var _musicRenderer = _interopRequireDefault(require("./music-renderer.js"));
+
+var _indexRenderer = _interopRequireDefault(require("./index-renderer.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16804,10 +16927,11 @@ var H = new _highway.default.Core({
     misc: _miscRenderer.default,
     travel: _travelRenderer.default,
     art: _artRenderer.default,
-    music: _musicRenderer.default
+    music: _musicRenderer.default,
+    home: _indexRenderer.default
   }
 });
-},{"./transition.js":"js/transition.js","@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./misc-renderer.js":"js/misc-renderer.js","./travel-renderer.js":"js/travel-renderer.js","./art-renderer.js":"js/art-renderer.js","./music-renderer":"js/music-renderer.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./transition.js":"js/transition.js","@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./misc-renderer.js":"js/misc-renderer.js","./travel-renderer.js":"js/travel-renderer.js","./art-renderer.js":"js/art-renderer.js","./music-renderer.js":"js/music-renderer.js","./index-renderer.js":"js/index-renderer.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -16835,7 +16959,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49616" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61282" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
