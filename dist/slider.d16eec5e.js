@@ -118,9 +118,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/slider.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.slider = slider;
+
 // slider function
 // (min number, max number, time interval between executing function, query selector)
-var slider = function slider(min, max, speed, query) {
+function slider(min, max, speed, query) {
   var slider = 0;
   var inc = -1;
   var stripName = document.querySelector(".".concat(query)); // count every second
@@ -134,9 +141,9 @@ var slider = function slider(min, max, speed, query) {
 
     stripName.style.transform = "translate3d(".concat(slider, "px, 0px, 0px)");
   }, speed);
-}; // slider(-150, 50, 80, "movers");
+}
 
-
+slider(-150, 50, 80, "movers");
 slider(-150, 50, 80, "movers2");
 slider(-150, 50, 80, "movers3");
 slider(-150, 50, 80, "movers4"); // slider(-150, 50, 80, "moversIndex");
@@ -168,7 +175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49616" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

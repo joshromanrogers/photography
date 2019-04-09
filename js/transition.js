@@ -14,16 +14,17 @@ class Fade extends Highway.Transition {
 		const tl = new TimelineLite();
 		tl.fromTo(to, 0.5, {
 			left: "-100%",
-			top: "50%"
 		}, {
-			left: "0%"
+			left: "0%",
+			
 		})
 			.fromTo(to, 0.5, {
-				height: "2vh"
+				height: "90vh"
 			}, {
 				height: "90vh",
-				top: "10%",
+				top: "100%",
 				onComplete: function () {
+					from.remove();
 					done();
 				}
 			});

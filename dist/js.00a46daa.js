@@ -15984,16 +15984,16 @@ function (_Highway$Transition) {
       // responsible for page coming in
       var tl = new _gsap.TimelineLite();
       tl.fromTo(to, 0.5, {
-        left: "-100%",
-        top: "50%"
+        left: "-100%"
       }, {
         left: "0%"
       }).fromTo(to, 0.5, {
-        height: "2vh"
+        height: "90vh"
       }, {
         height: "90vh",
-        top: "10%",
+        top: "100%",
         onComplete: function onComplete() {
+          from.remove();
           done();
         }
       });
@@ -16013,21 +16013,801 @@ function (_Highway$Transition) {
 
 var _default = Fade;
 exports.default = _default;
-},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/index.js":[function(require,module,exports) {
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"node_modules/rellax/rellax.js":[function(require,module,exports) {
+var define;
+var global = arguments[3];
+
+// ------------------------------------------
+// Rellax.js
+// Buttery smooth parallax library
+// Copyright (c) 2016 Moe Amaya (@moeamaya)
+// MIT license
+//
+// Thanks to Paraxify.js and Jaime Cabllero
+// for parallax concepts
+// ------------------------------------------
+
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define([], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory();
+  } else {
+    // Browser globals (root is window)
+    root.Rellax = factory();
+  }
+}(typeof window !== "undefined" ? window : global, function () {
+  var Rellax = function(el, options){
+    "use strict";
+
+    var self = Object.create(Rellax.prototype);
+
+    var posY = 0;
+    var screenY = 0;
+    var posX = 0;
+    var screenX = 0;
+    var blocks = [];
+    var pause = true;
+
+    // check what requestAnimationFrame to use, and if
+    // it's not supported, use the onscroll event
+    var loop = window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      function(callback){ return setTimeout(callback, 1000 / 60); };
+
+    // store the id for later use
+    var loopId = null;
+
+    // check what cancelAnimation method to use
+    var clearLoop = window.cancelAnimationFrame || window.mozCancelAnimationFrame || clearTimeout;
+
+    // check which transform property to use
+    var transformProp = window.transformProp || (function(){
+        var testEl = document.createElement('div');
+        if (testEl.style.transform === null) {
+          var vendors = ['Webkit', 'Moz', 'ms'];
+          for (var vendor in vendors) {
+            if (testEl.style[ vendors[vendor] + 'Transform' ] !== undefined) {
+              return vendors[vendor] + 'Transform';
+            }
+          }
+        }
+        return 'transform';
+      })();
+
+    // Default Settings
+    self.options = {
+      speed: -2,
+      center: false,
+      wrapper: null,
+      relativeToWrapper: false,
+      round: true,
+      vertical: true,
+      horizontal: false,
+      callback: function() {},
+    };
+
+    // User defined options (might have more in the future)
+    if (options){
+      Object.keys(options).forEach(function(key){
+        self.options[key] = options[key];
+      });
+    }
+
+    // By default, rellax class
+    if (!el) {
+      el = '.rellax';
+    }
+
+    // check if el is a className or a node
+    var elements = typeof el === 'string' ? document.querySelectorAll(el) : [el];
+
+    // Now query selector
+    if (elements.length > 0) {
+      self.elems = elements;
+    }
+
+    // The elements don't exist
+    else {
+      console.warn("Rellax: The elements you're trying to select don't exist.");
+      return;
+    }
+
+    // Has a wrapper and it exists
+    if (self.options.wrapper) {
+      if (!self.options.wrapper.nodeType) {
+        var wrapper = document.querySelector(self.options.wrapper);
+
+        if (wrapper) {
+          self.options.wrapper = wrapper;
+        } else {
+          console.warn("Rellax: The wrapper you're trying to use doesn't exist.");
+          return;
+        }
+      }
+    }
+
+
+    // Get and cache initial position of all elements
+    var cacheBlocks = function() {
+      for (var i = 0; i < self.elems.length; i++){
+        var block = createBlock(self.elems[i]);
+        blocks.push(block);
+      }
+    };
+
+
+    // Let's kick this script off
+    // Build array for cached element values
+    var init = function() {
+      for (var i = 0; i < blocks.length; i++){
+        self.elems[i].style.cssText = blocks[i].style;
+      }
+
+      blocks = [];
+
+      screenY = window.innerHeight;
+      screenX = window.innerWidth;
+      setPosition();
+
+      cacheBlocks();
+
+      animate();
+
+      // If paused, unpause and set listener for window resizing events
+      if (pause) {
+        window.addEventListener('resize', init);
+        pause = false;
+        // Start the loop
+        update();
+      }
+    };
+
+    // We want to cache the parallax blocks'
+    // values: base, top, height, speed
+    // el: is dom object, return: el cache values
+    var createBlock = function(el) {
+      var dataPercentage = el.getAttribute( 'data-rellax-percentage' );
+      var dataSpeed = el.getAttribute( 'data-rellax-speed' );
+      var dataZindex = el.getAttribute( 'data-rellax-zindex' ) || 0;
+      var dataMin = el.getAttribute( 'data-rellax-min' );
+      var dataMax = el.getAttribute( 'data-rellax-max' );
+
+      // initializing at scrollY = 0 (top of browser), scrollX = 0 (left of browser)
+      // ensures elements are positioned based on HTML layout.
+      //
+      // If the element has the percentage attribute, the posY and posX needs to be
+      // the current scroll position's value, so that the elements are still positioned based on HTML layout
+      var wrapperPosY = self.options.wrapper ? self.options.wrapper.scrollTop : (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
+      // If the option relativeToWrapper is true, use the wrappers offset to top, subtracted from the current page scroll.
+      if (self.options.relativeToWrapper) {
+        var scrollPosY = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
+        wrapperPosY = scrollPosY - self.options.wrapper.offsetTop;
+      }
+      var posY = self.options.vertical ? ( dataPercentage || self.options.center ? wrapperPosY : 0 ) : 0;
+      var posX = self.options.horizontal ? ( dataPercentage || self.options.center ? self.options.wrapper ? self.options.wrapper.scrollLeft : (window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft) : 0 ) : 0;
+
+      var blockTop = posY + el.getBoundingClientRect().top;
+      var blockHeight = el.clientHeight || el.offsetHeight || el.scrollHeight;
+
+      var blockLeft = posX + el.getBoundingClientRect().left;
+      var blockWidth = el.clientWidth || el.offsetWidth || el.scrollWidth;
+
+      // apparently parallax equation everyone uses
+      var percentageY = dataPercentage ? dataPercentage : (posY - blockTop + screenY) / (blockHeight + screenY);
+      var percentageX = dataPercentage ? dataPercentage : (posX - blockLeft + screenX) / (blockWidth + screenX);
+      if(self.options.center){ percentageX = 0.5; percentageY = 0.5; }
+
+      // Optional individual block speed as data attr, otherwise global speed
+      var speed = dataSpeed ? dataSpeed : self.options.speed;
+
+      var bases = updatePosition(percentageX, percentageY, speed);
+
+      // ~~Store non-translate3d transforms~~
+      // Store inline styles and extract transforms
+      var style = el.style.cssText;
+      var transform = '';
+
+      // Check if there's an inline styled transform
+      var searchResult = /transform\s*:/i.exec(style);
+      if (searchResult) {
+        // Get the index of the transform
+        var index = searchResult.index;
+
+        // Trim the style to the transform point and get the following semi-colon index
+        var trimmedStyle = style.slice(index);
+        var delimiter = trimmedStyle.indexOf(';');
+
+        // Remove "transform" string and save the attribute
+        if (delimiter) {
+          transform = " " + trimmedStyle.slice(11, delimiter).replace(/\s/g,'');
+        } else {
+          transform = " " + trimmedStyle.slice(11).replace(/\s/g,'');
+        }
+      }
+
+      return {
+        baseX: bases.x,
+        baseY: bases.y,
+        top: blockTop,
+        left: blockLeft,
+        height: blockHeight,
+        width: blockWidth,
+        speed: speed,
+        style: style,
+        transform: transform,
+        zindex: dataZindex,
+        min: dataMin,
+        max: dataMax
+      };
+    };
+
+    // set scroll position (posY, posX)
+    // side effect method is not ideal, but okay for now
+    // returns true if the scroll changed, false if nothing happened
+    var setPosition = function() {
+      var oldY = posY;
+      var oldX = posX;
+
+      posY = self.options.wrapper ? self.options.wrapper.scrollTop : (document.documentElement || document.body.parentNode || document.body).scrollTop || window.pageYOffset;
+      posX = self.options.wrapper ? self.options.wrapper.scrollLeft : (document.documentElement || document.body.parentNode || document.body).scrollLeft || window.pageXOffset;
+      // If option relativeToWrapper is true, use relative wrapper value instead.
+      if (self.options.relativeToWrapper) {
+        var scrollPosY = (document.documentElement || document.body.parentNode || document.body).scrollTop || window.pageYOffset;
+        posY = scrollPosY - self.options.wrapper.offsetTop;
+      }
+
+
+      if (oldY != posY && self.options.vertical) {
+        // scroll changed, return true
+        return true;
+      }
+
+      if (oldX != posX && self.options.horizontal) {
+        // scroll changed, return true
+        return true;
+      }
+
+      // scroll did not change
+      return false;
+    };
+
+    // Ahh a pure function, gets new transform value
+    // based on scrollPosition and speed
+    // Allow for decimal pixel values
+    var updatePosition = function(percentageX, percentageY, speed) {
+      var result = {};
+      var valueX = (speed * (100 * (1 - percentageX)));
+      var valueY = (speed * (100 * (1 - percentageY)));
+
+      result.x = self.options.round ? Math.round(valueX) : Math.round(valueX * 100) / 100;
+      result.y = self.options.round ? Math.round(valueY) : Math.round(valueY * 100) / 100;
+
+      return result;
+    };
+
+    // Loop
+    var update = function() {
+      if (setPosition() && pause === false) {
+        animate();
+      }
+
+      // loop again
+      loopId = loop(update);
+    };
+
+    // Transform3d on parallax element
+    var animate = function() {
+      var positions;
+      for (var i = 0; i < self.elems.length; i++){
+        var percentageY = ((posY - blocks[i].top + screenY) / (blocks[i].height + screenY));
+        var percentageX = ((posX - blocks[i].left + screenX) / (blocks[i].width + screenX));
+
+        // Subtracting initialize value, so element stays in same spot as HTML
+        positions = updatePosition(percentageX, percentageY, blocks[i].speed);// - blocks[i].baseX;
+        var positionY = positions.y - blocks[i].baseY;
+        var positionX = positions.x - blocks[i].baseX;
+
+        // The next two "if" blocks go like this:
+        // Check if a limit is defined (first "min", then "max");
+        // Check if we need to change the Y or the X
+        // (Currently working only if just one of the axes is enabled)
+        // Then, check if the new position is inside the allowed limit
+        // If so, use new position. If not, set position to limit.
+
+        // Check if a min limit is defined
+        if (blocks[i].min !== null) {
+          if (self.options.vertical && !self.options.horizontal) {
+            positionY = positionY <= blocks[i].min ? blocks[i].min : positionY;
+          }
+          if (self.options.horizontal && !self.options.vertical) {
+            positionX = positionX <= blocks[i].min ? blocks[i].min : positionX;
+          }
+        }
+
+        // Check if a max limit is defined
+        if (blocks[i].max !== null) {
+          if (self.options.vertical && !self.options.horizontal) {
+            positionY = positionY >= blocks[i].max ? blocks[i].max : positionY;
+          }
+          if (self.options.horizontal && !self.options.vertical) {
+            positionX = positionX >= blocks[i].max ? blocks[i].max : positionX;
+          }
+        }
+
+        var zindex = blocks[i].zindex;
+
+        // Move that element
+        // (Set the new translation and append initial inline transforms.)
+        var translate = 'translate3d(' + (self.options.horizontal ? positionX : '0') + 'px,' + (self.options.vertical ? positionY : '0') + 'px,' + zindex + 'px) ' + blocks[i].transform;
+        self.elems[i].style[transformProp] = translate;
+      }
+      self.options.callback(positions);
+    };
+
+    self.destroy = function() {
+      for (var i = 0; i < self.elems.length; i++){
+        self.elems[i].style.cssText = blocks[i].style;
+      }
+
+      // Remove resize event listener if not pause, and pause
+      if (!pause) {
+        window.removeEventListener('resize', init);
+        pause = true;
+      }
+
+      // Clear the animation loop to prevent possible memory leak
+      clearLoop(loopId);
+      loopId = null;
+    };
+
+    // Init
+    init();
+
+    // Allow to recalculate the initial values whenever we want
+    self.refresh = init;
+
+    return self;
+  };
+  return Rellax;
+}));
+
+},{}],"js/slider.js":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.slider = slider;
+
+// slider function
+// (min number, max number, time interval between executing function, query selector)
+function slider(min, max, speed, query) {
+  var slider = 0;
+  var inc = -1;
+  var stripName = document.querySelector(".".concat(query)); // count every second
+
+  setInterval(function () {
+    if (slider == max) inc = -1; // once we reach max, start removing from slider
+
+    if (slider == min) inc = 1; // once we reach min, start adding to slider
+
+    slider += inc; // increment
+
+    stripName.style.transform = "translate3d(".concat(slider, "px, 0px, 0px)");
+  }, speed);
+}
+
+slider(-150, 50, 80, "movers");
+slider(-150, 50, 80, "movers2");
+slider(-150, 50, 80, "movers3");
+slider(-150, 50, 80, "movers4"); // slider(-150, 50, 80, "moversIndex");
+},{}],"js/misc-renderer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
 var _highway = _interopRequireDefault(require("@dogstudio/highway"));
 
-var _transition = _interopRequireDefault(require("./transition"));
+var _rellax = _interopRequireDefault(require("rellax"));
+
+var _slider = require("./slider.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var MiscRenderer =
+/*#__PURE__*/
+function (_Highway$Renderer) {
+  _inherits(MiscRenderer, _Highway$Renderer);
+
+  function MiscRenderer() {
+    _classCallCheck(this, MiscRenderer);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MiscRenderer).apply(this, arguments));
+  }
+
+  _createClass(MiscRenderer, [{
+    key: "onEnter",
+    // Hooks/methods
+    value: function onEnter() {
+      // initialise 
+      var rellaxMisc = new _rellax.default(".rellax", {
+        speed: -2,
+        center: false,
+        wrapper: null,
+        round: true,
+        vertical: false,
+        horizontal: true
+      });
+      (0, _slider.slider)(-150, 50, 80, "moversMisc");
+    }
+  }, {
+    key: "onLeave",
+    value: function onLeave() {// End Rellax and reset parallax elements to their original positions
+      // rellaxMisc.destroy();
+    }
+  }, {
+    key: "onEnterCompleted",
+    value: function onEnterCompleted() {}
+  }, {
+    key: "onLeaveCompleted",
+    value: function onLeaveCompleted() {}
+  }]);
+
+  return MiscRenderer;
+}(_highway.default.Renderer); // export renderer
+
+
+var _default = MiscRenderer;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","rellax":"node_modules/rellax/rellax.js","./slider.js":"js/slider.js"}],"js/travel-renderer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _rellax = _interopRequireDefault(require("rellax"));
+
+var _slider = require("./slider.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var TravelRenderer =
+/*#__PURE__*/
+function (_Highway$Renderer) {
+  _inherits(TravelRenderer, _Highway$Renderer);
+
+  function TravelRenderer() {
+    _classCallCheck(this, TravelRenderer);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TravelRenderer).apply(this, arguments));
+  }
+
+  _createClass(TravelRenderer, [{
+    key: "onEnter",
+    // Hooks/methods
+    value: function onEnter() {
+      // initialise 
+      var rellax = new _rellax.default(".rellax");
+      (0, _slider.slider)(-150, 50, 80, "moversTravel");
+    }
+  }, {
+    key: "onLeave",
+    value: function onLeave() {
+      // End Rellax and reset parallax elements to their original positions
+      rellax.destroy();
+    }
+  }, {
+    key: "onEnterCompleted",
+    value: function onEnterCompleted() {}
+  }, {
+    key: "onLeaveCompleted",
+    value: function onLeaveCompleted() {}
+  }]);
+
+  return TravelRenderer;
+}(_highway.default.Renderer); // export renderer
+
+
+var _default = TravelRenderer;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","rellax":"node_modules/rellax/rellax.js","./slider.js":"js/slider.js"}],"imgs/photography/music/music1.jpg":[function(require,module,exports) {
+module.exports = "/music1.bd7241b8.jpg";
+},{}],"imgs/photography/music/music2.jpg":[function(require,module,exports) {
+module.exports = "/music2.c477aba3.jpg";
+},{}],"imgs/photography/music/music3.jpg":[function(require,module,exports) {
+module.exports = "/music3.602dd4ba.jpg";
+},{}],"imgs/photography/music/music5.jpg":[function(require,module,exports) {
+module.exports = "/music5.c389faa6.jpg";
+},{}],"imgs/photography/music/music6.jpg":[function(require,module,exports) {
+module.exports = "/music6.beab1208.jpg";
+},{}],"imgs/photography/music/music7.jpg":[function(require,module,exports) {
+module.exports = "/music7.4dd3f08a.jpg";
+},{}],"imgs/photography/music/music8.jpg":[function(require,module,exports) {
+module.exports = "/music8.b4e07707.jpg";
+},{}],"imgs/photography/music/music9.jpg":[function(require,module,exports) {
+module.exports = "/music9.df441ab3.jpg";
+},{}],"imgs/photography/music/*.jpg":[function(require,module,exports) {
+module.exports = {
+  "music1": require("./music1.jpg"),
+  "music2": require("./music2.jpg"),
+  "music3": require("./music3.jpg"),
+  "music5": require("./music5.jpg"),
+  "music6": require("./music6.jpg"),
+  "music7": require("./music7.jpg"),
+  "music8": require("./music8.jpg"),
+  "music9": require("./music9.jpg")
+};
+},{"./music1.jpg":"imgs/photography/music/music1.jpg","./music2.jpg":"imgs/photography/music/music2.jpg","./music3.jpg":"imgs/photography/music/music3.jpg","./music5.jpg":"imgs/photography/music/music5.jpg","./music6.jpg":"imgs/photography/music/music6.jpg","./music7.jpg":"imgs/photography/music/music7.jpg","./music8.jpg":"imgs/photography/music/music8.jpg","./music9.jpg":"imgs/photography/music/music9.jpg"}],"js/place-image.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.placeImage = placeImage;
+
+var _ = _interopRequireDefault(require("../imgs/photography/music/*.jpg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var i = 0;
+
+function placeImage(x, y) {
+  var nextImage = _.default[Object.keys(_.default)[i]]; // create img element,
+  // set the src as an img in the images array,
+  // give top left coords based on x and y input values
+
+
+  var img = document.createElement("img");
+  img.setAttribute("src", nextImage);
+  img.classList.add("collage-img");
+  img.style.left = x / 10 + "%";
+  img.style.top = y / 10 + "%";
+  img.style.transform = "translate(-50%, -50%) scale(".concat(Math.random() * 0.1 + 0.2, ") rotate(").concat(Math.random() * 20 - 10, "deg)"); // add to page
+
+  var collageBody = document.querySelector(".collage-body");
+  collageBody.appendChild(img);
+  i = i + 1; // loop back to first image when the end of images array reached
+
+  if (i >= Object.keys(_.default).length) {
+    i = 0;
+  }
+}
+},{"../imgs/photography/music/*.jpg":"imgs/photography/music/*.jpg"}],"js/art-renderer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _slider = require("./slider.js");
+
+var _placeImage = require("./place-image.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ArtRenderer =
+/*#__PURE__*/
+function (_Highway$Renderer) {
+  _inherits(ArtRenderer, _Highway$Renderer);
+
+  function ArtRenderer() {
+    _classCallCheck(this, ArtRenderer);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ArtRenderer).apply(this, arguments));
+  }
+
+  _createClass(ArtRenderer, [{
+    key: "onEnter",
+    // Hooks/methods
+    value: function onEnter() {
+      // initialise slider
+      (0, _slider.slider)(-150, 50, 80, "moversArt");
+      var backButton = document.querySelector(".movBack"); // override collage function preventDefault() and take user back to homepage
+
+      backButton.addEventListener("click", function (event) {
+        window.location.href = "index.html";
+      });
+      var tap = document.querySelector(".tap"); // when user clicks, add image based on event/cursor xy position
+
+      document.querySelector(".art-content").addEventListener("click", function (event) {
+        event.preventDefault();
+        tap.style.display = "none";
+        (0, _placeImage.placeImage)(event.pageX, event.pageY);
+      }); // same as above, but for mobile
+
+      document.addEventListener("touchend", function (event) {
+        event.preventDefault();
+        (0, _placeImage.placeImage)(event.pageX, event.pageY);
+      });
+    }
+  }, {
+    key: "onLeave",
+    value: function onLeave() {// End Rellax and reset parallax elements to their original position
+    }
+  }, {
+    key: "onEnterCompleted",
+    value: function onEnterCompleted() {}
+  }, {
+    key: "onLeaveCompleted",
+    value: function onLeaveCompleted() {}
+  }]);
+
+  return ArtRenderer;
+}(_highway.default.Renderer); // export renderer
+
+
+var _default = ArtRenderer;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./slider.js":"js/slider.js","./place-image.js":"js/place-image.js"}],"js/music-renderer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _slider = require("./slider.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var MusicRenderer =
+/*#__PURE__*/
+function (_Highway$Renderer) {
+  _inherits(MusicRenderer, _Highway$Renderer);
+
+  function MusicRenderer() {
+    _classCallCheck(this, MusicRenderer);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MusicRenderer).apply(this, arguments));
+  }
+
+  _createClass(MusicRenderer, [{
+    key: "onEnter",
+    // Hooks/methods
+    value: function onEnter() {
+      // initialise 
+      (0, _slider.slider)(-150, 50, 80, "moversMusic");
+    }
+  }, {
+    key: "onLeave",
+    value: function onLeave() {}
+  }, {
+    key: "onEnterCompleted",
+    value: function onEnterCompleted() {}
+  }, {
+    key: "onLeaveCompleted",
+    value: function onLeaveCompleted() {}
+  }]);
+
+  return MusicRenderer;
+}(_highway.default.Renderer); // export renderer
+
+
+var _default = MusicRenderer;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./slider.js":"js/slider.js"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _transition = _interopRequireDefault(require("./transition.js"));
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _miscRenderer = _interopRequireDefault(require("./misc-renderer.js"));
+
+var _travelRenderer = _interopRequireDefault(require("./travel-renderer.js"));
+
+var _artRenderer = _interopRequireDefault(require("./art-renderer.js"));
+
+var _musicRenderer = _interopRequireDefault(require("./music-renderer"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Import Renderers
+// Relate renderers to pages with the label of the `data-router-view`.
 var H = new _highway.default.Core({
   transitions: {
     default: _transition.default
+  },
+  renderers: {
+    misc: _miscRenderer.default,
+    travel: _travelRenderer.default,
+    art: _artRenderer.default,
+    music: _musicRenderer.default
   }
 });
-},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./transition":"js/transition.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./transition.js":"js/transition.js","@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./misc-renderer.js":"js/misc-renderer.js","./travel-renderer.js":"js/travel-renderer.js","./art-renderer.js":"js/art-renderer.js","./music-renderer":"js/music-renderer.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -16055,7 +16835,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49616" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

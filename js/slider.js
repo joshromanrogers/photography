@@ -1,7 +1,7 @@
 // slider function
 // (min number, max number, time interval between executing function, query selector)
 
-let slider = (min, max, speed, query) => {
+export function slider(min, max, speed, query){
 
 	let slider = 0;
 	let inc = -1;
@@ -16,12 +16,13 @@ let slider = (min, max, speed, query) => {
 		stripName.style.transform = `translate3d(${slider}px, 0px, 0px)`;
 	}, speed);
 
-};
+}
 
-// slider(-150, 50, 80, "movers");
+slider(-150, 50, 80, "movers");
 slider(-150, 50, 80, "movers2");
 slider(-150, 50, 80, "movers3");
 slider(-150, 50, 80, "movers4");
 // slider(-150, 50, 80, "moversIndex");
+
 
 

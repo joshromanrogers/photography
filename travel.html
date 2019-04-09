@@ -13,13 +13,19 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.9.0/rellax.min.js"></script>
+
 </head>
 
-<body id="travelBod">
+<body>
+       
+        <main data-router-wrapper>
+                <section data-router-view="travel" class="travel">
+                    <div class="travel-content">
+                        <div id="travelBod">
+
     <!-- home button -->
     <div class="movBack">
-        <div class="moversIndex">
+        <div class="moversTravel">
             <a href="index.html" class="index">
                 <span>HOME</span>
                 <span>HOME</span>
@@ -138,12 +144,18 @@
     </div>
 
     <!-- words -->
-    <div class="relax word1 word" data-rellax-speed="-1">myanmar</div>
-    <div class="relax word2 word" data-rellax-speed="-1">formerly burma (+95)</div>
-
+    <div class="rellax word1 word" data-rellax-speed="-1">myanmar</div>
+    <div class="rellax word2 word" data-rellax-speed="-1">formerly burma (+95)</div>
+</div>
     <script src="js/app.js"></script>
     <script src="js/scrollY.js"></script>
-    <script src="js/slider.js"></script>
+    <script src="js/index.js"></script>
+
+    </div>
+    </section>
+    </main>
+    
+
 </body>
 
 </html>

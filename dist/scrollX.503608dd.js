@@ -129,7 +129,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var redX = 69,
     greenX = 111,
     blueX = 225;
-window.addEventListener('scroll', function () {
+window.addEventListener("scroll", function () {
   var y = 1 + (window.scrollX || window.pageXOffset) / 150;
   y = y < 1 ? 1 : y; // ensure y is always >= 1 (due to Safari's elastic scroll)
 
@@ -169,7 +169,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49616" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
