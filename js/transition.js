@@ -12,12 +12,11 @@ class Fade extends Highway.Transition {
 	}) {
 		// responsible for page coming in
 		const tl = new TimelineLite();
-		tl.fromTo(to, 1, {
+		tl.fromTo(to, 5, {
 			left: "-100%",
 		}, {
 			left: "0%",
-			width: "100%",
-			height: "100%",
+			
 
 				onComplete: function () {
 					from.remove();

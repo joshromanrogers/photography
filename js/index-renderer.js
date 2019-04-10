@@ -6,20 +6,21 @@ class IndexRenderer extends Highway.Renderer {
 	// Hooks/methods
 	onEnter() {
 
-        slider(-150, 50, 80, "movers");
-slider(-150, 50, 80, "movers2");
-slider(-150, 50, 80, "movers3");
-slider(-150, 50, 80, "movers4");
+		slider(-150, 50, 80, "movers");
+		slider(-150, 50, 80, "movers2");
+		slider(-150, 50, 80, "movers3");
+		slider(-150, 50, 80, "movers4");
 
 		let art = document.querySelector(".art-img");
 		let music = document.querySelector(".music-img");
 		let travel = document.querySelector(".travel-img");
-        let misc = document.querySelector(".misc-img");
+		let misc = document.querySelector(".misc-img");
+		let homeContent = document.querySelector(".home-content");
 
-        art.style.opacity = 0;
-        music.style.opacity = 0;
-        travel.style.opacity = 0;
-        misc.style.opacity = 0;
+		art.style.opacity = 0;
+		music.style.opacity = 0;
+		travel.style.opacity = 0;
+		misc.style.opacity = 0;
         
         
 		let body = document.getElementsByTagName("BODY")[0];
@@ -28,13 +29,13 @@ slider(-150, 50, 80, "movers4");
 		let show = (image, bgColour, borderColour) => {
 			h1.style.opacity = 1;
 			image.style.opacity = 1;
-			body.style.backgroundColor = bgColour;
+			homeContent.style.backgroundColor = bgColour;
 			image.style.borderColor = borderColour;
 		};
 
 		let hide = (image) => {
 			image.style.opacity = 0;
-			body.style.backgroundColor = "white";
+			homeContent.style.backgroundColor = "white";
 			h1.style.opacity = 1;
 		};
 
@@ -48,7 +49,7 @@ slider(-150, 50, 80, "movers4");
 		document.querySelector(".travel").addEventListener("mouseout", () => hide(travel));
 
 		document.querySelector(".music").addEventListener("mouseover", () => show(music, "red", "orange"));
-        document.querySelector(".music").addEventListener("mouseout", () => hide(music));
+		document.querySelector(".music").addEventListener("mouseout", () => hide(music));
         
 		console.log("entered index");
 	}

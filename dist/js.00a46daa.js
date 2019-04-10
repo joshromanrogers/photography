@@ -15983,12 +15983,10 @@ function (_Highway$Transition) {
           done = _ref.done;
       // responsible for page coming in
       var tl = new _gsap.TimelineLite();
-      tl.fromTo(to, 1, {
+      tl.fromTo(to, 5, {
         left: "-100%"
       }, {
         left: "0%",
-        width: "100%",
-        height: "100%",
         onComplete: function onComplete() {
           from.remove();
           done();
@@ -16835,6 +16833,7 @@ function (_Highway$Renderer) {
       var music = document.querySelector(".music-img");
       var travel = document.querySelector(".travel-img");
       var misc = document.querySelector(".misc-img");
+      var homeContent = document.querySelector(".home-content");
       art.style.opacity = 0;
       music.style.opacity = 0;
       travel.style.opacity = 0;
@@ -16845,13 +16844,13 @@ function (_Highway$Renderer) {
       var show = function show(image, bgColour, borderColour) {
         h1.style.opacity = 1;
         image.style.opacity = 1;
-        body.style.backgroundColor = bgColour;
+        homeContent.style.backgroundColor = bgColour;
         image.style.borderColor = borderColour;
       };
 
       var hide = function hide(image) {
         image.style.opacity = 0;
-        body.style.backgroundColor = "white";
+        homeContent.style.backgroundColor = "white";
         h1.style.opacity = 1;
       };
 
@@ -16959,7 +16958,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61282" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49453" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
