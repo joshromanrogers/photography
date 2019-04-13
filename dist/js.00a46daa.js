@@ -15983,10 +15983,10 @@ function (_Highway$Transition) {
           done = _ref.done;
       // responsible for page coming in
       var tl = new _gsap.TimelineLite();
-      tl.fromTo(to, 5, {
-        left: "-100%"
+      tl.fromTo(to, 2, {
+        left: '-100%'
       }, {
-        left: "0%",
+        left: '0%',
         onComplete: function onComplete() {
           from.remove();
           done();
@@ -16016,7 +16016,579 @@ function (_Highway$Transition) {
 
 var _default = Fade;
 exports.default = _default;
-},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"node_modules/rellax/rellax.js":[function(require,module,exports) {
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/index-to-misc.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _gsap = _interopRequireDefault(require("gsap"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+// Fade
+var IndexToMisc =
+/*#__PURE__*/
+function (_Highway$Transition) {
+  _inherits(IndexToMisc, _Highway$Transition);
+
+  function IndexToMisc() {
+    _classCallCheck(this, IndexToMisc);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IndexToMisc).apply(this, arguments));
+  }
+
+  _createClass(IndexToMisc, [{
+    key: "in",
+    value: function _in(_ref) {
+      var from = _ref.from,
+          to = _ref.to,
+          done = _ref.done;
+      // Reset Scroll
+      window.scrollTo(0, 0); // Animation
+
+      _gsap.default.fromTo(to, 1, {
+        top: '100%'
+      }, {
+        top: '0%',
+        onComplete: done
+      }); // Animation
+
+
+      _gsap.default.fromTo(from, 1, {
+        top: '100%'
+      }, {
+        top: '0%',
+        onComplete: function onComplete() {
+          // Set New View in DOM Stream
+          // to.style.position = "static";
+          // Remove Old View
+          from.remove();
+        }
+      });
+    }
+  }, {
+    key: "out",
+    value: function out(_ref2) {
+      var done = _ref2.done;
+      done();
+    }
+  }]);
+
+  return IndexToMisc;
+}(_highway.default.Transition);
+
+var _default = IndexToMisc;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/index-to-travel.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _gsap = _interopRequireDefault(require("gsap"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+// Fade
+var IndexToTravel =
+/*#__PURE__*/
+function (_Highway$Transition) {
+  _inherits(IndexToTravel, _Highway$Transition);
+
+  function IndexToTravel() {
+    _classCallCheck(this, IndexToTravel);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IndexToTravel).apply(this, arguments));
+  }
+
+  _createClass(IndexToTravel, [{
+    key: "in",
+    value: function _in(_ref) {
+      var from = _ref.from,
+          to = _ref.to,
+          done = _ref.done;
+      // Reset Scroll
+      window.scrollTo(0, 0); // Animation
+
+      _gsap.default.fromTo(to, 1, {
+        left: '100%'
+      }, {
+        left: '0%',
+        onComplete: done
+      }); // Animation
+
+
+      _gsap.default.fromTo(from, 1, {
+        left: '100%'
+      }, {
+        left: '0%',
+        onComplete: function onComplete() {
+          // Set New View in DOM Stream
+          // to.style.position = "static";
+          // Remove Old View
+          from.remove();
+        }
+      });
+    }
+  }, {
+    key: "out",
+    value: function out(_ref2) {
+      var done = _ref2.done;
+      done();
+    }
+  }]);
+
+  return IndexToTravel;
+}(_highway.default.Transition);
+
+var _default = IndexToTravel;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/index-to-art.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _gsap = _interopRequireDefault(require("gsap"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+// Fade
+var IndexToArt =
+/*#__PURE__*/
+function (_Highway$Transition) {
+  _inherits(IndexToArt, _Highway$Transition);
+
+  function IndexToArt() {
+    _classCallCheck(this, IndexToArt);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IndexToArt).apply(this, arguments));
+  }
+
+  _createClass(IndexToArt, [{
+    key: "in",
+    value: function _in(_ref) {
+      var from = _ref.from,
+          to = _ref.to,
+          done = _ref.done;
+      // Reset Scroll
+      window.scrollTo(0, 0); // Animation
+
+      _gsap.default.fromTo(to, 1, {
+        top: "-100%"
+      }, {
+        top: "0%",
+        onComplete: done
+      }); // Animation
+
+
+      _gsap.default.fromTo(from, 1, {
+        top: "-100%"
+      }, {
+        top: "0%",
+        onComplete: function onComplete() {
+          // Set New View in DOM Stream
+          // to.style.position = "static";
+          // Remove Old View
+          from.remove();
+        }
+      });
+    }
+  }, {
+    key: "out",
+    value: function out(_ref2) {
+      var done = _ref2.done;
+      done();
+    }
+  }]);
+
+  return IndexToArt;
+}(_highway.default.Transition);
+
+var _default = IndexToArt;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/index-to-music.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _gsap = _interopRequireDefault(require("gsap"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+// Fade
+var IndexToMusic =
+/*#__PURE__*/
+function (_Highway$Transition) {
+  _inherits(IndexToMusic, _Highway$Transition);
+
+  function IndexToMusic() {
+    _classCallCheck(this, IndexToMusic);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IndexToMusic).apply(this, arguments));
+  }
+
+  _createClass(IndexToMusic, [{
+    key: "in",
+    value: function _in(_ref) {
+      var from = _ref.from,
+          to = _ref.to,
+          done = _ref.done;
+      // Reset Scroll
+      // window.scrollTo(0, 0);
+      console.log('indextomusic'); // Animation
+
+      _gsap.default.fromTo(to, 1, {
+        left: "-100%"
+      }, {
+        left: "0%",
+        onComplete: done
+      }); // Animation
+
+
+      _gsap.default.fromTo(from, 1, {
+        left: "-100%"
+      }, {
+        left: "0%",
+        onComplete: function onComplete() {
+          // Set New View in DOM Stream
+          // to.style.position = "static";
+          // Remove Old View
+          from.remove();
+        }
+      });
+    }
+  }, {
+    key: "out",
+    value: function out(_ref2) {
+      var done = _ref2.done;
+      done();
+    }
+  }]);
+
+  return IndexToMusic;
+}(_highway.default.Transition);
+
+var _default = IndexToMusic;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/opacity-transition.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _gsap = _interopRequireDefault(require("gsap"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+// Fade
+var Opacity =
+/*#__PURE__*/
+function (_Highway$Transition) {
+  _inherits(Opacity, _Highway$Transition);
+
+  function Opacity() {
+    _classCallCheck(this, Opacity);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Opacity).apply(this, arguments));
+  }
+
+  _createClass(Opacity, [{
+    key: "in",
+    value: function _in(_ref) {
+      var from = _ref.from,
+          to = _ref.to,
+          done = _ref.done;
+      // Reset Scroll
+      window.scrollTo(0, 0); // Animation
+
+      _gsap.default.fromTo(to, 0.5, {
+        opacity: 0
+      }, {
+        opacity: 1,
+        onComplete: done
+      });
+    }
+  }, {
+    key: "out",
+    value: function out(_ref2) {
+      var from = _ref2.from,
+          done = _ref2.done;
+
+      // Animation
+      _gsap.default.fromTo(from, 0.5, {
+        opacity: 1
+      }, {
+        opacity: 0,
+        onComplete: done
+      });
+    }
+  }]);
+
+  return Opacity;
+}(_highway.default.Transition);
+
+var _default = Opacity;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/slider.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.slider = slider;
+
+// slider function
+// (min number, max number, time interval between executing function, query selector)
+function slider(min, max, speed, query) {
+  var slider = 0;
+  var inc = -1;
+  var stripName = document.querySelector(".".concat(query)); // count every second
+
+  setInterval(function () {
+    if (slider == max) inc = -1; // once we reach max, start removing from slider
+
+    if (slider == min) inc = 1; // once we reach min, start adding to slider
+
+    slider += inc; // increment
+
+    stripName.style.transform = "translate3d(".concat(slider, "px, 0px, 0px)");
+  }, speed);
+} // slider(-150, 50, 80, "movers");
+// slider(-150, 50, 80, "movers2");
+// slider(-150, 50, 80, "movers3");
+// slider(-150, 50, 80, "movers4");
+// slider(-150, 50, 80, "moversIndex");
+},{}],"js/index-renderer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
+var _slider = require("./slider.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var IndexRenderer =
+/*#__PURE__*/
+function (_Highway$Renderer) {
+  _inherits(IndexRenderer, _Highway$Renderer);
+
+  function IndexRenderer() {
+    _classCallCheck(this, IndexRenderer);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IndexRenderer).apply(this, arguments));
+  }
+
+  _createClass(IndexRenderer, [{
+    key: "onEnter",
+    // Hooks/methods
+    value: function onEnter() {
+      (0, _slider.slider)(-150, 50, 80, "movers");
+      (0, _slider.slider)(-150, 50, 80, "movers2");
+      (0, _slider.slider)(-150, 50, 80, "movers3");
+      (0, _slider.slider)(-150, 50, 80, "movers4");
+      var art = document.querySelector(".art-img");
+      var music = document.querySelector(".music-img");
+      var travel = document.querySelector(".travel-img");
+      var misc = document.querySelector(".misc-img");
+      var homeContent = document.querySelector(".home-content");
+      art.style.opacity = 0;
+      music.style.opacity = 0;
+      travel.style.opacity = 0;
+      misc.style.opacity = 0;
+      var body = document.getElementsByTagName("BODY")[0];
+      var h1 = document.getElementsByTagName("H1")[0];
+      console.log(document);
+
+      var show = function show(image, bgColour, borderColour) {
+        image.style.opacity = 1;
+        homeContent.style.backgroundColor = bgColour;
+        image.style.borderColor = borderColour;
+      };
+
+      var hide = function hide(image) {
+        image.style.opacity = 0;
+        homeContent.style.backgroundColor = "white";
+      };
+
+      document.querySelector(".art").addEventListener("mouseover", function () {
+        return show(art, "brown", "green");
+      });
+      document.querySelector(".art").addEventListener("mouseout", function () {
+        return hide(art);
+      });
+      document.querySelector(".misc").addEventListener("mouseover", function () {
+        return show(misc, "pink", "purple");
+      });
+      document.querySelector(".misc").addEventListener("mouseout", function () {
+        return hide(misc);
+      });
+      document.querySelector(".travel").addEventListener("mouseover", function () {
+        return show(travel, "green", "yellow");
+      });
+      document.querySelector(".travel").addEventListener("mouseout", function () {
+        return hide(travel);
+      });
+      document.querySelector(".music").addEventListener("mouseover", function () {
+        return show(music, "red", "orange");
+      });
+      document.querySelector(".music").addEventListener("mouseout", function () {
+        return hide(music);
+      }); // console.log("entered index");
+    }
+  }, {
+    key: "onLeave",
+    value: function onLeave() {}
+  }, {
+    key: "onEnterCompleted",
+    value: function onEnterCompleted() {}
+  }, {
+    key: "onLeaveCompleted",
+    value: function onLeaveCompleted() {}
+  }]);
+
+  return IndexRenderer;
+}(_highway.default.Renderer); // export renderer
+
+
+var _default = IndexRenderer;
+exports.default = _default;
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./slider.js":"js/slider.js"}],"node_modules/rellax/rellax.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 
@@ -16382,35 +16954,6 @@ var global = arguments[3];
   return Rellax;
 }));
 
-},{}],"js/slider.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.slider = slider;
-
-// slider function
-// (min number, max number, time interval between executing function, query selector)
-function slider(min, max, speed, query) {
-  var slider = 0;
-  var inc = -1;
-  var stripName = document.querySelector(".".concat(query)); // count every second
-
-  setInterval(function () {
-    if (slider == max) inc = -1; // once we reach max, start removing from slider
-
-    if (slider == min) inc = 1; // once we reach min, start adding to slider
-
-    slider += inc; // increment
-
-    stripName.style.transform = "translate3d(".concat(slider, "px, 0px, 0px)");
-  }, speed);
-} // slider(-150, 50, 80, "movers");
-// slider(-150, 50, 80, "movers2");
-// slider(-150, 50, 80, "movers3");
-// slider(-150, 50, 80, "movers4");
-// slider(-150, 50, 80, "moversIndex");
 },{}],"js/misc-renderer.js":[function(require,module,exports) {
 "use strict";
 
@@ -16673,11 +17216,10 @@ function (_Highway$Renderer) {
     value: function onEnter() {
       // initialise slider
       (0, _slider.slider)(-150, 50, 80, "moversArt");
-      var backButton = document.querySelector(".movBack"); // override collage function preventDefault() and take user back to homepage
-      // backButton.addEventListener("click", event => {
-      // 	window.location.href = "index.html";
-      // });
-
+      var backButton = document.querySelector(".movBack");
+      backButton.addEventListener("click", function () {
+        window.location.href = "index.html";
+      });
       var tap = document.querySelector(".tap"); // when user clicks, add image based on event/cursor xy position
 
       document.querySelector(".art-content").addEventListener("click", function (event) {
@@ -16778,131 +17320,24 @@ function (_Highway$Renderer) {
 
 var _default = MusicRenderer;
 exports.default = _default;
-},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./slider.js":"js/slider.js"}],"js/index-renderer.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _highway = _interopRequireDefault(require("@dogstudio/highway"));
-
-var _slider = require("./slider.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var IndexRenderer =
-/*#__PURE__*/
-function (_Highway$Renderer) {
-  _inherits(IndexRenderer, _Highway$Renderer);
-
-  function IndexRenderer() {
-    _classCallCheck(this, IndexRenderer);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(IndexRenderer).apply(this, arguments));
-  }
-
-  _createClass(IndexRenderer, [{
-    key: "onEnter",
-    // Hooks/methods
-    value: function onEnter() {
-      (0, _slider.slider)(-150, 50, 80, "movers");
-      (0, _slider.slider)(-150, 50, 80, "movers2");
-      (0, _slider.slider)(-150, 50, 80, "movers3");
-      (0, _slider.slider)(-150, 50, 80, "movers4");
-      var art = document.querySelector(".art-img");
-      var music = document.querySelector(".music-img");
-      var travel = document.querySelector(".travel-img");
-      var misc = document.querySelector(".misc-img");
-      var homeContent = document.querySelector(".home-content");
-      art.style.opacity = 0;
-      music.style.opacity = 0;
-      travel.style.opacity = 0;
-      misc.style.opacity = 0;
-      var body = document.getElementsByTagName("BODY")[0];
-      var h1 = document.getElementsByTagName("H1")[0];
-
-      var show = function show(image, bgColour, borderColour) {
-        h1.style.opacity = 1;
-        image.style.opacity = 1;
-        homeContent.style.backgroundColor = bgColour;
-        image.style.borderColor = borderColour;
-      };
-
-      var hide = function hide(image) {
-        image.style.opacity = 0;
-        homeContent.style.backgroundColor = "white";
-        h1.style.opacity = 1;
-      };
-
-      document.querySelector(".art").addEventListener("mouseover", function () {
-        return show(art, "brown", "green");
-      });
-      document.querySelector(".art").addEventListener("mouseout", function () {
-        return hide(art);
-      });
-      document.querySelector(".misc").addEventListener("mouseover", function () {
-        return show(misc, "pink", "purple");
-      });
-      document.querySelector(".misc").addEventListener("mouseout", function () {
-        return hide(misc);
-      });
-      document.querySelector(".travel").addEventListener("mouseover", function () {
-        return show(travel, "green", "yellow");
-      });
-      document.querySelector(".travel").addEventListener("mouseout", function () {
-        return hide(travel);
-      });
-      document.querySelector(".music").addEventListener("mouseover", function () {
-        return show(music, "red", "orange");
-      });
-      document.querySelector(".music").addEventListener("mouseout", function () {
-        return hide(music);
-      });
-      console.log("entered index");
-    }
-  }, {
-    key: "onLeave",
-    value: function onLeave() {}
-  }, {
-    key: "onEnterCompleted",
-    value: function onEnterCompleted() {}
-  }, {
-    key: "onLeaveCompleted",
-    value: function onLeaveCompleted() {}
-  }]);
-
-  return IndexRenderer;
-}(_highway.default.Renderer); // export renderer
-
-
-var _default = IndexRenderer;
-exports.default = _default;
 },{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./slider.js":"js/slider.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
+var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+
 var _transition = _interopRequireDefault(require("./transition.js"));
 
-var _highway = _interopRequireDefault(require("@dogstudio/highway"));
+var _indexToMisc = _interopRequireDefault(require("./index-to-misc.js"));
+
+var _indexToTravel = _interopRequireDefault(require("./index-to-travel.js"));
+
+var _indexToArt = _interopRequireDefault(require("./index-to-art.js"));
+
+var _indexToMusic = _interopRequireDefault(require("./index-to-music.js"));
+
+var _opacityTransition = _interopRequireDefault(require("./opacity-transition.js"));
+
+var _indexRenderer = _interopRequireDefault(require("./index-renderer.js"));
 
 var _miscRenderer = _interopRequireDefault(require("./misc-renderer.js"));
 
@@ -16912,15 +17347,22 @@ var _artRenderer = _interopRequireDefault(require("./art-renderer.js"));
 
 var _musicRenderer = _interopRequireDefault(require("./music-renderer.js"));
 
-var _indexRenderer = _interopRequireDefault(require("./index-renderer.js"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Import Highway
+// Import Transitions
 // Import Renderers
 // Relate renderers to pages with the label of the `data-router-view`.
 var H = new _highway.default.Core({
   transitions: {
-    default: _transition.default
+    default: _transition.default,
+    contextual: {
+      indexToMisc: _indexToMisc.default,
+      indexToTravel: _indexToTravel.default,
+      indexToArt: _indexToArt.default,
+      indexToMusic: _indexToMusic.default,
+      opacity: _opacityTransition.default
+    }
   },
   renderers: {
     misc: _miscRenderer.default,
@@ -16930,7 +17372,7 @@ var H = new _highway.default.Core({
     home: _indexRenderer.default
   }
 });
-},{"./transition.js":"js/transition.js","@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./misc-renderer.js":"js/misc-renderer.js","./travel-renderer.js":"js/travel-renderer.js","./art-renderer.js":"js/art-renderer.js","./music-renderer.js":"js/music-renderer.js","./index-renderer.js":"js/index-renderer.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./transition.js":"js/transition.js","./index-to-misc.js":"js/index-to-misc.js","./index-to-travel.js":"js/index-to-travel.js","./index-to-art.js":"js/index-to-art.js","./index-to-music.js":"js/index-to-music.js","./opacity-transition.js":"js/opacity-transition.js","./index-renderer.js":"js/index-renderer.js","./misc-renderer.js":"js/misc-renderer.js","./travel-renderer.js":"js/travel-renderer.js","./art-renderer.js":"js/art-renderer.js","./music-renderer.js":"js/music-renderer.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -16958,7 +17400,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49453" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49372" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

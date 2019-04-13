@@ -5,14 +5,24 @@ body {
   .art-content {
     height: 100vh;
   }
+
+  .art {
+      position: absolute;
+      top: 0;
+    left: 0;
+      height: 100%;
+      width: 100%;
+  }
   
   .collage-body {
-    top: 0%;
+    top: 0;
+    left: 0;
     background-color: #1a1919;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    position: fixed;
+    // overflow: hidden;
+    // position: fixed;
+    // position: absolute;
   }
   
   .collage-img {

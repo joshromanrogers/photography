@@ -10,6 +10,11 @@
     overflow-y: hidden;
   }
 
+  .misc-content {
+    height: 100vh;
+    background-color: black;
+  }
+
   .misc {
     position: absolute;
     top: 0;
@@ -45,39 +50,39 @@
   }
   
   .mObject2 {
-    @include rellax(300px, 10%, 70%);
+    @include rellax(300px, 10%, 15%);
   }
   
   .mObject3 {
-    @include rellax(250px, 5%, 140%);
+    @include rellax(250px, 5%, 20%);
   }
   
   .mObject4 {
-    @include rellax(400px, 10%, 280%);
+    @include rellax(400px, 10%, 28%);
   }
   
   .mObject5 {
-    @include rellax(400px, 20%, 290%);
+    @include rellax(400px, 20%, 29%);
   }
   
   .mObject6 {
-    @include rellax(400px, 10%, 355%);
+    @include rellax(400px, 10%, 35%);
   }
   
   .mObject7 {
-    @include rellax(400px, 45%, 415%);
+    @include rellax(400px, 45%, 41%);
   }
   
   .mObject8 {
-    @include rellax(400px, 25%, 470%);
+    @include rellax(400px, 25%, 47%);
   }
   
   .mObject9 {
-    @include rellax(400px, 0%, 540%);
+    @include rellax(400px, 0%, 54%);
   }
   
   .mObject10 {
-    @include rellax(400px, -10%, 600%);
+    @include rellax(400px, -10%, 60%);
   }
 
   .mWord1 {

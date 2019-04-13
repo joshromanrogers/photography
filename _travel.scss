@@ -1,3 +1,12 @@
+#travelBod {
+  margin: 0;
+  padding: 0;
+  font-family: "Ailerons";
+  color: #fff;
+  font-size: 5em;
+  overflow-x: hidden;
+}
+
 .travel {
 
     position: absolute;
@@ -17,14 +26,7 @@
     height: 5000px;
 }
 
-#travelBod {
-    margin: 0;
-    padding: 0;
-    font-family: "Ailerons";
-    color: #fff;
-    font-size: 5em;
-    overflow-x: hidden;
-  }
+
 
   @import '_homeButton';
   

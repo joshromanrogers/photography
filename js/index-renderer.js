@@ -25,9 +25,9 @@ class IndexRenderer extends Highway.Renderer {
         
 		let body = document.getElementsByTagName("BODY")[0];
 		let h1 = document.getElementsByTagName("H1")[0];
+		console.log(document);
 
 		let show = (image, bgColour, borderColour) => {
-			h1.style.opacity = 1;
 			image.style.opacity = 1;
 			homeContent.style.backgroundColor = bgColour;
 			image.style.borderColor = borderColour;
@@ -36,7 +36,6 @@ class IndexRenderer extends Highway.Renderer {
 		let hide = (image) => {
 			image.style.opacity = 0;
 			homeContent.style.backgroundColor = "white";
-			h1.style.opacity = 1;
 		};
 
 		document.querySelector(".art").addEventListener("mouseover", () => show(art, "brown", "green"));
@@ -51,7 +50,7 @@ class IndexRenderer extends Highway.Renderer {
 		document.querySelector(".music").addEventListener("mouseover", () => show(music, "red", "orange"));
 		document.querySelector(".music").addEventListener("mouseout", () => hide(music));
         
-		console.log("entered index");
+		// console.log("entered index");
 	}
 	onLeave() {
 	}
