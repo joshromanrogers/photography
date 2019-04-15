@@ -16417,8 +16417,7 @@ function (_Highway$Transition) {
       _gsap.default.fromTo(to, 0.5, {
         opacity: 0
       }, {
-        opacity: 1,
-        onComplete: done
+        opacity: 1
       });
     }
   }, {
@@ -16432,7 +16431,13 @@ function (_Highway$Transition) {
         opacity: 1
       }, {
         opacity: 0,
-        onComplete: done
+        onComplete: function onComplete() {
+          // Set New View in DOM Stream
+          // to.style.position = "static";
+          // Remove Old View
+          from.remove();
+          done();
+        }
       });
     }
   }]);
@@ -16453,6 +16458,7 @@ exports.slider = slider;
 // slider function
 // (min number, max number, time interval between executing function, query selector)
 function slider(min, max, speed, query) {
+  console.log(query);
   var slider = 0;
   var inc = -1;
   var stripName = document.querySelector(".".concat(query)); // count every second
@@ -16466,11 +16472,14 @@ function slider(min, max, speed, query) {
 
     stripName.style.transform = "translate3d(".concat(slider, "px, 0px, 0px)");
   }, speed);
-} // slider(-150, 50, 80, "movers");
-// slider(-150, 50, 80, "movers2");
-// slider(-150, 50, 80, "movers3");
-// slider(-150, 50, 80, "movers4");
-// slider(-150, 50, 80, "moversIndex");
+} // let moversTravel = document.querySelector(".moversTravel");
+// let moversArt = document.querySelector(".moversArt");
+// let moversMisc = document.querySelector(".moversMisc");
+// let moversMusic = document.querySelector(".moversMusic");
+// slider(-150, 50, 80, moversTravel);
+// slider(-150, 50, 80, moversArt);
+// slider(-150, 50, 80, moversMisc);
+// slider(-150, 50, 80, moversMusic);
 },{}],"js/index-renderer.js":[function(require,module,exports) {
 "use strict";
 
@@ -17004,6 +17013,7 @@ function (_Highway$Renderer) {
     // Hooks/methods
     value: function onEnter() {
       // initialise 
+      (0, _slider.slider)(-150, 50, 80, "moversMisc");
       var rellaxMisc = new _rellax.default(".rellax", {
         speed: -2,
         center: false,
@@ -17012,7 +17022,6 @@ function (_Highway$Renderer) {
         vertical: false,
         horizontal: true
       });
-      (0, _slider.slider)(-150, 50, 80, "moversMisc");
     }
   }, {
     key: "onLeave",
@@ -17083,8 +17092,8 @@ function (_Highway$Renderer) {
     // Hooks/methods
     value: function onEnter() {
       // initialise 
-      var rellax = new _rellax.default(".rellax");
       (0, _slider.slider)(-150, 50, 80, "moversTravel");
+      var rellax = new _rellax.default(".rellax");
     }
   }, {
     key: "onLeave",
@@ -17105,10 +17114,40 @@ var _default = TravelRenderer;
 exports.default = _default;
 },{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","rellax":"node_modules/rellax/rellax.js","./slider.js":"js/slider.js"}],"imgs/photography/music/music1.jpg":[function(require,module,exports) {
 module.exports = "/music1.bd7241b8.jpg";
+},{}],"imgs/photography/music/music10.jpg":[function(require,module,exports) {
+module.exports = "/music10.f17e703b.jpg";
+},{}],"imgs/photography/music/music11.jpg":[function(require,module,exports) {
+module.exports = "/music11.b0c42854.jpg";
+},{}],"imgs/photography/music/music12.jpg":[function(require,module,exports) {
+module.exports = "/music12.a34b511b.jpg";
+},{}],"imgs/photography/music/music13.jpg":[function(require,module,exports) {
+module.exports = "/music13.5933a7c1.jpg";
+},{}],"imgs/photography/music/music14.jpg":[function(require,module,exports) {
+module.exports = "/music14.2e92ad80.jpg";
+},{}],"imgs/photography/music/music15.jpg":[function(require,module,exports) {
+module.exports = "/music15.7b00bea8.jpg";
+},{}],"imgs/photography/music/music16.jpg":[function(require,module,exports) {
+module.exports = "/music16.383617be.jpg";
+},{}],"imgs/photography/music/music17.jpg":[function(require,module,exports) {
+module.exports = "/music17.8880bed0.jpg";
+},{}],"imgs/photography/music/music18.jpg":[function(require,module,exports) {
+module.exports = "/music18.15c2e36d.jpg";
+},{}],"imgs/photography/music/music19.jpg":[function(require,module,exports) {
+module.exports = "/music19.eddddaae.jpg";
 },{}],"imgs/photography/music/music2.jpg":[function(require,module,exports) {
 module.exports = "/music2.c477aba3.jpg";
+},{}],"imgs/photography/music/music20.jpg":[function(require,module,exports) {
+module.exports = "/music20.4120845a.jpg";
+},{}],"imgs/photography/music/music21.jpg":[function(require,module,exports) {
+module.exports = "/music21.4dcfea5b.jpg";
+},{}],"imgs/photography/music/music22.jpg":[function(require,module,exports) {
+module.exports = "/music22.f717bdd1.jpg";
+},{}],"imgs/photography/music/music23.jpg":[function(require,module,exports) {
+module.exports = "/music23.fa82968d.jpg";
 },{}],"imgs/photography/music/music3.jpg":[function(require,module,exports) {
 module.exports = "/music3.602dd4ba.jpg";
+},{}],"imgs/photography/music/music4.jpg":[function(require,module,exports) {
+module.exports = "/music4.8f3e5d4e.jpg";
 },{}],"imgs/photography/music/music5.jpg":[function(require,module,exports) {
 module.exports = "/music5.c389faa6.jpg";
 },{}],"imgs/photography/music/music6.jpg":[function(require,module,exports) {
@@ -17122,15 +17161,30 @@ module.exports = "/music9.df441ab3.jpg";
 },{}],"imgs/photography/music/*.jpg":[function(require,module,exports) {
 module.exports = {
   "music1": require("./music1.jpg"),
+  "music10": require("./music10.jpg"),
+  "music11": require("./music11.jpg"),
+  "music12": require("./music12.jpg"),
+  "music13": require("./music13.jpg"),
+  "music14": require("./music14.jpg"),
+  "music15": require("./music15.jpg"),
+  "music16": require("./music16.jpg"),
+  "music17": require("./music17.jpg"),
+  "music18": require("./music18.jpg"),
+  "music19": require("./music19.jpg"),
   "music2": require("./music2.jpg"),
+  "music20": require("./music20.jpg"),
+  "music21": require("./music21.jpg"),
+  "music22": require("./music22.jpg"),
+  "music23": require("./music23.jpg"),
   "music3": require("./music3.jpg"),
+  "music4": require("./music4.jpg"),
   "music5": require("./music5.jpg"),
   "music6": require("./music6.jpg"),
   "music7": require("./music7.jpg"),
   "music8": require("./music8.jpg"),
   "music9": require("./music9.jpg")
 };
-},{"./music1.jpg":"imgs/photography/music/music1.jpg","./music2.jpg":"imgs/photography/music/music2.jpg","./music3.jpg":"imgs/photography/music/music3.jpg","./music5.jpg":"imgs/photography/music/music5.jpg","./music6.jpg":"imgs/photography/music/music6.jpg","./music7.jpg":"imgs/photography/music/music7.jpg","./music8.jpg":"imgs/photography/music/music8.jpg","./music9.jpg":"imgs/photography/music/music9.jpg"}],"js/place-image.js":[function(require,module,exports) {
+},{"./music1.jpg":"imgs/photography/music/music1.jpg","./music10.jpg":"imgs/photography/music/music10.jpg","./music11.jpg":"imgs/photography/music/music11.jpg","./music12.jpg":"imgs/photography/music/music12.jpg","./music13.jpg":"imgs/photography/music/music13.jpg","./music14.jpg":"imgs/photography/music/music14.jpg","./music15.jpg":"imgs/photography/music/music15.jpg","./music16.jpg":"imgs/photography/music/music16.jpg","./music17.jpg":"imgs/photography/music/music17.jpg","./music18.jpg":"imgs/photography/music/music18.jpg","./music19.jpg":"imgs/photography/music/music19.jpg","./music2.jpg":"imgs/photography/music/music2.jpg","./music20.jpg":"imgs/photography/music/music20.jpg","./music21.jpg":"imgs/photography/music/music21.jpg","./music22.jpg":"imgs/photography/music/music22.jpg","./music23.jpg":"imgs/photography/music/music23.jpg","./music3.jpg":"imgs/photography/music/music3.jpg","./music4.jpg":"imgs/photography/music/music4.jpg","./music5.jpg":"imgs/photography/music/music5.jpg","./music6.jpg":"imgs/photography/music/music6.jpg","./music7.jpg":"imgs/photography/music/music7.jpg","./music8.jpg":"imgs/photography/music/music8.jpg","./music9.jpg":"imgs/photography/music/music9.jpg"}],"js/place-image.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -17400,7 +17454,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49372" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58438" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

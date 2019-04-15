@@ -7,8 +7,8 @@ class TravelRenderer extends Highway.Renderer {
 	// Hooks/methods
 	onEnter() { 
 		// initialise 
-		let rellax = new Rellax(".rellax");
 		slider(-150, 50, 80, "moversTravel");
+		let rellax = new Rellax(".rellax");
 	}
 	onLeave() { 
 		

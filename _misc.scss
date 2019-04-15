@@ -46,7 +46,7 @@
   }
   
   .mObject1 {
-    @include rellax(500px, 10%, 10%);
+    @include rellax(300px, 10%, 10%);
   }
   
   .mObject2 {
@@ -62,7 +62,7 @@
   }
   
   .mObject5 {
-    @include rellax(400px, 20%, 29%);
+    @include rellax(250px, 20%, 29%);
   }
   
   .mObject6 {
@@ -70,7 +70,7 @@
   }
   
   .mObject7 {
-    @include rellax(400px, 45%, 41%);
+    @include rellax(350px, 15%, 41%);
   }
   
   .mObject8 {

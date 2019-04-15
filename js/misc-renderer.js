@@ -7,6 +7,8 @@ class MiscRenderer extends Highway.Renderer {
 	// Hooks/methods
 	onEnter() { 
 		// initialise 
+		slider(-150, 50, 80, "moversMisc");
+
 		let rellaxMisc = new Rellax(".rellax", {
 			speed: -2,
 			center: false,
@@ -15,7 +17,6 @@ class MiscRenderer extends Highway.Renderer {
 			vertical: false,
 			horizontal: true
 		});
-		slider(-150, 50, 80, "moversMisc");
 	}
 	onLeave() { 
 		// End Rellax and reset parallax elements to their original positions

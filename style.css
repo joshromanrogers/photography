@@ -5,7 +5,6 @@ section {
 #travelBod {
   margin: 0;
   padding: 0;
-  font-family: "Ailerons";
   color: #fff;
   font-size: 5em;
   overflow-x: hidden;
@@ -26,6 +25,7 @@ section {
   background-color: #1a1919;
   width: 100%;
   height: 5000px;
+  overflow-x: hidden;
 }
 
 /* home button */
@@ -325,194 +325,20 @@ body {
 
 .music {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
 }
 
 .music-content {
   background-color: black;
+  display: block;
+  height: 100%;
 }
 
 section, header {
   display: block;
 }
 
-.image {
-  max-width: 90%;
-  max-height: 90%;
-}
-
-#container {
-  position: relative;
-  width: 900px;
-  margin: 10px auto;
-}
-
-section {
-  width: 900px;
-  height: 540px;
-  margin-bottom: 80px;
-  position: relative;
-  z-index: 1;
-}
-
-h1, h2, p {
-  margin: 0 0 15px;
-}
-
-section header {
-  padding: 0 10px;
-}
-
-section h2 {
-  font-size: 28px;
-  line-height: 30px;
-}
-
-p {
-  background: rgba(0, 0, 0, 0.3);
-  height: 15px;
-}
-
-.w3, .w6 {
-  position: absolute;
-  margin: 0 10px;
-  padding-top: 15px;
-}
-
-.w3 {
-  width: 280px;
-}
-
-.w3.box {
-  width: 250px;
-}
-
-.h3.box {
-  height: 150px;
-}
-
-.h3.box .img {
-  line-height: 150px;
-}
-
-.h6.box {
-  height: 315px;
-}
-
-.h6.box .img {
-  line-height: 315px;
-}
-
-.w6 {
-  width: 580px;
-}
-
-.w6.box {
-  width: 550px;
-}
-
-.x3 {
-  left: 300px;
-}
-
-.x6 {
-  left: 600px;
-}
-
-.y3 {
-  top: 180px;
-}
-
-.y6 {
-  top: 360px;
-}
-
-.box {
-  padding-top: 0;
-  padding: 10px;
-}
-
-/* Section-specific layout */
-#web-dev h1 {
-  font-size: 100px;
-  font-weight: 600;
-  line-height: 105px;
-}
-
-#front-end header, #css header, #css3 header {
-  padding-top: 0;
-}
-
-#front-end h1 {
-  line-height: 85px;
-  font-size: 92px;
-}
-
-#css header, #css3 header {
-  padding: 0;
-}
-
-#css h1 {
-  font-size: 150px;
-  line-height: 180px;
-}
-
-#css3 h1 {
-  font-size: 110px;
-  line-height: 105px;
-}
-
-#transforms h1 {
-  font-size: 160px;
-  line-height: 180px;
-}
-
-/* step 2 */
-.csstransforms #content {
-  position: absolute;
-  width: 900px;
-  height: 540px;
-}
-
-.csstransforms section {
-  position: absolute;
-}
-
-.csstransforms #front-end {
-  -webkit-transform: scale(0.3333);
-          transform: scale(0.3333);
-}
-
-.csstransforms #css {
-  -webkit-transform: scale(0.1111);
-          transform: scale(0.1111);
-}
-
-.csstransforms #css3 {
-  -webkit-transform: scale(0.037);
-          transform: scale(0.037);
-}
-
-.csstransforms #transforms {
-  -webkit-transform: scale(0.01235);
-          transform: scale(0.01235);
-}
-
-.csstransforms #scroller {
-  height: 20000px;
-}
-
-.csstransforms #wrap {
-  position: fixed;
-  width: 100%;
-}
-
-/* step 3 */
-/* set arbitrary height on proxy scroller */
-/* prevent content from scrolling */
 /* home button */
 .movBack {
   position: fixed;
@@ -554,6 +380,15 @@ a:hover {
   height: 15%;
   overflow: hidden;
   color: black;
+}
+
+.descriptionPara {
+  margin: 5%;
+  color: white;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  font-size: 20px;
 }
 
 #miscBod {
@@ -631,7 +466,7 @@ a:hover {
 }
 
 .mObject1 {
-  width: 500px;
+  width: 300px;
   top: 10%;
   left: 10%;
 }
@@ -655,7 +490,7 @@ a:hover {
 }
 
 .mObject5 {
-  width: 400px;
+  width: 250px;
   top: 20%;
   left: 29%;
 }
@@ -667,8 +502,8 @@ a:hover {
 }
 
 .mObject7 {
-  width: 400px;
-  top: 45%;
+  width: 350px;
+  top: 15%;
   left: 41%;
 }
 
