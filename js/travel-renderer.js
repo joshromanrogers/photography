@@ -11,7 +11,6 @@ class TravelRenderer extends Highway.Renderer {
 		let rellax = new Rellax(".rellax");
 	}
 	onLeave() { 
-		
 	}
 	onEnterCompleted() { }
 	onLeaveCompleted() { }

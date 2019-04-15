@@ -2,12 +2,11 @@
 import Highway from "@dogstudio/highway";
 
 // Import Transitions
-import Fade from "./transition.js";
+import Fade from "./fade.js";
 import IndexToMisc from "./index-to-misc.js";
 import IndexToTravel from "./index-to-travel.js";
 import IndexToArt from "./index-to-art.js";
 import IndexToMusic from "./index-to-music.js";
-import Opacity from "./opacity-transition.js";
 
 // Import Renderers
 import IndexRenderer from "./index-renderer.js";
@@ -25,7 +24,6 @@ const H = new Highway.Core({
 			indexToTravel: IndexToTravel,
 			indexToArt: IndexToArt,
 			indexToMusic: IndexToMusic,
-			opacity: Opacity,
 		},
 	},
 	renderers: {

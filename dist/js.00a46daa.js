@@ -15932,7 +15932,7 @@ var _EasePack = require("./EasePack.js");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./TweenMax.js":"node_modules/gsap/TweenMax.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"js/transition.js":[function(require,module,exports) {
+},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./TweenMax.js":"node_modules/gsap/TweenMax.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"js/fade.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -15942,7 +15942,7 @@ exports.default = void 0;
 
 var _highway = _interopRequireDefault(require("@dogstudio/highway"));
 
-var _gsap = require("gsap");
+var _gsap = _interopRequireDefault(require("gsap"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15964,6 +15964,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+// Fade
 var Fade =
 /*#__PURE__*/
 function (_Highway$Transition) {
@@ -15981,33 +15982,31 @@ function (_Highway$Transition) {
       var from = _ref.from,
           to = _ref.to,
           done = _ref.done;
-      // responsible for page coming in
-      var tl = new _gsap.TimelineLite();
-      tl.fromTo(to, 2, {
-        left: '-100%'
+      // Reset Scroll
+      window.scrollTo(0, 0); // Remove Old View
+
+      from.remove(); // Animation
+
+      _gsap.default.fromTo(to, 0.5, {
+        opacity: 0
       }, {
-        left: '0%',
-        onComplete: function onComplete() {
-          from.remove();
-          done();
-        }
-      }); // .fromTo(to, 0.5, {
-      // 	height: "100vh"
-      // }, {
-      // 	height: "100vh",
-      // 	onComplete: function () {
-      // 		from.remove();
-      // 		done();
-      // 	}
-      // });
+        opacity: 1,
+        onComplete: done
+      });
     }
   }, {
     key: "out",
     value: function out(_ref2) {
       var from = _ref2.from,
           done = _ref2.done;
-      // responsible for page that's leaving
-      done();
+
+      // Animation
+      _gsap.default.fromTo(from, 0.5, {
+        opacity: 1
+      }, {
+        opacity: 0,
+        onComplete: done
+      });
     }
   }]);
 
@@ -16067,7 +16066,8 @@ function (_Highway$Transition) {
           to = _ref.to,
           done = _ref.done;
       // Reset Scroll
-      window.scrollTo(0, 0); // Animation
+      // window.scrollTo(0, 0);
+      console.log('indextomisc'); // Animation
 
       _gsap.default.fromTo(to, 1, {
         top: '100%'
@@ -16153,7 +16153,8 @@ function (_Highway$Transition) {
           to = _ref.to,
           done = _ref.done;
       // Reset Scroll
-      window.scrollTo(0, 0); // Animation
+      // window.scrollTo(0, 0);
+      console.log('indextotravel'); // Animation
 
       _gsap.default.fromTo(to, 1, {
         left: '100%'
@@ -16239,7 +16240,8 @@ function (_Highway$Transition) {
           to = _ref.to,
           done = _ref.done;
       // Reset Scroll
-      window.scrollTo(0, 0); // Animation
+      // window.scrollTo(0, 0);
+      console.log('indextoart'); // Animation
 
       _gsap.default.fromTo(to, 1, {
         top: "-100%"
@@ -16360,92 +16362,6 @@ function (_Highway$Transition) {
 }(_highway.default.Transition);
 
 var _default = IndexToMusic;
-exports.default = _default;
-},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/opacity-transition.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _highway = _interopRequireDefault(require("@dogstudio/highway"));
-
-var _gsap = _interopRequireDefault(require("gsap"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-// Fade
-var Opacity =
-/*#__PURE__*/
-function (_Highway$Transition) {
-  _inherits(Opacity, _Highway$Transition);
-
-  function Opacity() {
-    _classCallCheck(this, Opacity);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Opacity).apply(this, arguments));
-  }
-
-  _createClass(Opacity, [{
-    key: "in",
-    value: function _in(_ref) {
-      var from = _ref.from,
-          to = _ref.to,
-          done = _ref.done;
-      // Reset Scroll
-      window.scrollTo(0, 0); // Animation
-
-      _gsap.default.fromTo(to, 0.5, {
-        opacity: 0
-      }, {
-        opacity: 1
-      });
-    }
-  }, {
-    key: "out",
-    value: function out(_ref2) {
-      var from = _ref2.from,
-          done = _ref2.done;
-
-      // Animation
-      _gsap.default.fromTo(from, 0.5, {
-        opacity: 1
-      }, {
-        opacity: 0,
-        onComplete: function onComplete() {
-          // Set New View in DOM Stream
-          // to.style.position = "static";
-          // Remove Old View
-          from.remove();
-          done();
-        }
-      });
-    }
-  }]);
-
-  return Opacity;
-}(_highway.default.Transition);
-
-var _default = Opacity;
 exports.default = _default;
 },{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","gsap":"node_modules/gsap/index.js"}],"js/slider.js":[function(require,module,exports) {
 "use strict";
@@ -17379,7 +17295,7 @@ exports.default = _default;
 
 var _highway = _interopRequireDefault(require("@dogstudio/highway"));
 
-var _transition = _interopRequireDefault(require("./transition.js"));
+var _fade = _interopRequireDefault(require("./fade.js"));
 
 var _indexToMisc = _interopRequireDefault(require("./index-to-misc.js"));
 
@@ -17388,8 +17304,6 @@ var _indexToTravel = _interopRequireDefault(require("./index-to-travel.js"));
 var _indexToArt = _interopRequireDefault(require("./index-to-art.js"));
 
 var _indexToMusic = _interopRequireDefault(require("./index-to-music.js"));
-
-var _opacityTransition = _interopRequireDefault(require("./opacity-transition.js"));
 
 var _indexRenderer = _interopRequireDefault(require("./index-renderer.js"));
 
@@ -17409,13 +17323,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Relate renderers to pages with the label of the `data-router-view`.
 var H = new _highway.default.Core({
   transitions: {
-    default: _transition.default,
+    default: _fade.default,
     contextual: {
       indexToMisc: _indexToMisc.default,
       indexToTravel: _indexToTravel.default,
       indexToArt: _indexToArt.default,
-      indexToMusic: _indexToMusic.default,
-      opacity: _opacityTransition.default
+      indexToMusic: _indexToMusic.default
     }
   },
   renderers: {
@@ -17426,7 +17339,7 @@ var H = new _highway.default.Core({
     home: _indexRenderer.default
   }
 });
-},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./transition.js":"js/transition.js","./index-to-misc.js":"js/index-to-misc.js","./index-to-travel.js":"js/index-to-travel.js","./index-to-art.js":"js/index-to-art.js","./index-to-music.js":"js/index-to-music.js","./opacity-transition.js":"js/opacity-transition.js","./index-renderer.js":"js/index-renderer.js","./misc-renderer.js":"js/misc-renderer.js","./travel-renderer.js":"js/travel-renderer.js","./art-renderer.js":"js/art-renderer.js","./music-renderer.js":"js/music-renderer.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.js","./fade.js":"js/fade.js","./index-to-misc.js":"js/index-to-misc.js","./index-to-travel.js":"js/index-to-travel.js","./index-to-art.js":"js/index-to-art.js","./index-to-music.js":"js/index-to-music.js","./index-renderer.js":"js/index-renderer.js","./misc-renderer.js":"js/misc-renderer.js","./travel-renderer.js":"js/travel-renderer.js","./art-renderer.js":"js/art-renderer.js","./music-renderer.js":"js/music-renderer.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -17454,7 +17367,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58438" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65401" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

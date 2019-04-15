@@ -7,7 +7,8 @@ import Tween from "gsap";
 class IndexToTravel extends Highway.Transition {
 	in({ from, to, done }) {
 		// Reset Scroll
-		window.scrollTo(0, 0);
+		// window.scrollTo(0, 0);
+		console.log('indextotravel');
 
 		// Animation
 		Tween.fromTo(to, 1,
@@ -33,6 +34,7 @@ class IndexToTravel extends Highway.Transition {
 			}
 		);
 	}
+	
 
 	out({ done }) {
 		done();

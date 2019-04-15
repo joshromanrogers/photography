@@ -8,8 +8,7 @@ class IndexToMusic extends Highway.Transition {
 	in({ from, to, done }) {
 		// Reset Scroll
         // window.scrollTo(0, 0);
-        console.log('indextomusic');
-
+		console.log('indextomusic');
 		// Animation
 		Tween.fromTo(to, 1,
 			{ left: "-100%" },
