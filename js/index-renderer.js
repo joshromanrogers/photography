@@ -6,10 +6,10 @@ class IndexRenderer extends Highway.Renderer {
 	// Hooks/methods
 	onEnter() {
 
-		slider(-150, 50, 80, "movers");
-		slider(-150, 50, 80, "movers2");
-		slider(-150, 50, 80, "movers3");
-		slider(-150, 50, 80, "movers4");
+		slider(-400, 0, 80, "movers");
+		slider(-400, 0, 80, "movers2");
+		slider(-400, 0, 80, "movers3");
+		slider(-400, 0, 80, "movers4");
 
 		let art = document.querySelector(".art-img");
 		let music = document.querySelector(".music-img");

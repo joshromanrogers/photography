@@ -16443,10 +16443,10 @@ function (_Highway$Renderer) {
     key: "onEnter",
     // Hooks/methods
     value: function onEnter() {
-      (0, _slider.slider)(-150, 50, 80, "movers");
-      (0, _slider.slider)(-150, 50, 80, "movers2");
-      (0, _slider.slider)(-150, 50, 80, "movers3");
-      (0, _slider.slider)(-150, 50, 80, "movers4");
+      (0, _slider.slider)(-400, 0, 80, "movers");
+      (0, _slider.slider)(-400, 0, 80, "movers2");
+      (0, _slider.slider)(-400, 0, 80, "movers3");
+      (0, _slider.slider)(-400, 0, 80, "movers4");
       var art = document.querySelector(".art-img");
       var music = document.querySelector(".music-img");
       var travel = document.querySelector(".travel-img");
@@ -17417,7 +17417,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52143" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54088" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
