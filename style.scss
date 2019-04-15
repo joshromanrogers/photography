@@ -27,11 +27,14 @@ section {
 }
 
 body {
-    font-size: 48px;
-    line-height: 1.5;
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s ease-in-out;
+}
+
+.movArt, .movMisc, .movMusic, .movTravel {
+    font-size: 48px;
+    line-height: 1.5;
 }
 
 .movArt,
@@ -96,7 +99,7 @@ a {
 }
 
 .home {
-    width: 600px;
+    width: 50%;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     border: 5px solid yellowgreen;
