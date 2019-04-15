@@ -6,6 +6,9 @@ import { slider } from './slider.js';
 class MiscRenderer extends Highway.Renderer {
 	// Hooks/methods
 	onEnter() {
+		// make back button invisible until page has come in
+		let movBack = document.querySelector(".movBack");
+		movBack.style.opacity = 0;
 		// initialise
 		slider(-150, 50, 80, 'moversMisc');
 
@@ -34,7 +37,11 @@ class MiscRenderer extends Highway.Renderer {
 		// End Rellax and reset parallax elements to their original positions
 		// rellaxMisc.destroy();
 	}
-	onEnterCompleted() {}
+	onEnterCompleted() {
+		// make back button visible
+		let movBack = document.querySelector(".movBack");
+		movBack.style.opacity = 1;
+	}
 	onLeaveCompleted() {}
 }
 

@@ -20,6 +20,7 @@ section {
 @import "./_misc";
 @import "./_homeButton";
 
+
 * {
     margin: 0px;
     padding: 0px;
@@ -39,8 +40,8 @@ body {
 .movMisc {
     position: absolute;
     overflow: hidden;
-    width: 10%;
-    height: 15%;
+    width: 150px;
+    height: 150px;
     font-size: 48px;
     line-height: 1.5;
 }
@@ -117,7 +118,6 @@ h1 {
 
 
 a {
-
     &.music,
     &.travel,
     &.misc,
@@ -126,22 +126,4 @@ a {
     }
 }
 
-@media (max-width: 1160px) {
-    img {
-        width: 450px;
-    }
-
-    body {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 640px) {
-    img {
-        width: 225px;
-    }
-
-    body {
-        font-size: 16px;
-    }
-}
+@import "./_mediaQueries";

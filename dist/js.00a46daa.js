@@ -16456,9 +16456,6 @@ function (_Highway$Renderer) {
       music.style.opacity = 0;
       travel.style.opacity = 0;
       misc.style.opacity = 0;
-      var body = document.getElementsByTagName("BODY")[0];
-      var h1 = document.getElementsByTagName("H1")[0];
-      console.log(document);
 
       var show = function show(image, bgColour, borderColour) {
         image.style.opacity = 1;
@@ -16936,7 +16933,10 @@ function (_Highway$Renderer) {
     key: "onEnter",
     // Hooks/methods
     value: function onEnter() {
-      // initialise
+      // make back button invisible until page has come in
+      var movBack = document.querySelector(".movBack");
+      movBack.style.opacity = 0; // initialise
+
       (0, _slider.slider)(-150, 50, 80, 'moversMisc');
       var rellaxMisc = new _rellax.default('.rellax', {
         speed: -2,
@@ -16971,7 +16971,11 @@ function (_Highway$Renderer) {
     }
   }, {
     key: "onEnterCompleted",
-    value: function onEnterCompleted() {}
+    value: function onEnterCompleted() {
+      // make back button visible
+      var movBack = document.querySelector(".movBack");
+      movBack.style.opacity = 1;
+    }
   }, {
     key: "onLeaveCompleted",
     value: function onLeaveCompleted() {}
@@ -17040,7 +17044,10 @@ function (_Highway$Renderer) {
     key: "onEnter",
     // Hooks/methods
     value: function onEnter() {
-      // initialise home button and a rellax object
+      // make back button invisible until page has come in
+      var movBack = document.querySelector(".movBack");
+      movBack.style.opacity = 0; // initialise home button and a rellax object
+
       (0, _slider.slider)(-150, 50, 80, "moversTravel");
       var rellax = new _rellax.default(".rellax"); // on scroll, change the colour of the background (travel-container class)
 
@@ -17066,7 +17073,11 @@ function (_Highway$Renderer) {
     value: function onLeave() {}
   }, {
     key: "onEnterCompleted",
-    value: function onEnterCompleted() {}
+    value: function onEnterCompleted() {
+      // make back button visible
+      var movBack = document.querySelector(".movBack");
+      movBack.style.opacity = 1;
+    }
   }, {
     key: "onLeaveCompleted",
     value: function onLeaveCompleted() {}
@@ -17234,7 +17245,10 @@ function (_Highway$Renderer) {
     key: "onEnter",
     // Hooks/methods
     value: function onEnter() {
-      // initialise slider
+      // make back button invisible until page has come in
+      var movBack = document.querySelector(".movBack");
+      movBack.style.opacity = 0; // initialise slider
+
       (0, _slider.slider)(-150, 50, 80, "moversArt");
       var backButton = document.querySelector(".movBack");
       backButton.addEventListener("click", function () {
@@ -17258,7 +17272,11 @@ function (_Highway$Renderer) {
     value: function onLeave() {}
   }, {
     key: "onEnterCompleted",
-    value: function onEnterCompleted() {}
+    value: function onEnterCompleted() {
+      // make back button visible
+      var movBack = document.querySelector(".movBack");
+      movBack.style.opacity = 1;
+    }
   }, {
     key: "onLeaveCompleted",
     value: function onLeaveCompleted() {}
@@ -17318,7 +17336,10 @@ function (_Highway$Renderer) {
     key: "onEnter",
     // Hooks/methods
     value: function onEnter() {
-      // initialise 
+      // make back button visible
+      var movBack = document.querySelector(".movBack");
+      movBack.style.opacity = 0; // initialise 
+
       (0, _slider.slider)(-150, 50, 80, "moversMusic"); // Modernizr.build({}, function (result) {
       //   console.log(result); // the build
       // });
@@ -17328,7 +17349,11 @@ function (_Highway$Renderer) {
     value: function onLeave() {}
   }, {
     key: "onEnterCompleted",
-    value: function onEnterCompleted() {}
+    value: function onEnterCompleted() {
+      // make back button visible
+      var movBack = document.querySelector(".movBack");
+      movBack.style.opacity = 1;
+    }
   }, {
     key: "onLeaveCompleted",
     value: function onLeaveCompleted() {}
@@ -17417,7 +17442,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54088" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61013" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

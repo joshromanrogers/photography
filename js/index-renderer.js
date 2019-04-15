@@ -21,11 +21,6 @@ class IndexRenderer extends Highway.Renderer {
 		music.style.opacity = 0;
 		travel.style.opacity = 0;
 		misc.style.opacity = 0;
-        
-        
-		let body = document.getElementsByTagName("BODY")[0];
-		let h1 = document.getElementsByTagName("H1")[0];
-		console.log(document);
 
 		let show = (image, bgColour, borderColour) => {
 			image.style.opacity = 1;

@@ -6,6 +6,9 @@ import { slider } from "./slider.js";
 class TravelRenderer extends Highway.Renderer {
 	// Hooks/methods
 	onEnter() { 
+		// make back button invisible until page has come in
+		let movBack = document.querySelector(".movBack");
+		movBack.style.opacity = 0;
 		// initialise home button and a rellax object
 		slider(-150, 50, 80, "moversTravel");
 		let rellax = new Rellax(".rellax");
@@ -23,7 +26,11 @@ class TravelRenderer extends Highway.Renderer {
 	}
 	onLeave() { 
 	}
-	onEnterCompleted() { }
+	onEnterCompleted() {
+		// make back button visible
+		let movBack = document.querySelector(".movBack");
+		movBack.style.opacity = 1;
+	 }
 	onLeaveCompleted() { }
 }
 

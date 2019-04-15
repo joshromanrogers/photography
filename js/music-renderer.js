@@ -6,6 +6,9 @@ import { slider } from "./slider.js";
 class MusicRenderer extends Highway.Renderer {
 	// Hooks/methods
 	onEnter() { 
+		// make back button visible
+		let movBack = document.querySelector(".movBack");
+		movBack.style.opacity = 0;
 		// initialise 
 		slider(-150, 50, 80, "moversMusic");
 		
@@ -17,7 +20,11 @@ class MusicRenderer extends Highway.Renderer {
 
 
 	}
-	onEnterCompleted() { }
+	onEnterCompleted() {
+		// make back button visible
+		let movBack = document.querySelector(".movBack");
+		movBack.style.opacity = 1;
+	 }
 	onLeaveCompleted() { 
 	}
 }

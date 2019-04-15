@@ -6,12 +6,14 @@ import { placeImage } from "./place-image.js";
 class ArtRenderer extends Highway.Renderer {
 	// Hooks/methods
 	onEnter() {
+		// make back button invisible until page has come in
+		let movBack = document.querySelector(".movBack");
+		movBack.style.opacity = 0;
 		// initialise slider
 		slider(-150, 50, 80, "moversArt");
-
+	
 		let backButton = document.querySelector(".movBack");
 
-		
 		backButton.addEventListener("click", () => {
 			window.location.href = "index.html";
 		});
@@ -33,7 +35,11 @@ class ArtRenderer extends Highway.Renderer {
 	}
 	onLeave() {
 	}
-	onEnterCompleted() {}
+	onEnterCompleted() {
+		// make back button visible
+		let movBack = document.querySelector(".movBack");
+		movBack.style.opacity = 1;
+	}
 	onLeaveCompleted() {}
 }
 
