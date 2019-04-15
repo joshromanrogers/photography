@@ -11,21 +11,23 @@ section {
 }
 
 .travel {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 5000px;
 }
 
 .travel-container {
+  background-color: #a0a0a0;
+  overflow-x: hidden;
+}
+
+.travel {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #1a1919;
   width: 100%;
-  height: 5000px;
-  overflow-x: hidden;
+}
+
+.travel-content, #travelBod, .travel-container {
+  height: 10000px;
 }
 
 /* home button */
@@ -305,16 +307,15 @@ a:hover {
 }
 
 .tap {
-  padding: 3%;
-  background-color: darkgreen;
+  margin: 0 auto;
+  top: 50%;
   font-size: 2em;
   color: white;
   position: relative;
-  top: 50%;
-  left: 50%;
   z-index: 10;
   width: 100px;
   height: 100px;
+  text-align: center;
 }
 
 body {
@@ -583,11 +584,6 @@ body {
   transition: background-color 0.3s ease-in-out;
 }
 
-.movArt, .movMisc, .movMusic, .movTravel {
-  font-size: 48px;
-  line-height: 1.5;
-}
-
 .movArt,
 .movMusic,
 .movTravel,
@@ -596,6 +592,8 @@ body {
   overflow: hidden;
   width: 10%;
   height: 15%;
+  font-size: 48px;
+  line-height: 1.5;
 }
 
 .movArt {
@@ -640,13 +638,6 @@ body {
 a {
   color: #2727e6;
   text-decoration: none;
-  border-bottom: 4px solid transparent;
-  -webkit-transition: border-bottom 0.3s;
-  transition: border-bottom 0.3s;
-}
-
-a:hover {
-  border-bottom-color: #2727e6;
 }
 
 .home {

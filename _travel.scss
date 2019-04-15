@@ -7,23 +7,23 @@
 }
 
 .travel {
-
-    position: absolute;
-    top: 0;
-  left: 0;
-    // background-color: #1a1919;
     width: 100%;
-    height: 5000px;
 }
 
 .travel-container {
+    background-color: rgb(160, 160, 160);
+    overflow-x: hidden;
+}
+
+.travel {
   position: absolute;
     top: 0;
-  left: 0;
-    background-color: #1a1919;
+    left: 0;
     width: 100%;
-    height: 5000px;
-    overflow-x: hidden;
+}
+
+.travel-content, #travelBod, .travel-container {
+  height: 10000px;
 }
 
 

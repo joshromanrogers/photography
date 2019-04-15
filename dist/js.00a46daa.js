@@ -16897,6 +16897,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -16928,15 +16936,32 @@ function (_Highway$Renderer) {
     key: "onEnter",
     // Hooks/methods
     value: function onEnter() {
-      // initialise 
-      (0, _slider.slider)(-150, 50, 80, "moversMisc");
-      var rellaxMisc = new _rellax.default(".rellax", {
+      // initialise
+      (0, _slider.slider)(-150, 50, 80, 'moversMisc');
+      var rellaxMisc = new _rellax.default('.rellax', {
         speed: -2,
         center: false,
         wrapper: null,
         round: true,
         vertical: false,
         horizontal: true
+      }); // on scroll, change the colour of the background (travel-container class)
+
+      var redX = 260,
+          greenX = 160,
+          blueX = 160;
+      var miscContent = document.querySelector(".misc-content");
+      window.addEventListener("scroll", function () {
+        var y = 1 + (window.scrollX || window.pageXOffset) / 150;
+        y = y < 1 ? 1 : y; // ensure y is always >= 1 (due to Safari's elastic scroll)
+
+        var _map = [redX / y, greenX / y, blueX / y].map(Math.round),
+            _map2 = _slicedToArray(_map, 3),
+            rX = _map2[0],
+            gX = _map2[1],
+            bX = _map2[2];
+
+        miscContent.style.backgroundColor = "rgb(".concat(rX, ", ").concat(gX, ", ").concat(bX, ")");
       });
     }
   }, {
@@ -16976,6 +17001,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -17007,9 +17040,26 @@ function (_Highway$Renderer) {
     key: "onEnter",
     // Hooks/methods
     value: function onEnter() {
-      // initialise 
+      // initialise home button and a rellax object
       (0, _slider.slider)(-150, 50, 80, "moversTravel");
-      var rellax = new _rellax.default(".rellax");
+      var rellax = new _rellax.default(".rellax"); // on scroll, change the colour of the background (travel-container class)
+
+      var redY = 160,
+          greenY = 160,
+          blueY = 160;
+      var travelContainer = document.querySelector(".travel-container");
+      window.addEventListener("scroll", function () {
+        var y = 1 + (window.scrollY || window.pageYOffset) / 300;
+        y = y < 1 ? 1 : y; // ensure y is always >= 1 (due to Safari's elastic scroll)
+
+        var _map = [redY / y, greenY / y, blueY / y].map(Math.round),
+            _map2 = _slicedToArray(_map, 3),
+            rY = _map2[0],
+            gY = _map2[1],
+            bY = _map2[2];
+
+        travelContainer.style.backgroundColor = "rgb(".concat(rY, ", ").concat(gY, ", ").concat(bY, ")");
+      });
     }
   }, {
     key: "onLeave",
@@ -17367,7 +17417,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49629" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52143" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

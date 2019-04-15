@@ -118,14 +118,30 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/scrollY.js":[function(require,module,exports) {
-// const [redY, greenY, blueY] = [69, 111, 225];
-// window.addEventListener("scroll", () => {
-// 	let y = 1 + (window.scrollY || window.pageYOffset) / 300;
-// 	y = y < 1 ? 1 : y; // ensure y is always >= 1 (due to Safari's elastic scroll)
-// 	const [rY, gY, bY] = [redY/y, greenY/y, blueY/y].map(Math.round);
-// 	body.style.backgroundColor = `rgb(${rY}, ${gY}, ${bY})`;
-// });
-// window.addEventListener();
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var redY = 69,
+    greenY = 111,
+    blueY = 225;
+var body = document.getElementsByTagName("BODY")[0];
+window.addEventListener("scroll", function () {
+  var y = 1 + (window.scrollY || window.pageYOffset) / 300;
+  y = y < 1 ? 1 : y; // ensure y is always >= 1 (due to Safari's elastic scroll)
+
+  var _map = [redY / y, greenY / y, blueY / y].map(Math.round),
+      _map2 = _slicedToArray(_map, 3),
+      rY = _map2[0],
+      gY = _map2[1],
+      bY = _map2[2];
+
+  body.style.backgroundColor = "rgb(".concat(rY, ", ").concat(gY, ", ").concat(bY, ")");
+});
 },{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -154,7 +170,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49629" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51135" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
