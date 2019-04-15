@@ -17097,18 +17097,18 @@ module.exports = "/music10.f17e703b.jpg";
 module.exports = "/music11.b0c42854.jpg";
 },{}],"imgs/photography/music/music12.jpg":[function(require,module,exports) {
 module.exports = "/music12.a34b511b.jpg";
-},{}],"imgs/photography/music/music13.jpg":[function(require,module,exports) {
-module.exports = "/music13.5933a7c1.jpg";
 },{}],"imgs/photography/music/music14.jpg":[function(require,module,exports) {
 module.exports = "/music14.2e92ad80.jpg";
+},{}],"imgs/photography/music/music13.jpg":[function(require,module,exports) {
+module.exports = "/music13.5933a7c1.jpg";
 },{}],"imgs/photography/music/music15.jpg":[function(require,module,exports) {
 module.exports = "/music15.7b00bea8.jpg";
 },{}],"imgs/photography/music/music16.jpg":[function(require,module,exports) {
 module.exports = "/music16.383617be.jpg";
-},{}],"imgs/photography/music/music17.jpg":[function(require,module,exports) {
-module.exports = "/music17.8880bed0.jpg";
 },{}],"imgs/photography/music/music18.jpg":[function(require,module,exports) {
 module.exports = "/music18.15c2e36d.jpg";
+},{}],"imgs/photography/music/music17.jpg":[function(require,module,exports) {
+module.exports = "/music17.8880bed0.jpg";
 },{}],"imgs/photography/music/music19.jpg":[function(require,module,exports) {
 module.exports = "/music19.eddddaae.jpg";
 },{}],"imgs/photography/music/music2.jpg":[function(require,module,exports) {
@@ -17141,12 +17141,12 @@ module.exports = {
   "music10": require("./music10.jpg"),
   "music11": require("./music11.jpg"),
   "music12": require("./music12.jpg"),
-  "music13": require("./music13.jpg"),
   "music14": require("./music14.jpg"),
+  "music13": require("./music13.jpg"),
   "music15": require("./music15.jpg"),
   "music16": require("./music16.jpg"),
-  "music17": require("./music17.jpg"),
   "music18": require("./music18.jpg"),
+  "music17": require("./music17.jpg"),
   "music19": require("./music19.jpg"),
   "music2": require("./music2.jpg"),
   "music20": require("./music20.jpg"),
@@ -17161,7 +17161,7 @@ module.exports = {
   "music8": require("./music8.jpg"),
   "music9": require("./music9.jpg")
 };
-},{"./music1.jpg":"imgs/photography/music/music1.jpg","./music10.jpg":"imgs/photography/music/music10.jpg","./music11.jpg":"imgs/photography/music/music11.jpg","./music12.jpg":"imgs/photography/music/music12.jpg","./music13.jpg":"imgs/photography/music/music13.jpg","./music14.jpg":"imgs/photography/music/music14.jpg","./music15.jpg":"imgs/photography/music/music15.jpg","./music16.jpg":"imgs/photography/music/music16.jpg","./music17.jpg":"imgs/photography/music/music17.jpg","./music18.jpg":"imgs/photography/music/music18.jpg","./music19.jpg":"imgs/photography/music/music19.jpg","./music2.jpg":"imgs/photography/music/music2.jpg","./music20.jpg":"imgs/photography/music/music20.jpg","./music21.jpg":"imgs/photography/music/music21.jpg","./music22.jpg":"imgs/photography/music/music22.jpg","./music23.jpg":"imgs/photography/music/music23.jpg","./music3.jpg":"imgs/photography/music/music3.jpg","./music4.jpg":"imgs/photography/music/music4.jpg","./music5.jpg":"imgs/photography/music/music5.jpg","./music6.jpg":"imgs/photography/music/music6.jpg","./music7.jpg":"imgs/photography/music/music7.jpg","./music8.jpg":"imgs/photography/music/music8.jpg","./music9.jpg":"imgs/photography/music/music9.jpg"}],"js/place-image.js":[function(require,module,exports) {
+},{"./music1.jpg":"imgs/photography/music/music1.jpg","./music10.jpg":"imgs/photography/music/music10.jpg","./music11.jpg":"imgs/photography/music/music11.jpg","./music12.jpg":"imgs/photography/music/music12.jpg","./music14.jpg":"imgs/photography/music/music14.jpg","./music13.jpg":"imgs/photography/music/music13.jpg","./music15.jpg":"imgs/photography/music/music15.jpg","./music16.jpg":"imgs/photography/music/music16.jpg","./music18.jpg":"imgs/photography/music/music18.jpg","./music17.jpg":"imgs/photography/music/music17.jpg","./music19.jpg":"imgs/photography/music/music19.jpg","./music2.jpg":"imgs/photography/music/music2.jpg","./music20.jpg":"imgs/photography/music/music20.jpg","./music21.jpg":"imgs/photography/music/music21.jpg","./music22.jpg":"imgs/photography/music/music22.jpg","./music23.jpg":"imgs/photography/music/music23.jpg","./music3.jpg":"imgs/photography/music/music3.jpg","./music4.jpg":"imgs/photography/music/music4.jpg","./music5.jpg":"imgs/photography/music/music5.jpg","./music6.jpg":"imgs/photography/music/music6.jpg","./music7.jpg":"imgs/photography/music/music7.jpg","./music8.jpg":"imgs/photography/music/music8.jpg","./music9.jpg":"imgs/photography/music/music9.jpg"}],"js/place-image.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -17442,7 +17442,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61013" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64135" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

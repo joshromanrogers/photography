@@ -40,113 +40,113 @@
   }
   
   .object1 {
-    @include rellax(500px, 10%, 10%);
+    @include rellax(50%, 2%, 10%);
   }
  
   .object2 {
-    @include rellax(350px, 20%, 25%);
+    @include rellax(35%, 5%, 25%);
   }
   
   .object3 {
-    @include rellax(450px, 30%, 15%);
+    @include rellax(45%, 10%, 15%);
   }
   
   .object4 {
-    @include rellax(400px, 40%, 40%);
+    @include rellax(40%, 20%, 40%);
   }
   
   .object5 {
-    @include rellax(500px, 45%, 20%);
+    @include rellax(50%, 25%, 20%);
   }
   
   .object6 {
-    @include rellax(400px, 50%, 10%);
+    @include rellax(40%, 30%, 10%);
   }
   
   .object7 {
-    @include rellax(400px, 60%, 55%);
+    @include rellax(40%, 35%, 55%);
   }
   
   .object8 {
-    @include rellax(400px, 70%, 50%);
+    @include rellax(40%, 40%, 50%);
   }
   
   .object9 {
-    @include rellax(400px, 75%, 15%);
+    @include rellax(40%, 45%, 15%);
   }
   
   .object10 {
-    @include rellax(400px, 80%, 60%);
+    @include rellax(40%, 50%, 60%);
   }
   
   .object11 {
-    @include rellax(500px, 80%, 10%);
+    @include rellax(50%, 55%, 10%);
   }
   
   .object12 {
-    @include rellax(300px, 80%, 65%);
+    @include rellax(30%, 55%, 65%);
   }
   
   .object13 {
-    @include rellax(250px, 85%, 25%);
+    @include rellax(25%, 55%, 25%);
   }
   
   .object14 {
-    @include rellax(400px, 85%, 40%);
+    @include rellax(40%, 60%, 40%);
   }
   
   .object15 {
-    @include rellax(400px, 85%, 20%);
+    @include rellax(40%, 60%, 20%);
   }
   
   .object16 {
-    @include rellax(400px, 85%, 10%);
+    @include rellax(40%, 60%, 10%);
   }
   
   .object17 {
-    @include rellax(400px, 80%, 40%);
+    @include rellax(40%, 65%, 40%);
   }
   
   .object18 {
-    @include rellax(400px, 80%, 50%);
+    @include rellax(40%, 70%, 50%);
   }
   
   .object19 {
-    @include rellax(400px, 90%, 15%);
+    @include rellax(40%, 70%, 15%);
   }
   
   .object20 {
-    @include rellax(400px, 90%, 60%);
+    @include rellax(40%, 75%, 60%);
   }
   
   .object21 {
-    @include rellax(400px, 100%, 20%);
+    @include rellax(40%, 45%, 20%);
   }
   
   .object22 {
-    @include rellax(400px, 100%, 10%);
+    @include rellax(400px, 80%, 10%);
   }
   
   .object23 {
-    @include rellax(400px, 100%, 40%);
+    @include rellax(40%, 80%, 40%);
   }
   
   .object24 {
-    @include rellax(400px, 10%, 50%);
+    @include rellax(40%, 50%, 50%);
   }
   
   .object25 {
-    @include rellax(400px, 100%, 15%);
+    @include rellax(40%, 80%, 15%);
   }
   
   .object26 {
-    @include rellax(400px, 10%, 60%);
+    @include rellax(40%, 80%, 60%);
   }
   
   .word1 {
-    @include relWord(80%, 20%, 0.7em);
+    @include relWord(20%, 20%, 0.7em);
   }
   
   .word2 {
-    @include relWord(102%, 15%, 0.5em);
+    @include relWord(2%, 15%, 0.5em);
   }
