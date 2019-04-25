@@ -78,9 +78,9 @@ a:hover {
 }
 
 .object2 {
-  width: 35%;
+  width: 55%;
   top: 5%;
-  left: 25%;
+  left: 35%;
 }
 
 .object3 {
@@ -90,8 +90,8 @@ a:hover {
 }
 
 .object4 {
-  width: 40%;
-  top: 20%;
+  width: 50%;
+  top: 18%;
   left: 40%;
 }
 
@@ -99,30 +99,34 @@ a:hover {
   width: 50%;
   top: 25%;
   left: 20%;
+  z-index: 3;
 }
 
 .object6 {
   width: 40%;
   top: 30%;
   left: 10%;
+  z-index: 2;
 }
 
 .object7 {
   width: 40%;
   top: 35%;
   left: 55%;
+  z-index: 3;
 }
 
 .object8 {
   width: 40%;
   top: 40%;
   left: 50%;
+  z-index: 2;
 }
 
 .object9 {
   width: 40%;
-  top: 45%;
-  left: 15%;
+  top: 20%;
+  left: 10%;
 }
 
 .object10 {
@@ -198,7 +202,7 @@ a:hover {
 }
 
 .object22 {
-  width: 400px;
+  width: 40%;
   top: 80%;
   left: 10%;
 }
@@ -234,9 +238,10 @@ a:hover {
 }
 
 .word2 {
-  top: 2%;
+  top: 11%;
   left: 15%;
-  font-size: 0.5em;
+  font-size: 3em;
+  color: white;
 }
 
 body {
@@ -384,12 +389,24 @@ a:hover {
 }
 
 .descriptionPara {
-  margin: 5%;
+  margin: 8%;
   color: white;
   position: absolute;
-  left: 10%;
-  top: 50%;
-  font-size: 20px;
+  left: 0%;
+  top: 23%;
+  font-size: 2em;
+}
+
+.blue {
+  color: blue;
+}
+
+a.website {
+  text-decoration: none;
+  font-size: 1em;
+  padding: 0px;
+  padding-top: 10px;
+  color: grey;
 }
 
 #miscBod {
@@ -460,76 +477,77 @@ a:hover {
 }
 
 .rellaxImg {
-  width: 100%;
   overflow-x: scroll;
   white-space: nowrap;
   opacity: 1;
+  max-height: 500px;
 }
 
 .mObject1 {
-  width: 300px;
+  height: 30%;
   top: 10%;
   left: 10%;
 }
 
 .mObject2 {
-  width: 300px;
+  height: 30%;
   top: 10%;
   left: 15%;
 }
 
 .mObject3 {
-  width: 250px;
+  height: 25%;
   top: 5%;
   left: 20%;
 }
 
 .mObject4 {
-  width: 400px;
+  height: 40%;
   top: 10%;
   left: 28%;
 }
 
 .mObject5 {
-  width: 250px;
+  height: 25%;
   top: 20%;
   left: 29%;
 }
 
 .mObject6 {
-  width: 400px;
+  height: 40%;
   top: 10%;
   left: 35%;
 }
 
 .mObject7 {
-  width: 350px;
+  height: 35%;
   top: 15%;
   left: 41%;
 }
 
 .mObject8 {
-  width: 400px;
+  height: 40%;
   top: 25%;
   left: 47%;
 }
 
 .mObject9 {
-  width: 400px;
+  height: 40%;
   top: 0%;
   left: 54%;
 }
 
 .mObject10 {
-  width: 400px;
+  height: 40%;
   top: -10%;
   left: 60%;
 }
 
 .mWord1 {
-  top: 20%;
-  left: 20%;
-  font-size: 0.7em;
+  top: 55%;
+  left: 2%;
+  font-size: 8em;
+  color: white;
 }
 
 .mWord2 {

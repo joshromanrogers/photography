@@ -33,10 +33,22 @@ body {
   }
 
   .descriptionPara {
-    margin: 5%;
+    margin: 8%;
     color: white;
     position: absolute;
-    left: 10%;
-    top: 50%;
-    font-size: 20px;
+    left: 0%;
+    top: 23%;
+    font-size: 2em;
+  }
+
+  .blue {
+    color: blue;
+  }
+
+  a.website {
+    text-decoration: none;
+    font-size: 1em;
+    padding: 0px;
+    padding-top: 10px;
+    color: grey;
   }

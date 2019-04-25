@@ -44,7 +44,7 @@
   }
  
   .object2 {
-    @include rellax(35%, 5%, 25%);
+    @include rellax(55%, 5%, 35%);
   }
   
   .object3 {
@@ -52,27 +52,35 @@
   }
   
   .object4 {
-    @include rellax(40%, 20%, 40%);
+    @include rellax(50%, 18%, 40%);
   }
   
   .object5 {
     @include rellax(50%, 25%, 20%);
+    z-index: 3;
+
   }
   
   .object6 {
     @include rellax(40%, 30%, 10%);
+    z-index: 2;
+
   }
   
   .object7 {
     @include rellax(40%, 35%, 55%);
+    z-index: 3;
+
   }
   
   .object8 {
     @include rellax(40%, 40%, 50%);
+    z-index: 2;
+
   }
   
   .object9 {
-    @include rellax(40%, 45%, 15%);
+    @include rellax(40%, 20%, 10%);
   }
   
   .object10 {
@@ -124,7 +132,7 @@
   }
   
   .object22 {
-    @include rellax(400px, 80%, 10%);
+    @include rellax(40%, 80%, 10%);
   }
   
   .object23 {
@@ -148,5 +156,6 @@
   }
   
   .word2 {
-    @include relWord(2%, 15%, 0.5em);
+    @include relWord(11%, 15%, 3em);
+    color: white;
   }

@@ -39,54 +39,55 @@
   }
   
   .rellaxImg {
-    width: 100%;
     overflow-x: scroll;
     white-space: nowrap;
     opacity: 1;
+    max-height: 500px;
   }
   
   .mObject1 {
-    @include rellax(300px, 10%, 10%);
+    @include rellaxH(30%, 10%, 10%);
   }
   
   .mObject2 {
-    @include rellax(300px, 10%, 15%);
+    @include rellaxH(30%, 10%, 15%);
   }
   
   .mObject3 {
-    @include rellax(250px, 5%, 20%);
+    @include rellaxH(25%, 5%, 20%);
   }
   
   .mObject4 {
-    @include rellax(400px, 10%, 28%);
+    @include rellaxH(40%, 10%, 28%);
   }
   
   .mObject5 {
-    @include rellax(250px, 20%, 29%);
+    @include rellaxH(25%, 20%, 29%);
   }
   
   .mObject6 {
-    @include rellax(400px, 10%, 35%);
+    @include rellaxH(40%, 10%, 35%);
   }
   
   .mObject7 {
-    @include rellax(350px, 15%, 41%);
+    @include rellaxH(35%, 15%, 41%);
   }
   
   .mObject8 {
-    @include rellax(400px, 25%, 47%);
+    @include rellaxH(40%, 25%, 47%);
   }
   
   .mObject9 {
-    @include rellax(400px, 0%, 54%);
+    @include rellaxH(40%, 0%, 54%);
   }
   
   .mObject10 {
-    @include rellax(400px, -10%, 60%);
+    @include rellaxH(40%, -10%, 60%);
   }
 
   .mWord1 {
-    @include relWord(20%, 20%, 0.7em);
+    @include relWord(55%, 2%, 8em);
+    color: white;
   }
   
   .mWord2 {

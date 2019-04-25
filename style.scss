@@ -8,6 +8,12 @@ section {
     left: $left;
 }
 
+@mixin rellaxH($height, $top , $left) {
+    height: $height;
+    top: $top;
+    left: $left;
+}
+
 @mixin relWord($top, $left, $fontSize) {
     top: $top;
     left: $left;
