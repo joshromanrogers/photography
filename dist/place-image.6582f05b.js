@@ -212,7 +212,7 @@ function placeImage(x, y) {
   var img = document.createElement("img");
   img.setAttribute("src", nextImage);
   img.classList.add("collage-img");
-  img.style.maxHeight = "1500px";
+  img.style.maxHeight = "1800px";
   img.style.left = x / 10 + "%";
   img.style.top = y / 10 + "%";
   img.style.transform = "translate(-50%, -50%) scale(".concat(Math.random() * 0.1 + 0.2, ") rotate(").concat(Math.random() * 20 - 10, "deg)"); // add to page
@@ -253,7 +253,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62929" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52135" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

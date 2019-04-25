@@ -10,7 +10,7 @@ export function placeImage(x, y) {
 	const img = document.createElement("img");
 	img.setAttribute("src", nextImage);
 	img.classList.add("collage-img");
-	img.style.maxHeight = "1500px";
+	img.style.maxHeight = "1800px";
 	img.style.left = x / 10 + "%";
 	img.style.top = y / 10 + "%";
 	img.style.transform = `translate(-50%, -50%) scale(${Math.random() * 0.1 + 0.2}) rotate(${Math.random() * 20 -
