@@ -1,9 +1,6 @@
-// Highway
 import Highway from "@dogstudio/highway";
-// GSAP
 import Tween from "gsap";
 
-// Fade
 class Opacity extends Highway.Transition {
 	in({ from, to, done }) {
 		// Reset Scroll
@@ -26,9 +23,6 @@ class Opacity extends Highway.Transition {
 			{
 				opacity: 0,
 				onComplete: () => {
-					// Set New View in DOM Stream
-					// to.style.position = "static";
-      
 					// Remove Old View
 					from.remove();
 					done();

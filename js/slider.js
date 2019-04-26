@@ -2,7 +2,6 @@
 // (min number, max number, time interval between executing function, query selector)
 
 export function slider(min, max, speed, query){
-	console.log(query);
 	let slider = 0;
 	let inc = -1;
 	let stripName = document.querySelector(`.${query}`);
@@ -17,17 +16,5 @@ export function slider(min, max, speed, query){
 	}, speed);
 
 }
-
-// let moversTravel = document.querySelector(".moversTravel");
-// let moversArt = document.querySelector(".moversArt");
-// let moversMisc = document.querySelector(".moversMisc");
-// let moversMusic = document.querySelector(".moversMusic");
-
-// slider(-150, 50, 80, moversTravel);
-// slider(-150, 50, 80, moversArt);
-// slider(-150, 50, 80, moversMisc);
-// slider(-150, 50, 80, moversMusic);
-
-
 
 

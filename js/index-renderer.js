@@ -1,11 +1,9 @@
-// Import Highway & Slider
 import Highway from "@dogstudio/highway";
 import { slider } from "./slider.js";
 
 class IndexRenderer extends Highway.Renderer {
-	// Hooks/methods
 	onEnter() {
-
+		// get the link buttons moving
 		slider(-400, 0, 80, "movers");
 		slider(-400, 0, 80, "movers2");
 		slider(-400, 0, 80, "movers3");
@@ -22,17 +20,21 @@ class IndexRenderer extends Highway.Renderer {
 		travel.style.opacity = 0;
 		misc.style.opacity = 0;
 
+		// when moused over, image appears in center of screen with a border colour
+		// and specific background colour
 		let show = (image, bgColour, borderColour) => {
 			image.style.opacity = 1;
 			homeContent.style.backgroundColor = bgColour;
 			image.style.borderColor = borderColour;
 		};
 
+		// when mouse leaves, page reverts to original appearance
 		let hide = (image) => {
 			image.style.opacity = 0;
 			homeContent.style.backgroundColor = "white";
 		};
 
+		// hooking up links to the 2 above functions
 		document.querySelector(".art").addEventListener("mouseover", () => show(art, "brown", "green"));
 		document.querySelector(".art").addEventListener("mouseout", () => hide(art));
 
@@ -45,7 +47,6 @@ class IndexRenderer extends Highway.Renderer {
 		document.querySelector(".music").addEventListener("mouseover", () => show(music, "red", "orange"));
 		document.querySelector(".music").addEventListener("mouseout", () => hide(music));
         
-		// console.log("entered index");
 	}
 	onLeave() {
 	}

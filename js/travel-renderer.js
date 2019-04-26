@@ -1,14 +1,13 @@
-// Import Highway & Rellax & slider
 import Highway from "@dogstudio/highway";
 import Rellax from "rellax";
 import { slider } from "./slider.js";
 
 class TravelRenderer extends Highway.Renderer {
-	// Hooks/methods
 	onEnter() { 
 		// make back button invisible until page has come in
 		let movBack = document.querySelector(".movBack");
 		movBack.style.opacity = 0;
+		
 		// initialise home button and a rellax object
 		slider(-150, 50, 80, "moversTravel");
 		let rellax = new Rellax(".rellax");

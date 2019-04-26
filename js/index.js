@@ -17,6 +17,7 @@ import MusicRenderer from "./music-renderer.js";
 
 // Relate renderers to pages with the label of the `data-router-view`.
 const H = new Highway.Core({
+	// animations the occur when there's a transition to another page
 	transitions: {
 		default: Fade,
 		contextual: {
@@ -26,6 +27,7 @@ const H = new Highway.Core({
 			indexToMusic: IndexToMusic,
 		},
 	},
+	// holds all js that is to be executed on the page the user is entering
 	renderers: {
 		misc: MiscRenderer,
 		travel: TravelRenderer,

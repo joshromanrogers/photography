@@ -9,9 +9,11 @@ class MiscRenderer extends Highway.Renderer {
 		// make back button invisible until page has come in
 		let movBack = document.querySelector(".movBack");
 		movBack.style.opacity = 0;
-		// initialise
+
+		// initialise back button movement
 		slider(-150, 50, 80, 'moversMisc');
 
+		// initialise an instance of rellaxjs
 		let rellaxMisc = new Rellax('.rellax', {
 			speed: -2,
 			center: false,
@@ -24,7 +26,6 @@ class MiscRenderer extends Highway.Renderer {
 		// on scroll, change the colour of the background (travel-container class)
 		const [redX, greenX, blueX] = [260, 160, 160];
 		let miscContent = document.querySelector(".misc-content");
-
 
 		window.addEventListener("scroll", () => {
 			let y = 1 + (window.scrollX || window.pageXOffset) / 150;

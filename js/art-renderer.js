@@ -4,11 +4,11 @@ import { slider } from "./slider.js";
 import { placeImage } from "./place-image.js";
 
 class ArtRenderer extends Highway.Renderer {
-	// Hooks/methods
 	onEnter() {
 		// make back button invisible until page has come in
 		let movBack = document.querySelector(".movBack");
 		movBack.style.opacity = 0;
+
 		// initialise slider
 		slider(-150, 50, 80, "moversArt");
 	
@@ -19,8 +19,8 @@ class ArtRenderer extends Highway.Renderer {
 		});
 
 		let tap = document.querySelector(".tap");
-		// when user clicks, add image based on event/cursor xy position
 
+		// when user clicks, add image based on event/cursor xy position
 		document.querySelector(".art-content").addEventListener("click", event => {
 			event.preventDefault();
 			tap.style.display = "none";
@@ -33,8 +33,7 @@ class ArtRenderer extends Highway.Renderer {
 			placeImage(event.pageX, event.pageY);
 		});
 	}
-	onLeave() {
-	}
+	onLeave() {}
 	onEnterCompleted() {
 		// make back button visible
 		let movBack = document.querySelector(".movBack");

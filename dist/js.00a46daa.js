@@ -15964,7 +15964,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-// Fade
 var Fade =
 /*#__PURE__*/
 function (_Highway$Transition) {
@@ -16047,7 +16046,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-// Fade
 var IndexToMisc =
 /*#__PURE__*/
 function (_Highway$Transition) {
@@ -16065,10 +16063,8 @@ function (_Highway$Transition) {
       var from = _ref.from,
           to = _ref.to,
           done = _ref.done;
-      // Reset Scroll
-      // window.scrollTo(0, 0);
-      console.log('indextomisc'); // Animation
 
+      // Animation, slidein
       _gsap.default.fromTo(to, 1, {
         top: '100%'
       }, {
@@ -16082,8 +16078,6 @@ function (_Highway$Transition) {
       }, {
         top: '0%',
         onComplete: function onComplete() {
-          // Set New View in DOM Stream
-          // to.style.position = "static";
           // Remove Old View
           from.remove();
         }
@@ -16134,7 +16128,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-// Fade
 var IndexToTravel =
 /*#__PURE__*/
 function (_Highway$Transition) {
@@ -16152,10 +16145,8 @@ function (_Highway$Transition) {
       var from = _ref.from,
           to = _ref.to,
           done = _ref.done;
-      // Reset Scroll
-      // window.scrollTo(0, 0);
-      console.log('indextotravel'); // Animation
 
+      // Animation, slide in
       _gsap.default.fromTo(to, 1, {
         left: '100%'
       }, {
@@ -16169,8 +16160,6 @@ function (_Highway$Transition) {
       }, {
         left: '0%',
         onComplete: function onComplete() {
-          // Set New View in DOM Stream
-          // to.style.position = "static";
           // Remove Old View
           from.remove();
         }
@@ -16221,7 +16210,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-// Fade
 var IndexToArt =
 /*#__PURE__*/
 function (_Highway$Transition) {
@@ -16239,10 +16227,8 @@ function (_Highway$Transition) {
       var from = _ref.from,
           to = _ref.to,
           done = _ref.done;
-      // Reset Scroll
-      // window.scrollTo(0, 0);
-      console.log('indextoart'); // Animation
 
+      // Animation, slide in
       _gsap.default.fromTo(to, 1, {
         top: "-100%"
       }, {
@@ -16256,8 +16242,6 @@ function (_Highway$Transition) {
       }, {
         top: "0%",
         onComplete: function onComplete() {
-          // Set New View in DOM Stream
-          // to.style.position = "static";
           // Remove Old View
           from.remove();
         }
@@ -16308,7 +16292,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-// Fade
 var IndexToMusic =
 /*#__PURE__*/
 function (_Highway$Transition) {
@@ -16326,10 +16309,8 @@ function (_Highway$Transition) {
       var from = _ref.from,
           to = _ref.to,
           done = _ref.done;
-      // Reset Scroll
-      // window.scrollTo(0, 0);
-      console.log('indextomusic'); // Animation
 
+      // Animation, slide in
       _gsap.default.fromTo(to, 1, {
         left: "-100%"
       }, {
@@ -16343,8 +16324,6 @@ function (_Highway$Transition) {
       }, {
         left: "0%",
         onComplete: function onComplete() {
-          // Set New View in DOM Stream
-          // to.style.position = "static";
           // Remove Old View
           from.remove();
         }
@@ -16374,7 +16353,6 @@ exports.slider = slider;
 // slider function
 // (min number, max number, time interval between executing function, query selector)
 function slider(min, max, speed, query) {
-  console.log(query);
   var slider = 0;
   var inc = -1;
   var stripName = document.querySelector(".".concat(query)); // count every second
@@ -16388,14 +16366,7 @@ function slider(min, max, speed, query) {
 
     stripName.style.transform = "translate3d(".concat(slider, "px, 0px, 0px)");
   }, speed);
-} // let moversTravel = document.querySelector(".moversTravel");
-// let moversArt = document.querySelector(".moversArt");
-// let moversMisc = document.querySelector(".moversMisc");
-// let moversMusic = document.querySelector(".moversMusic");
-// slider(-150, 50, 80, moversTravel);
-// slider(-150, 50, 80, moversArt);
-// slider(-150, 50, 80, moversMisc);
-// slider(-150, 50, 80, moversMusic);
+}
 },{}],"js/index-renderer.js":[function(require,module,exports) {
 "use strict";
 
@@ -16441,8 +16412,8 @@ function (_Highway$Renderer) {
 
   _createClass(IndexRenderer, [{
     key: "onEnter",
-    // Hooks/methods
     value: function onEnter() {
+      // get the link buttons moving
       (0, _slider.slider)(-400, 0, 80, "movers");
       (0, _slider.slider)(-400, 0, 80, "movers2");
       (0, _slider.slider)(-400, 0, 80, "movers3");
@@ -16455,18 +16426,21 @@ function (_Highway$Renderer) {
       art.style.opacity = 0;
       music.style.opacity = 0;
       travel.style.opacity = 0;
-      misc.style.opacity = 0;
+      misc.style.opacity = 0; // when moused over, image appears in center of screen with a border colour
+      // and specific background colour
 
       var show = function show(image, bgColour, borderColour) {
         image.style.opacity = 1;
         homeContent.style.backgroundColor = bgColour;
         image.style.borderColor = borderColour;
-      };
+      }; // when mouse leaves, page reverts to original appearance
+
 
       var hide = function hide(image) {
         image.style.opacity = 0;
         homeContent.style.backgroundColor = "white";
-      };
+      }; // hooking up links to the 2 above functions
+
 
       document.querySelector(".art").addEventListener("mouseover", function () {
         return show(art, "brown", "green");
@@ -16491,7 +16465,7 @@ function (_Highway$Renderer) {
       });
       document.querySelector(".music").addEventListener("mouseout", function () {
         return hide(music);
-      }); // console.log("entered index");
+      });
     }
   }, {
     key: "onLeave",
@@ -16935,9 +16909,10 @@ function (_Highway$Renderer) {
     value: function onEnter() {
       // make back button invisible until page has come in
       var movBack = document.querySelector(".movBack");
-      movBack.style.opacity = 0; // initialise
+      movBack.style.opacity = 0; // initialise back button movement
 
-      (0, _slider.slider)(-150, 50, 80, 'moversMisc');
+      (0, _slider.slider)(-150, 50, 80, 'moversMisc'); // initialise an instance of rellaxjs
+
       var rellaxMisc = new _rellax.default('.rellax', {
         speed: -2,
         center: false,
@@ -17042,7 +17017,6 @@ function (_Highway$Renderer) {
 
   _createClass(TravelRenderer, [{
     key: "onEnter",
-    // Hooks/methods
     value: function onEnter() {
       // make back button invisible until page has come in
       var movBack = document.querySelector(".movBack");
@@ -17244,7 +17218,6 @@ function (_Highway$Renderer) {
 
   _createClass(ArtRenderer, [{
     key: "onEnter",
-    // Hooks/methods
     value: function onEnter() {
       // make back button invisible until page has come in
       var movBack = document.querySelector(".movBack");
@@ -17321,7 +17294,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-// import Modernizr from "modernizr";
 var MusicRenderer =
 /*#__PURE__*/
 function (_Highway$Renderer) {
@@ -17335,15 +17307,12 @@ function (_Highway$Renderer) {
 
   _createClass(MusicRenderer, [{
     key: "onEnter",
-    // Hooks/methods
     value: function onEnter() {
       // make back button visible
       var movBack = document.querySelector(".movBack");
       movBack.style.opacity = 0; // initialise 
 
-      (0, _slider.slider)(-150, 50, 80, "moversMusic"); // Modernizr.build({}, function (result) {
-      //   console.log(result); // the build
-      // });
+      (0, _slider.slider)(-150, 50, 80, "moversMusic");
     }
   }, {
     key: "onLeave",
@@ -17361,8 +17330,7 @@ function (_Highway$Renderer) {
   }]);
 
   return MusicRenderer;
-}(_highway.default.Renderer); // export renderer
-
+}(_highway.default.Renderer);
 
 var _default = MusicRenderer;
 exports.default = _default;
@@ -17398,6 +17366,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Import Renderers
 // Relate renderers to pages with the label of the `data-router-view`.
 var H = new _highway.default.Core({
+  // animations the occur when there's a transition to another page
   transitions: {
     default: _fade.default,
     contextual: {
@@ -17407,6 +17376,7 @@ var H = new _highway.default.Core({
       indexToMusic: _indexToMusic.default
     }
   },
+  // holds all js that is to be executed on the page the user is entering
   renderers: {
     misc: _miscRenderer.default,
     travel: _travelRenderer.default,
@@ -17443,7 +17413,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52135" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56581" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
