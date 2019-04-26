@@ -17025,9 +17025,9 @@ function (_Highway$Renderer) {
       (0, _slider.slider)(-150, 50, 80, "moversTravel");
       var rellax = new _rellax.default(".rellax"); // on scroll, change the colour of the background (travel-container class)
 
-      var redY = 160,
-          greenY = 160,
-          blueY = 160;
+      var redY = 50,
+          greenY = 205,
+          blueY = 50;
       var travelContainer = document.querySelector(".travel-container");
       window.addEventListener("scroll", function () {
         var y = 1 + (window.scrollY || window.pageYOffset) / 300;
@@ -17413,7 +17413,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56581" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65392" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
