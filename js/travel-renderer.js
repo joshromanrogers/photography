@@ -13,7 +13,7 @@ class TravelRenderer extends Highway.Renderer {
 		let rellax = new Rellax(".rellax");
 
 		// on scroll, change the colour of the background (travel-container class)
-		const [redY, greenY, blueY] = [50, 205, 50];
+		const [redY, greenY, blueY] = [95,158,160];
 		let travelContainer = document.querySelector(".travel-container");
 
 		window.addEventListener("scroll", () => {

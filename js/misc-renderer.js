@@ -25,6 +25,7 @@ class MiscRenderer extends Highway.Renderer {
 
 		// on scroll, change the colour of the background (travel-container class)
 		const [redX, greenX, blueX] = [260, 160, 160];
+		
 		let miscContent = document.querySelector(".misc-content");
 
 		window.addEventListener("scroll", () => {

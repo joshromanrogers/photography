@@ -31,7 +31,7 @@ class IndexRenderer extends Highway.Renderer {
 		// when mouse leaves, page reverts to original appearance
 		let hide = (image) => {
 			image.style.opacity = 0;
-			homeContent.style.backgroundColor = "white";
+			homeContent.style.backgroundColor = "cornsilk";
 		};
 
 		// hooking up links to the 2 above functions
