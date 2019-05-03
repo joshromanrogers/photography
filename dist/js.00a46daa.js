@@ -17150,18 +17150,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var i = 0;
 
 function placeImage(x, y) {
-  var nextImage = _.default[Object.keys(_.default)[i]]; // create img element,
+  var nextImage = _.default[Object.keys(_.default)[i]];
+
+  var mql = window.matchMedia("(max-width: 640px)"); // create img element,
   // set the src as an img in the images array,
   // give top left coords based on x and y input values
-
 
   var img = document.createElement("img");
   img.setAttribute("src", nextImage);
   img.classList.add("collage-img");
   img.style.maxHeight = "1800px";
-  img.style.left = x / 10 + "%";
-  img.style.top = y / 10 + "%";
-  img.style.transform = "translate(-50%, -50%) scale(".concat(Math.random() * 0.1 + 0.2, ") rotate(").concat(Math.random() * 20 - 10, "deg)"); // add to page
+
+  if (mql.matches) {
+    img.style.left = x / 4 + "%";
+    img.style.top = y / 8 + "%";
+    img.style.transform = "translate(-50%, -50%) scale(".concat(Math.random() * 1.2 + 0.5, ") rotate(").concat(Math.random() * 20 - 10, "deg)");
+  } else {
+    img.style.left = x / 10 + "%";
+    img.style.top = y / 10 + "%";
+    img.style.transform = "translate(-50%, -50%) scale(".concat(Math.random() * 0.2 + 0.2, ") rotate(").concat(Math.random() * 20 - 10, "deg)");
+  }
+
+  console.log(img.style.left);
+  console.log(img.style.top); // add to page
 
   var collageBody = document.querySelector(".collage-body");
   collageBody.appendChild(img);
@@ -17228,18 +17239,25 @@ function (_Highway$Renderer) {
       backButton.addEventListener("click", function () {
         window.location.href = "index.html";
       });
-      var tap = document.querySelector(".tap"); // when user clicks, add image based on event/cursor xy position
+      var tap = document.querySelector(".tap");
+      var mq = window.matchMedia("(max-width: 640px)"); // if user is viewing on mobile,
+      // when user clicks, add image based on event/cursor xy position
 
-      document.querySelector(".art-content").addEventListener("click", function (event) {
-        event.preventDefault();
-        tap.style.display = "none";
-        (0, _placeImage.placeImage)(event.pageX, event.pageY);
-      }); // same as above, but for mobile
-
-      document.addEventListener("touchend", function (event) {
-        event.preventDefault();
-        (0, _placeImage.placeImage)(event.pageX, event.pageY);
-      });
+      if (mq.matches) {
+        console.log("yes");
+        document.addEventListener("touchend", function (event) {
+          tap.style.display = "none";
+          (0, _placeImage.placeImage)(event.changedTouches[0].pageX, event.changedTouches[0].pageY);
+        });
+      } else {
+        // if user is viewing on desktop
+        // when user clicks, add image based on event/cursor xy position
+        document.querySelector(".art-content").addEventListener("click", function (event) {
+          event.preventDefault();
+          tap.style.display = "none";
+          (0, _placeImage.placeImage)(event.pageX, event.pageY);
+        });
+      }
     }
   }, {
     key: "onLeave",
@@ -17413,7 +17431,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54396" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50953" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

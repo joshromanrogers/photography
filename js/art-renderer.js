@@ -1,7 +1,11 @@
 // Import Highway & Slider
 import Highway from "@dogstudio/highway";
-import { slider } from "./slider.js";
-import { placeImage } from "./place-image.js";
+import {
+	slider
+} from "./slider.js";
+import {
+	placeImage
+} from "./place-image.js";
 
 class ArtRenderer extends Highway.Renderer {
 	onEnter() {
@@ -11,7 +15,7 @@ class ArtRenderer extends Highway.Renderer {
 
 		// initialise slider
 		slider(-150, 50, 80, "moversArt");
-	
+
 		let backButton = document.querySelector(".movBack");
 
 		backButton.addEventListener("click", () => {
@@ -20,19 +24,32 @@ class ArtRenderer extends Highway.Renderer {
 
 		let tap = document.querySelector(".tap");
 
-		// when user clicks, add image based on event/cursor xy position
-		document.querySelector(".art-content").addEventListener("click", event => {
-			event.preventDefault();
-			tap.style.display = "none";
-			placeImage(event.pageX, event.pageY);
-		});
+		let mq = window.matchMedia("(max-width: 640px)");
 
-		// same as above, but for mobile
-		document.addEventListener("touchend", event => {
-			event.preventDefault();
-			placeImage(event.pageX, event.pageY);
-		});
+		// if user is viewing on mobile,
+		// when user clicks, add image based on event/cursor xy position
+		if (mq.matches) {
+			console.log("yes");
+			
+			document.addEventListener("touchend", event => {
+				tap.style.display = "none";
+				placeImage((event.changedTouches[0].pageX), (event.changedTouches[0].pageY));
+			});
+
+		} else {
+			// if user is viewing on desktop
+			// when user clicks, add image based on event/cursor xy position
+			document.querySelector(".art-content").addEventListener("click", event => {
+				event.preventDefault();
+				tap.style.display = "none";
+				placeImage(event.pageX, event.pageY);
+			});
+		}
+
 	}
+
+
+
 	onLeave() {}
 	onEnterCompleted() {
 		// make back button visible

@@ -596,8 +596,8 @@ a:hover {
 }
 
 body {
-  background-color: cornsilk;
   color: #000000;
+  height: 0px;
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
 }
