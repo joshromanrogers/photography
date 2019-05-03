@@ -132,4 +132,9 @@ a {
     }
 }
 
+/* remove zoom on double tap */ 
+* {
+  touch-action: manipulation;
+}
+
 @import "./_mediaQueries";

@@ -695,6 +695,12 @@ a.music, a.travel, a.misc, a.art {
   position: fixed;
 }
 
+/* remove zoom on double tap */
+* {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+
 @media (max-width: 1160px) {
   img {
     width: 450px;
