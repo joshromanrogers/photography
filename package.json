@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "rm -rf dist && parcel build index.html --public-url /notflix",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
