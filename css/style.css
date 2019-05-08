@@ -2,18 +2,6 @@ section {
   position: relative;
 }
 
-#travelBod {
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  font-size: 5em;
-  overflow-x: hidden;
-}
-
-.travel {
-  width: 100%;
-}
-
 .travel-container {
   background-color: cadetblue;
   overflow-x: hidden;
@@ -26,7 +14,7 @@ section {
   width: 100%;
 }
 
-.travel-content, #travelBod, .travel-container {
+.travel-content, .travel-container {
   height: 10000px;
 }
 
@@ -154,9 +142,9 @@ a:hover {
 }
 
 .object14 {
-  width: 40%;
-  top: 60%;
-  left: 40%;
+  width: 70%;
+  top: 70%;
+  left: 60%;
 }
 
 .object15 {
@@ -394,7 +382,7 @@ a:hover {
   position: absolute;
   left: 0%;
   top: 23%;
-  font-size: 2em;
+  font-size: 2.2em;
 }
 
 .blue {
@@ -409,35 +397,20 @@ a.website {
   color: grey;
 }
 
-#miscBod {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: #1f1f1f;
-  font-family: "Ailerons";
-  color: #fff;
-  font-size: 5em;
-  overflow-y: hidden;
-}
-
-.misc-content {
-  height: 100vh;
-  background-color: #ffa0a0;
+.misc-container {
+  background-color: cadetblue;
+  overflow-x: hidden;
 }
 
 .misc {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 5000px;
+  width: 100%;
 }
 
-.misc-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #1a1919;
+.misc-content, .misc-container {
+  height: 8000px;
 }
 
 /* home button */
@@ -483,64 +456,140 @@ a:hover {
   max-height: 500px;
 }
 
-.mObject1 {
-  height: 30%;
-  top: 10%;
+.object1 {
+  width: 50%;
+  top: 14%;
   left: 10%;
 }
 
-.mObject2 {
-  height: 30%;
+.object2 {
+  width: 55%;
+  top: 3%;
+  left: 35%;
+}
+
+.object3 {
+  width: 45%;
   top: 10%;
   left: 15%;
 }
 
-.mObject3 {
-  height: 25%;
-  top: 5%;
-  left: 20%;
+.object4 {
+  width: 50%;
+  top: 18%;
+  left: 40%;
 }
 
-.mObject4 {
-  height: 40%;
-  top: 10%;
-  left: 28%;
-}
-
-.mObject5 {
-  height: 25%;
-  top: 20%;
-  left: 29%;
-}
-
-.mObject6 {
-  height: 40%;
-  top: 10%;
-  left: 35%;
-}
-
-.mObject7 {
-  height: 35%;
-  top: 15%;
-  left: 41%;
-}
-
-.mObject8 {
-  height: 40%;
+.object5 {
+  width: 50%;
   top: 25%;
-  left: 47%;
+  left: 20%;
+  z-index: 3;
 }
 
-.mObject9 {
-  height: 40%;
-  top: 0%;
-  left: 54%;
+.object6 {
+  width: 40%;
+  top: 40%;
+  left: 10%;
+  z-index: 2;
 }
 
-.mObject10 {
-  height: 40%;
-  top: -10%;
+.object7 {
+  width: 40%;
+  top: 45%;
+  left: 25%;
+  z-index: 3;
+}
+
+.object8 {
+  width: 40%;
+  top: 40%;
+  left: 5%;
+  z-index: 2;
+}
+
+.object9 {
+  width: 40%;
+  top: 20%;
+  left: 10%;
+}
+
+.object10 {
+  width: 40%;
+  top: 54%;
+  left: 65%;
+}
+
+.object11 {
+  width: 40%;
+  top: 54%;
+  left: 15%;
+}
+
+.object12 {
+  width: 40%;
+  top: 88%;
+  left: 15%;
+}
+
+.object13 {
+  width: 20%;
+  top: 95%;
+  left: 25%;
+}
+
+.object14 {
+  width: 40%;
+  top: 66%;
+  left: 5%;
+}
+
+.object15 {
+  width: 40%;
+  top: 70%;
+  left: 45%;
+}
+
+.object16 {
+  width: 40%;
+  top: 74%;
+  left: 32%;
+}
+
+.object17 {
+  width: 40%;
+  top: 78%;
   left: 60%;
+}
+
+.object18 {
+  width: 40%;
+  top: 71%;
+  left: 3%;
+}
+
+.object19 {
+  width: 40%;
+  top: 90%;
+  left: 55%;
+}
+
+.object20 {
+  width: 40%;
+  top: 88%;
+  left: 11%;
+}
+
+.object21 {
+  width: 40%;
+  top: 55%;
+  left: 32%;
+}
+
+.object22 {
+  width: 40%;
+  top: 92%;
+  left: 9%;
 }
 
 .mWord1 {

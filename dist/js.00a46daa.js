@@ -16906,37 +16906,29 @@ function (_Highway$Renderer) {
   _createClass(MiscRenderer, [{
     key: "onEnter",
     // Hooks/methods
-    value: function onEnter() {
+    value: function onEnter(e) {
       // make back button invisible until page has come in
       var movBack = document.querySelector(".movBack");
-      movBack.style.opacity = 0; // initialise back button movement
+      movBack.style.opacity = 0; // initialise back button movement + rellax
 
-      (0, _slider.slider)(-150, 50, 80, 'moversMisc'); // initialise an instance of rellaxjs
+      (0, _slider.slider)(-150, 50, 80, 'moversMisc');
+      var rellax = new _rellax.default(".rellax"); // on scroll, change the colour of the background (misc-container class)
 
-      var rellaxMisc = new _rellax.default('.rellax', {
-        speed: -2,
-        center: false,
-        wrapper: null,
-        round: true,
-        vertical: false,
-        horizontal: true
-      }); // on scroll, change the colour of the background (travel-container class)
-
-      var redX = 260,
-          greenX = 160,
-          blueX = 160;
-      var miscContent = document.querySelector(".misc-content");
+      var redY = 95,
+          greenY = 158,
+          blueY = 160;
+      var miscContent = document.querySelector(".travel-content");
       window.addEventListener("scroll", function () {
-        var y = 1 + (window.scrollX || window.pageXOffset) / 150;
+        var y = 1 + (window.scrollY || window.pageYOffset) / 300;
         y = y < 1 ? 1 : y; // ensure y is always >= 1 (due to Safari's elastic scroll)
 
-        var _map = [redX / y, greenX / y, blueX / y].map(Math.round),
+        var _map = [redY / y, greenY / y, blueY / y].map(Math.round),
             _map2 = _slicedToArray(_map, 3),
-            rX = _map2[0],
-            gX = _map2[1],
-            bX = _map2[2];
+            rY = _map2[0],
+            gY = _map2[1],
+            bY = _map2[2];
 
-        miscContent.style.backgroundColor = "rgb(".concat(rX, ", ").concat(gX, ", ").concat(bX, ")");
+        miscContent.style.backgroundColor = "rgb(".concat(rY, ", ").concat(gY, ", ").concat(bY, ")");
       });
     }
   }, {
@@ -17089,10 +17081,10 @@ module.exports = "/music19.eddddaae.jpg";
 module.exports = "/music2.c477aba3.jpg";
 },{}],"imgs/photography/music/music20.jpg":[function(require,module,exports) {
 module.exports = "/music20.4120845a.jpg";
-},{}],"imgs/photography/music/music22.jpg":[function(require,module,exports) {
-module.exports = "/music22.f717bdd1.jpg";
 },{}],"imgs/photography/music/music21.jpg":[function(require,module,exports) {
 module.exports = "/music21.4dcfea5b.jpg";
+},{}],"imgs/photography/music/music22.jpg":[function(require,module,exports) {
+module.exports = "/music22.f717bdd1.jpg";
 },{}],"imgs/photography/music/music23.jpg":[function(require,module,exports) {
 module.exports = "/music23.fa82968d.jpg";
 },{}],"imgs/photography/music/music3.jpg":[function(require,module,exports) {
@@ -17124,8 +17116,8 @@ module.exports = {
   "music19": require("./music19.jpg"),
   "music2": require("./music2.jpg"),
   "music20": require("./music20.jpg"),
-  "music22": require("./music22.jpg"),
   "music21": require("./music21.jpg"),
+  "music22": require("./music22.jpg"),
   "music23": require("./music23.jpg"),
   "music3": require("./music3.jpg"),
   "music4": require("./music4.jpg"),
@@ -17135,7 +17127,7 @@ module.exports = {
   "music8": require("./music8.jpg"),
   "music9": require("./music9.jpg")
 };
-},{"./music1.jpg":"imgs/photography/music/music1.jpg","./music10.jpg":"imgs/photography/music/music10.jpg","./music11.jpg":"imgs/photography/music/music11.jpg","./music12.jpg":"imgs/photography/music/music12.jpg","./music13.jpg":"imgs/photography/music/music13.jpg","./music14.jpg":"imgs/photography/music/music14.jpg","./music15.jpg":"imgs/photography/music/music15.jpg","./music16.jpg":"imgs/photography/music/music16.jpg","./music17.jpg":"imgs/photography/music/music17.jpg","./music18.jpg":"imgs/photography/music/music18.jpg","./music19.jpg":"imgs/photography/music/music19.jpg","./music2.jpg":"imgs/photography/music/music2.jpg","./music20.jpg":"imgs/photography/music/music20.jpg","./music22.jpg":"imgs/photography/music/music22.jpg","./music21.jpg":"imgs/photography/music/music21.jpg","./music23.jpg":"imgs/photography/music/music23.jpg","./music3.jpg":"imgs/photography/music/music3.jpg","./music4.jpg":"imgs/photography/music/music4.jpg","./music5.jpg":"imgs/photography/music/music5.jpg","./music6.jpg":"imgs/photography/music/music6.jpg","./music7.jpg":"imgs/photography/music/music7.jpg","./music8.jpg":"imgs/photography/music/music8.jpg","./music9.jpg":"imgs/photography/music/music9.jpg"}],"js/place-image.js":[function(require,module,exports) {
+},{"./music1.jpg":"imgs/photography/music/music1.jpg","./music10.jpg":"imgs/photography/music/music10.jpg","./music11.jpg":"imgs/photography/music/music11.jpg","./music12.jpg":"imgs/photography/music/music12.jpg","./music13.jpg":"imgs/photography/music/music13.jpg","./music14.jpg":"imgs/photography/music/music14.jpg","./music15.jpg":"imgs/photography/music/music15.jpg","./music16.jpg":"imgs/photography/music/music16.jpg","./music17.jpg":"imgs/photography/music/music17.jpg","./music18.jpg":"imgs/photography/music/music18.jpg","./music19.jpg":"imgs/photography/music/music19.jpg","./music2.jpg":"imgs/photography/music/music2.jpg","./music20.jpg":"imgs/photography/music/music20.jpg","./music21.jpg":"imgs/photography/music/music21.jpg","./music22.jpg":"imgs/photography/music/music22.jpg","./music23.jpg":"imgs/photography/music/music23.jpg","./music3.jpg":"imgs/photography/music/music3.jpg","./music4.jpg":"imgs/photography/music/music4.jpg","./music5.jpg":"imgs/photography/music/music5.jpg","./music6.jpg":"imgs/photography/music/music6.jpg","./music7.jpg":"imgs/photography/music/music7.jpg","./music8.jpg":"imgs/photography/music/music8.jpg","./music9.jpg":"imgs/photography/music/music9.jpg"}],"js/place-image.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -17431,7 +17423,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58220" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50114" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

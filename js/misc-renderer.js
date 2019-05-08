@@ -5,34 +5,26 @@ import { slider } from './slider.js';
 
 class MiscRenderer extends Highway.Renderer {
 	// Hooks/methods
-	onEnter() {
+	onEnter(e) {
+
 		// make back button invisible until page has come in
 		let movBack = document.querySelector(".movBack");
 		movBack.style.opacity = 0;
 
-		// initialise back button movement
+		// initialise back button movement + rellax
 		slider(-150, 50, 80, 'moversMisc');
+		let rellax = new Rellax(".rellax");
 
-		// initialise an instance of rellaxjs
-		let rellaxMisc = new Rellax('.rellax', {
-			speed: -2,
-			center: false,
-			wrapper: null,
-			round: true,
-			vertical: false,
-			horizontal: true,
-		});
-
-		// on scroll, change the colour of the background (travel-container class)
-		const [redX, greenX, blueX] = [260, 160, 160];
 		
-		let miscContent = document.querySelector(".misc-content");
+		// on scroll, change the colour of the background (misc-container class)
+		const [redY, greenY, blueY] = [95,158,160];
+		let miscContent = document.querySelector(".travel-content");
 
 		window.addEventListener("scroll", () => {
-			let y = 1 + (window.scrollX || window.pageXOffset) / 150;
+			let y = 1 + (window.scrollY || window.pageYOffset) / 300;
 			y = y < 1 ? 1 : y; // ensure y is always >= 1 (due to Safari's elastic scroll)
-			const [rX, gX, bX] = [redX / y, greenX / y, blueX / y].map(Math.round);
-			miscContent.style.backgroundColor = `rgb(${rX}, ${gX}, ${bX})`;
+			const [rY, gY, bY] = [redY/y, greenY/y, blueY/y].map(Math.round);
+			miscContent.style.backgroundColor = `rgb(${rY}, ${gY}, ${bY})`;
 		});
 	}
 	onLeave() {

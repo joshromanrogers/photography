@@ -1,36 +1,18 @@
-#miscBod {
-    margin: 0;
-    padding: 0;
-    // width: 100%;
-    height: 100vh;
-    background: #1f1f1f;
-    font-family: "Ailerons";
-    color: #fff;
-    font-size: 5em;
-    overflow-y: hidden;
-  }
+.misc-container {
+  background-color: rgb(95,158,160);
+  overflow-x: hidden;
+}
 
-  .misc-content {
-    height: 100vh;
-    background-color: rgb(255, 160, 160);
-  }
-
-  .misc {
-    position: absolute;
-    top: 0;
+.misc {
+position: absolute;
+  top: 0;
   left: 0;
-    height: 100%;
-    width: 5000px;
-  }
+  width: 100%;
+}
 
-  .misc-container {
-    position: absolute;
-    top: 0;
-  left: 0;
-    background-color: #1a1919;
-    // width: 100%;
-    // height: 5000px;
-  }
+.misc-content, .misc-container {
+height: 8000px;
+}
   
   @import '_homeButton';
 
@@ -45,44 +27,100 @@
     max-height: 500px;
   }
   
-  .mObject1 {
-    @include rellaxH(30%, 10%, 10%);
+  .object1 {
+    @include rellax(50%, 14%, 10%);
+  }
+ 
+  .object2 {
+    @include rellax(55%, 3%, 35%);
   }
   
-  .mObject2 {
-    @include rellaxH(30%, 10%, 15%);
+  .object3 {
+    @include rellax(45%, 10%, 15%);
   }
   
-  .mObject3 {
-    @include rellaxH(25%, 5%, 20%);
+  .object4 {
+    @include rellax(50%, 18%, 40%);
   }
   
-  .mObject4 {
-    @include rellaxH(40%, 10%, 28%);
+  .object5 {
+    @include rellax(50%, 25%, 20%);
+    z-index: 3;
+
   }
   
-  .mObject5 {
-    @include rellaxH(25%, 20%, 29%);
+  .object6 {
+    @include rellax(40%, 40%, 10%);
+    z-index: 2;
+
   }
   
-  .mObject6 {
-    @include rellaxH(40%, 10%, 35%);
+  .object7 {
+    @include rellax(40%, 45%, 25%);
+    z-index: 3;
+
   }
   
-  .mObject7 {
-    @include rellaxH(35%, 15%, 41%);
+  .object8 {
+    @include rellax(40%, 40%, 5%);
+    z-index: 2;
+
   }
   
-  .mObject8 {
-    @include rellaxH(40%, 25%, 47%);
+  .object9 {
+    @include rellax(40%, 20%, 10%);
   }
   
-  .mObject9 {
-    @include rellaxH(40%, 0%, 54%);
+  .object10 {
+    @include rellax(40%, 54%, 65%);
+  }
+
+  .object11 {
+    @include rellax(40%, 54%, 15%);
+  }
+
+  .object12 {
+    @include rellax(40%, 88%, 15%);
   }
   
-  .mObject10 {
-    @include rellaxH(40%, -10%, 60%);
+  .object13 {
+    @include rellax(20%, 95%, 25%);
+  }
+
+  .object14 {
+    @include rellax(40%, 66%, 5%);
+  }
+
+  .object15 {
+    @include rellax(40%, 70%, 45%);
+  }
+
+  .object16 {
+    @include rellax(40%, 74%, 32%);
+  }
+
+  .object17 {
+    @include rellax(40%, 78%, 60%);
+  }
+
+  .object18 {
+    @include rellax(40%, 71%, 3%);
+  }
+
+  .object19 {
+    @include rellax(40%, 90%, 55%);
+  }
+
+  .object20 {
+    @include rellax(40%, 88%, 11%);
+  }
+
+  .object21 {
+    @include rellax(40%, 55%, 32%);
+  }
+
+  .object22 {
+    @include rellax(40%, 92%, 9%);
   }
 
   .mWord1 {
