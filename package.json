@@ -23,6 +23,7 @@
     "gsap": "^2.1.2",
     "highway": "0.0.5",
     "modernizr": "^3.7.1",
+    "parcel-bundler": "^1.12.3",
     "path": "^0.12.7",
     "rellax": "^1.9.1"
   },
